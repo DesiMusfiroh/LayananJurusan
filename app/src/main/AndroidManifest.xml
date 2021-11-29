@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan">
-        <activity android:name=".ui.login.LoginActivity">
+        <activity android:name=".ui.news.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.student.DashboardStudentActivity">
+        <activity android:name=".ui.login.LoginActivity">
 
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ui.student.DashboardStudentActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
