@@ -1,5 +1,6 @@
 package com.layanan.jurusan.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.layanan.jurusan.data.News
 import com.layanan.jurusan.databinding.FragmentHomeBinding
+import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
 class HomeFragment : Fragment() {
@@ -26,7 +28,10 @@ class HomeFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireActivity())
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
-        populateNews()
+        binding.btnProfile.setOnClickListener {
+            val intent = Intent(context,ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun populateNews() {
