@@ -2,6 +2,8 @@ package com.layanan.jurusan.data
 
 import androidx.lifecycle.LiveData
 import com.layanan.jurusan.data.remote.RemoteDataSource
+import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
+import com.layanan.jurusan.data.remote.response.login.LoginResponse
 
 class DataRepository private constructor(
         private val remoteDataSource: RemoteDataSource,
@@ -18,4 +20,6 @@ class DataRepository private constructor(
                 }
     }
     fun getLatestNews(): LiveData<List<News>> = remoteDataSource.getLatestNews()
+
+    fun login(username: String,password: String): LiveData<LoginDataResponse> = remoteDataSource.getUserLogin(username,password)
 }

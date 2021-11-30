@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.layanan.jurusan.data.DataRepository
 import com.layanan.jurusan.di.Injection
 import com.layanan.jurusan.ui.home.HomeViewModel
+import com.layanan.jurusan.ui.login.LoginViewModel
 import com.layanan.jurusan.ui.profile.ProfileFragmentViewModel
 import com.layanan.jurusan.ui.profile.ProfileViewModel
 
@@ -33,6 +34,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

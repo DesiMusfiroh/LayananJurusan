@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import com.layanan.jurusan.data.News
 import com.layanan.jurusan.data.remote.api.ApiConfig
 import com.layanan.jurusan.data.remote.response.ListNewsResponse
-import com.layanan.jurusan.data.remote.response.UserResponse
+import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
+import com.layanan.jurusan.data.remote.response.login.LoginResponse
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,19 +21,20 @@ class RemoteDataSource {
         private const val TAG = "Remote Data Source"
     }
 
-    fun getUserLogin(username: String, password: String): LiveData<UserResponse> {
-        val user: MutableLiveData<UserResponse> = MutableLiveData()
+    fun getUserLogin(username: String, password: String): LiveData<LoginDataResponse> {
+        val user: MutableLiveData<LoginDataResponse> = MutableLiveData()
         val client = ApiConfig.getApiService().login(username, password)
-        client.enqueue(object : Callback<UserResponse> {
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        client.enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
-                    user.postValue(response.body())
+                    user.postValue(response.body()?.data)
+                    Log.d("HasilResponse",response.body().toString())
                 } else {
+
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
-
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
@@ -49,12 +52,10 @@ class RemoteDataSource {
                     Log.e(TAG, "onFailure Response: ${response.message()}")
                 }
             }
-
             override fun onFailure(call: Call<ListNewsResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
-
         return results
     }
 }

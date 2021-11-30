@@ -1,17 +1,18 @@
 package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.ListNewsResponse
-import com.layanan.jurusan.data.remote.response.UserResponse
+import com.layanan.jurusan.data.remote.response.login.LoginResponse
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
 interface Api {
     @FormUrlEncoded
-    @POST("/")
+    @POST("login")
     fun login(
-            @Field("post_username") username: String,
-            @Field("post_password") password: String
-    ) : Call<UserResponse>
+            @Field("username") username: String,
+            @Field("password") password: String
+    ) : Call<LoginResponse>
 
     @GET("")
     fun getLatestNews(): Call<ListNewsResponse>
