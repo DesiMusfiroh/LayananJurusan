@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(context,ProfileActivity::class.java)
             startActivity(intent)
         }
+        populateNews()
     }
 
     private fun populateNews() {
