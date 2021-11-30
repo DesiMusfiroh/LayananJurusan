@@ -14,6 +14,6 @@ interface Api {
             @Field("password") password: String
     ) : Call<LoginResponse>
 
-    @GET("")
+    @GET("news")
     fun getLatestNews(): Call<ListNewsResponse>
 }

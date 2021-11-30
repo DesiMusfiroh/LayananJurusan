@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.layanan.jurusan.data.News
+import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
                     rvNews.adapter = newsAdapter
                 }
                 newsAdapter.setOnItemClickCallback(object : HomeNewsAdapter.OnItemClickCallback {
-                    override fun onItemClicked(data: News) { }
+                    override fun onItemClicked(data: NewsModel) { }
                 })
             }
         })

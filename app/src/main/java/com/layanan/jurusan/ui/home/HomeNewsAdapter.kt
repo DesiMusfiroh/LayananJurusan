@@ -4,14 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.layanan.jurusan.data.News
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.layanan.jurusan.R
+import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.ItemNewsHomeBinding
 
-class HomeNewsAdapter(private val list: List<News>, val context: Context) : RecyclerView.Adapter<HomeNewsAdapter.HomeNewsViewHolder>() {
+class HomeNewsAdapter(private val list: List<NewsModel>, val context: Context) : RecyclerView.Adapter<HomeNewsAdapter.HomeNewsViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: News)
+        fun onItemClicked(data: NewsModel)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -34,13 +37,13 @@ class HomeNewsAdapter(private val list: List<News>, val context: Context) : Recy
     override fun getItemCount(): Int = list.size
 
     class HomeNewsViewHolder(private val binding: ItemNewsHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: News) {
+        fun bind(data: NewsModel) {
             with(binding) {
-//                tvItemKode.text = barang.kode
-//                Glide.with(itemView.context)
-//                    .load(barang.image)
-//                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
-//                    .into(imgItemImage)
+                tvItemTitle.text = data.title
+                Glide.with(itemView.context)
+                    .load(data.image)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
+                    .into(imgItemPhoto)
             }
         }
     }

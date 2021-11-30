@@ -3,12 +3,11 @@ package com.layanan.jurusan.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.layanan.jurusan.data.News
+import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
 import com.layanan.jurusan.data.remote.response.ListNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,8 +40,8 @@ class RemoteDataSource {
         return user
     }
 
-    fun getLatestNews(): LiveData<List<News>> {
-        val results = MutableLiveData<List<News>>()
+    fun getLatestNews(): LiveData<List<NewsModel>> {
+        val results = MutableLiveData<List<NewsModel>>()
         ApiConfig.getApiService().getLatestNews().enqueue(object: Callback<ListNewsResponse> {
             override fun onResponse(call: Call<ListNewsResponse>, response: Response<ListNewsResponse>) {
                 if (response.isSuccessful) {
