@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.layanan.jurusan.data.Announcement
+import com.layanan.jurusan.data.model.Announcement
 import com.layanan.jurusan.databinding.ItemAnnouncementBinding
 
 class HomeAnnouncementAdapter(private val list: List<Announcement>, val context: Context) : RecyclerView.Adapter<HomeAnnouncementAdapter.HomeAnnouncementViewHolder>() {

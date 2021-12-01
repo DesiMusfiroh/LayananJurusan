@@ -34,5 +34,9 @@
     <string name="student_name">Nama Mahasiswa</string>
     <string name="major_name">Nama Jurusan</string>
     <string name="generation">2018</string>
+    <string name="published_date">Published Date</string>
+    <string name="load_error">Gagal memuat data</string>
+    <string name="retry">Refresh</string>
+    <string name="berita_lainnya">Berita Lainnya</string>
 
 </resources>

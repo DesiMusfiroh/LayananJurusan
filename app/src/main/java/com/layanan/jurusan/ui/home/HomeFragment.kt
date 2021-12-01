@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
+import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -31,6 +32,11 @@ class HomeFragment : Fragment() {
         binding.btnProfile.setOnClickListener {
             val intent = Intent(context,ProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnListNews.setOnClickListener {
+            val listNewsIntent = Intent(context, ListNewsActivity::class.java)
+            startActivity(listNewsIntent)
         }
         populateNews()
     }

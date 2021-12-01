@@ -3,9 +3,13 @@ package com.layanan.jurusan.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.liveData
+import com.layanan.jurusan.data.datasource.ListNewsDataSource
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
-import com.layanan.jurusan.data.remote.response.ListNewsResponse
+import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import retrofit2.Call
@@ -42,8 +46,8 @@ class RemoteDataSource {
 
     fun getLatestNews(): LiveData<List<NewsModel>> {
         val results = MutableLiveData<List<NewsModel>>()
-        ApiConfig.getApiService().getLatestNews().enqueue(object: Callback<ListNewsResponse> {
-            override fun onResponse(call: Call<ListNewsResponse>, response: Response<ListNewsResponse>) {
+        ApiConfig.getApiService().getLatestNews().enqueue(object: Callback<LatestNewsResponse> {
+            override fun onResponse(call: Call<LatestNewsResponse>, response: Response<LatestNewsResponse>) {
                 if (response.isSuccessful) {
                     results.postValue(response.body()?.news)
                     Log.e(TAG, "onSuccess: ${response.body()?.news}")
@@ -51,10 +55,16 @@ class RemoteDataSource {
                     Log.e(TAG, "onFailure Response: ${response.message()}")
                 }
             }
-            override fun onFailure(call: Call<ListNewsResponse>, t: Throwable) {
+            override fun onFailure(call: Call<LatestNewsResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
         return results
     }
+
+    fun getListNews() = Pager(
+            PagingConfig(10, 30, false),
+            1,
+            { ListNewsDataSource( ApiConfig.getApiService()) }
+        ).liveData
 }

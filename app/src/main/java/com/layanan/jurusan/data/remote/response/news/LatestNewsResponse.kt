@@ -1,9 +1,9 @@
-package com.layanan.jurusan.data.remote.response
+package com.layanan.jurusan.data.remote.response.news
 
 import com.google.gson.annotations.SerializedName
 import com.layanan.jurusan.data.model.NewsModel
 
-data class ListNewsResponse(
+data class LatestNewsResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("data")

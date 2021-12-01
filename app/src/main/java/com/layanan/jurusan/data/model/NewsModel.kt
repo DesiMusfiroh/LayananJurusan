@@ -21,5 +21,7 @@ data class NewsModel(
     @SerializedName("file")
     val file: String? = null,
     @SerializedName("status")
-    val status: String? = null
+    val status: String? = null,
+    @SerializedName("published_at")
+    val published_at: String? = null
 ) : Parcelable
