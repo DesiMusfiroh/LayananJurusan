@@ -8,25 +8,29 @@ import com.layanan.jurusan.data.remote.api.Api
 class ListNewsDataSource(private val apiService: Api) : PagingSource<Int, NewsModel>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsModel> {
-        try {
+        return try {
             val currentLoadingPageKey = params.key ?: 1
-            val response = apiService.getListNews(currentLoadingPageKey)
+            val limit = 2
+            val response = apiService.getListNews(currentLoadingPageKey, limit)
             val responseData = mutableListOf<NewsModel>()
             val data = response.body()?.news ?: emptyList()
             responseData.addAll(data)
 
-            return LoadResult.Page(
-                data = responseData,
-                prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1,
-                nextKey = currentLoadingPageKey.plus(1)
+            LoadResult.Page(
+                    data = responseData,
+                    prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1,
+                    nextKey = currentLoadingPageKey.plus(1)
             )
         } catch (e: Exception) {
-            return LoadResult.Error(e)
+            LoadResult.Error(e)
         }
     }
 
     override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
-        TODO("Not yet implemented")
+        return state.anchorPosition?.let { anchorPosition ->
+            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
+                    ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+        }
     }
 
 }

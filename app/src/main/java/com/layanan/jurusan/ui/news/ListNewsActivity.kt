@@ -3,7 +3,6 @@ package com.layanan.jurusan.ui.news
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.layanan.jurusan.data.model.NewsModel
@@ -19,7 +18,7 @@ class ListNewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title = "Berita"
+        supportActionBar?.hide()
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[NewsViewModel::class.java]
@@ -40,8 +39,6 @@ class ListNewsActivity : AppCompatActivity() {
         viewModel.getListNews().observe(this, {
             if (it != null) {
                 newsAdapter.submitData(lifecycle, it)
-            } else {
-                binding.rvNews.visibility = View.GONE
             }
         })
 

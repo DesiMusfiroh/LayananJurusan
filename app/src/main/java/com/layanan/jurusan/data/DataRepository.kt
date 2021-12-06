@@ -1,5 +1,6 @@
 package com.layanan.jurusan.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import com.layanan.jurusan.data.model.NewsModel
@@ -21,7 +22,10 @@ class DataRepository private constructor(
                 }
     }
     fun getLatestNews(): LiveData<List<NewsModel>> = remoteDataSource.getLatestNews()
-    fun getListNews(): LiveData<PagingData<NewsModel>> = remoteDataSource.getListNews()
+    fun getListNews(): LiveData<PagingData<NewsModel>> {
+        Log.d("news model", remoteDataSource.getListNews().toString())
+        return remoteDataSource.getListNews()
+    }
 
     fun login(username: String,password: String): LiveData<LoginDataResponse> = remoteDataSource.getUserLogin(username,password)
 }

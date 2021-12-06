@@ -1,17 +1,14 @@
 package com.layanan.jurusan.data.remote.response.news
 
 import com.google.gson.annotations.SerializedName
+import com.layanan.jurusan.data.model.MetaModel
 import com.layanan.jurusan.data.model.NewsModel
 
 data class ListNewsResponse(
+    @SerializedName("message")
+    val message: String,
     @SerializedName("data")
-    val myData: List<NewsModel>,
-    @SerializedName("page")
-    val page: Int,
-    @SerializedName("per_page")
-    val perPage: Int,
-    @SerializedName("total")
-    val total: Int,
-    @SerializedName("total_pages")
-    val totalPages: Int
+    val news: MutableList<NewsModel>,
+    @SerializedName("meta")
+    val meta: MetaModel,
 )
