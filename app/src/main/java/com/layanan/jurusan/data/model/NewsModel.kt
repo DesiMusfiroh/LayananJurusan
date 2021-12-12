@@ -4,10 +4,10 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
+
 data class NewsModel(
     @SerializedName("id")
-    val id: String? = null,
+    val id: Int? = null,
     @SerializedName("user_id")
     val user_id: String? = null,
     @SerializedName("kategori")
@@ -23,5 +23,7 @@ data class NewsModel(
     @SerializedName("status")
     val status: String? = null,
     @SerializedName("published_at")
-    val published_at: String? = null
-) : Parcelable
+    val published_at: String? = null,
+    @SerializedName("author")
+    val author: String? = null
+)

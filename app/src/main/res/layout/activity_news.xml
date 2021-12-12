@@ -80,6 +80,7 @@
                 android:layout_gravity="center"/>
 
             <TextView
+                android:id="@+id/tv_title"
                 style="@style/Text.Large"
                 android:text="@string/title_news"
                 android:layout_marginVertical="10dp"
@@ -136,6 +137,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:id="@+id/news_content"
                 style="@style/Text.Regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

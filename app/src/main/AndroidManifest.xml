@@ -12,12 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.news.ListNewsActivity" android:parentActivityName=".ui.student.DashboardStudentActivity">
-
-        </activity>
+        <activity android:name=".ui.CharacterActivity"></activity>
+        <activity android:name=".ui.news.TestNewsActivity" />
+        <activity
+            android:name=".ui.news.ListNewsActivity"
+            android:parentActivityName=".ui.student.DashboardStudentActivity" />
         <activity android:name=".ui.news.NewsActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".ui.student.DashboardStudentActivity" >
+        <activity android:name=".ui.student.DashboardStudentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

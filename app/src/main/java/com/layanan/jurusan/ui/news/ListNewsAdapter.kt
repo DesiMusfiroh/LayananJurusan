@@ -1,6 +1,7 @@
 package com.layanan.jurusan.ui.news
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -13,18 +14,20 @@ import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.ItemNewsBinding
 
-class ListNewsAdapter : PagingDataAdapter<NewsModel, ListNewsAdapter.ListNewsViewHolder>(DIFF_CALLBACK_NEWS) {
+class ListNewsAdapter : PagingDataAdapter<NewsModel, ListNewsAdapter.ListNewsViewHolder>(DiffCallback) {
 
     companion object {
-        private val DIFF_CALLBACK_NEWS = object : DiffUtil.ItemCallback<NewsModel>() {
+        val DiffCallback = object : DiffUtil.ItemCallback<NewsModel>() {
             override fun areItemsTheSame(oldItem: NewsModel, newItem: NewsModel): Boolean {
                 return oldItem.id == newItem.id
             }
+
             override fun areContentsTheSame(oldItem: NewsModel, newItem: NewsModel): Boolean {
                 return oldItem == newItem
             }
         }
     }
+
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
@@ -36,10 +39,9 @@ class ListNewsAdapter : PagingDataAdapter<NewsModel, ListNewsAdapter.ListNewsVie
     }
 
     override fun onBindViewHolder(holder: ListNewsViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        holder.bind(currentItem)
-        holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(currentItem!!)
+        val news = getItem(position)
+        if (news != null) {
+            holder.bind(news)
         }
     }
 
@@ -49,9 +51,13 @@ class ListNewsAdapter : PagingDataAdapter<NewsModel, ListNewsAdapter.ListNewsVie
         return ListNewsViewHolder(binding)
     }
 
-    class ListNewsViewHolder(private val binding: ItemNewsBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: NewsModel?) {
-            with(binding) {
+
+    inner class ListNewsViewHolder(
+        val binding: ItemNewsBinding
+    ) : RecyclerView.ViewHolder(binding.root){
+        fun bind(data: NewsModel){
+            with(binding){
+                tvItemTitle.text = data?.title
                 Glide.with(itemView.context)
                     .load(data?.image)
                     .centerCrop()
@@ -70,4 +76,8 @@ class ListNewsAdapter : PagingDataAdapter<NewsModel, ListNewsAdapter.ListNewsVie
         }
     }
 
+    override fun getItemCount(): Int {
+        Log.d("CountItem",super.getItemCount().toString())
+        return super.getItemCount()
+    }
 }

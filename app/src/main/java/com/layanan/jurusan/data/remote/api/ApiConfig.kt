@@ -11,6 +11,7 @@ class ApiConfig {
             val loggingInterceptor =
                     HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder()
+                    .retryOnConnectionFailure(true)
                     .addInterceptor(loggingInterceptor)
                     .build()
             val retrofit = Retrofit.Builder()
@@ -20,5 +21,9 @@ class ApiConfig {
                     .build()
             return retrofit.create(Api::class.java)
         }
+
+//        https://rickandmortyapi.com/api/
+//        http://jurusan.fakultassyariahuinjambi.com/api/
+
     }
 }

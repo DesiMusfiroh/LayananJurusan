@@ -3,15 +3,20 @@ package com.layanan.jurusan.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
 import androidx.paging.liveData
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
+import com.layanan.jurusan.data.datasource.RickyMortyPagingSource
+import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
+import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,9 +67,42 @@ class RemoteDataSource {
         return results
     }
 
-    fun getListNews() = Pager(
-            PagingConfig(10, 30, false),
-            1,
-            { ListNewsDataSource( ApiConfig.getApiService()) }
-        ).liveData
+    fun getDetailNews(id: Int): LiveData<NewsModel>{
+        val result = MutableLiveData<NewsModel>()
+        ApiConfig.getApiService().getDetailNews(id).enqueue(object : Callback<DetailNewsResponse>{
+            override fun onResponse(
+                call: Call<DetailNewsResponse>,
+                response: Response<DetailNewsResponse>
+            ) {
+                if (response.isSuccessful){
+                    Log.d("HasilResponse",response.body().toString())
+                    result.postValue(response.body()!!.data)
+                }else{
+                    Log.d("Failed","Tidak mendapat data")
+                }
+            }
+
+            override fun onFailure(call: Call<DetailNewsResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+
+        return result
+    }
+
+    fun listCharacter() = Pager(PagingConfig(pageSize = 5)) {
+        TestNewsDataSource(ApiConfig.getApiService())
+    }.flow
+
+    fun getListNews() = Pager(PagingConfig(pageSize = 1)) {
+        ListNewsDataSource(ApiConfig.getApiService())
+    }.flow
+
+
+//    fun getListNews() = Pager(config =
+//            PagingConfig(10, 30, false),
+//            1,
+//            { ListNewsDataSource( ApiConfig.getApiService()) }
+//        ).flow
 }

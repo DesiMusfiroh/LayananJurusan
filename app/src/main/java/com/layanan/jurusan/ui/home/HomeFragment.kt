@@ -2,6 +2,7 @@ package com.layanan.jurusan.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
 import com.layanan.jurusan.ui.news.ListNewsActivity
+import com.layanan.jurusan.ui.news.NewsActivity
+import com.layanan.jurusan.ui.news.TestNewsActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -35,9 +38,16 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnListNews.setOnClickListener {
+            val listNewsIntent = Intent(context, TestNewsActivity::class.java)
+            startActivity(listNewsIntent)
+        }
+
+        binding.viewNews.setOnClickListener {
             val listNewsIntent = Intent(context, ListNewsActivity::class.java)
             startActivity(listNewsIntent)
         }
+
+
         populateNews()
     }
 
@@ -53,7 +63,12 @@ class HomeFragment : Fragment() {
                     rvNews.adapter = newsAdapter
                 }
                 newsAdapter.setOnItemClickCallback(object : HomeNewsAdapter.OnItemClickCallback {
-                    override fun onItemClicked(data: NewsModel) { }
+                    override fun onItemClicked(data: NewsModel) {
+                        Log.d("DataId",data.id.toString())
+                        val intent = Intent(activity,NewsActivity::class.java)
+                        intent.putExtra(NewsActivity.EXTRA_NEWS,data.id)
+                        startActivity(intent)
+                    }
                 })
             }
         })

@@ -5,8 +5,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.Api
+import com.layanan.jurusan.data.remote.response.RickMorty
 
-class ListNewsDataSource(private val apiService: Api) : PagingSource<Int, NewsModel>() {
+class TestNewsDataSource(private val apiService: Api) : PagingSource<Int, NewsModel>() {
+
+    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
+        return null
+    }
 
     override suspend fun load(params: LoadParams<Int>):
             LoadResult<Int, NewsModel> {
@@ -28,16 +33,4 @@ class ListNewsDataSource(private val apiService: Api) : PagingSource<Int, NewsMo
         }
 
     }
-
-    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
-        return null
-    }
-
-//    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
-//        return state.anchorPosition?.let { anchorPosition ->
-//            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-//                    ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
-//        }
-//    }
-
 }

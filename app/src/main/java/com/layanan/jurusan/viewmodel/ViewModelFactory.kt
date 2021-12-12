@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.layanan.jurusan.data.DataRepository
 import com.layanan.jurusan.di.Injection
+import com.layanan.jurusan.ui.CharacterViewModel
 import com.layanan.jurusan.ui.home.HomeViewModel
 import com.layanan.jurusan.ui.login.LoginViewModel
+import com.layanan.jurusan.ui.news.DetailNewsViewModel
 import com.layanan.jurusan.ui.news.NewsViewModel
 import com.layanan.jurusan.ui.profile.ProfileFragmentViewModel
 import com.layanan.jurusan.ui.profile.ProfileViewModel
@@ -41,6 +43,12 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(NewsViewModel::class.java) -> {
                 NewsViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
+                DetailNewsViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(CharacterViewModel::class.java) -> {
+                CharacterViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

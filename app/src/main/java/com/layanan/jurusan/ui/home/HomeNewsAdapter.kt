@@ -30,6 +30,7 @@ class HomeNewsAdapter(private val list: List<NewsModel>, val context: Context) :
         val news = list[position]
         holder.bind(news)
         holder.itemView.setOnClickListener {
+            @Suppress("DEPRECATION")
             onItemClickCallback.onItemClicked(list[holder.adapterPosition])
         }
     }
