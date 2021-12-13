@@ -1,6 +1,8 @@
 package com.layanan.jurusan.ui.home
 
 import android.content.Context
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +42,11 @@ class HomeAnnouncementAdapter(private val list: List<AnnouncementModel>, val con
         fun bind(data: AnnouncementModel) {
             with(binding) {
                 titleAnnouncement.text = data.title
-                snippetAnnouncement.text = data.snippet
+                snippetAnnouncement.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                    Html.fromHtml(data.snippet, Html.FROM_HTML_MODE_COMPACT)
+                }else{
+                    Html.fromHtml(data.snippet)
+                }
                 Glide.with(itemView.context)
                     .load(data.image)
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
