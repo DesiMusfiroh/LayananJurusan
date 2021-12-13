@@ -4,14 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.layanan.jurusan.data.model.Announcement
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.layanan.jurusan.R
+import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.databinding.ItemAnnouncementBinding
 
-class HomeAnnouncementAdapter(private val list: List<Announcement>, val context: Context) : RecyclerView.Adapter<HomeAnnouncementAdapter.HomeAnnouncementViewHolder>() {
+class HomeAnnouncementAdapter(private val list: List<AnnouncementModel>, val context: Context) : RecyclerView.Adapter<HomeAnnouncementAdapter.HomeAnnouncementViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: Announcement)
+        fun onItemClicked(data: AnnouncementModel)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -34,13 +37,14 @@ class HomeAnnouncementAdapter(private val list: List<Announcement>, val context:
     override fun getItemCount(): Int = list.size
 
     class HomeAnnouncementViewHolder(private val binding: ItemAnnouncementBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Announcement) {
+        fun bind(data: AnnouncementModel) {
             with(binding) {
-//                tvItemKode.text = barang.kode
-//                Glide.with(itemView.context)
-//                    .load(barang.image)
-//                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
-//                    .into(imgItemImage)
+                titleAnnouncement.text = data.title
+                snippetAnnouncement.text = data.snippet
+                Glide.with(itemView.context)
+                    .load(data.image)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
+                    .into(imgAnnouncement)
             }
         }
     }

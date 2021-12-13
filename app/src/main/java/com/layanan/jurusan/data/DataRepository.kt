@@ -6,6 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
+import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.RemoteDataSource
 import com.layanan.jurusan.data.remote.api.ApiConfig
@@ -27,6 +28,8 @@ class DataRepository private constructor(
                 }
     }
     fun getLatestNews(): LiveData<List<NewsModel>> = remoteDataSource.getLatestNews()
+
+    fun getLatestAnnouncement(): LiveData<List<AnnouncementModel>> = remoteDataSource.getLatestAnnouncement()
 
     fun getTestNews() = remoteDataSource.getListNews()
 
