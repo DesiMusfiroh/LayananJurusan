@@ -48,5 +48,6 @@
     <string name="name_universitas">Universitas Jambi</string>
     <string name="prodi_teknik_elektro">Program Studi \nTeknik Elektro</string>
     <string name="prodi_sistem_informasi">Program Studi \nSistem Informasi</string>
+    <string name="profil_jurusan">Profil Jurusan</string>
 
 </resources>

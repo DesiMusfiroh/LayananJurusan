@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.CharacterActivity"></activity>
+        <activity android:name=".ui.announcement.ListAnnouncementActivity"></activity>
+        <activity android:name=".ui.announcement.DetailAnnouncementActivity" />
+        <activity android:name=".ui.announcement.AnnouncementActivity" />
+        <activity android:name=".ui.jurusan.JurusanActivity" />
+        <activity android:name=".ui.CharacterActivity" />
         <activity android:name=".ui.news.TestNewsActivity" />
         <activity
             android:name=".ui.news.ListNewsActivity"
