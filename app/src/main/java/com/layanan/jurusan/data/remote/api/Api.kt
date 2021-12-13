@@ -1,6 +1,7 @@
 package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.ResponseApi
+import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
@@ -40,4 +41,7 @@ interface Api {
         @Query("page") page: Int
 
     ): Response<ResponseApi>
+
+    @GET("latest_announcement")
+    fun getLatestAnnouncement(): Call<LatestAnnouncementResponse>
 }

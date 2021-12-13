@@ -22,6 +22,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
     private lateinit var newsAdapter: HomeNewsAdapter
+    private lateinit var announcementAdapter: HomeAnnouncementAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
@@ -48,12 +49,13 @@ class HomeFragment : Fragment() {
             startActivity(listNewsIntent)
         }
 
-
-        populateNews()
         binding.cardJurusan.setOnClickListener {
             val jurusanIntent = Intent(context, JurusanActivity::class.java)
             startActivity(jurusanIntent)
         }
+
+        populateNews()
+        populateAnnouncement()
     }
 
     private fun populateNews() {
@@ -75,6 +77,21 @@ class HomeFragment : Fragment() {
                         startActivity(intent)
                     }
                 })
+            }
+        })
+    }
+
+    fun populateAnnouncement(){
+        viewModel.getLatestAnnouncement().observe(viewLifecycleOwner,{
+            if (it != null){
+                announcementAdapter = HomeAnnouncementAdapter(it, requireContext())
+                announcementAdapter.notifyDataSetChanged()
+
+                binding.apply {
+                    rvAnnouncement.layoutManager = LinearLayoutManager(context)
+                    rvAnnouncement.setHasFixedSize(true)
+                    rvAnnouncement.adapter = announcementAdapter
+                }
             }
         })
     }

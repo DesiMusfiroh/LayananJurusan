@@ -11,8 +11,10 @@ import androidx.paging.liveData
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
 import com.layanan.jurusan.data.datasource.RickyMortyPagingSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
+import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
+import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -89,6 +91,23 @@ class RemoteDataSource {
         })
 
         return result
+    }
+
+    fun getLatestAnnouncement(): LiveData<List<AnnouncementModel>> {
+        val results = MutableLiveData<List<AnnouncementModel>>()
+        ApiConfig.getApiService().getLatestAnnouncement().enqueue(object: Callback<LatestAnnouncementResponse> {
+            override fun onResponse(call: Call<LatestAnnouncementResponse>, response: Response<LatestAnnouncementResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.announcements)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<LatestAnnouncementResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
     }
 
     fun listCharacter() = Pager(PagingConfig(pageSize = 5)) {

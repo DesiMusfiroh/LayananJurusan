@@ -31,7 +31,6 @@ class NewsActivity : AppCompatActivity() {
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[DetailNewsViewModel::class.java]
-
         val extras = intent.extras
         Log.d("Extras",extras.toString())
 
