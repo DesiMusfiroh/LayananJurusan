@@ -38,5 +38,15 @@
     <string name="load_error">Gagal memuat data</string>
     <string name="retry">Refresh</string>
     <string name="berita_lainnya">Berita Lainnya</string>
+    <string name="title_document">Document</string>
+    <string name="other_menu">Menu Lainnya</string>
+    <string name="title_jurusan">Jurusan</string>
+    <string name="title_data_mahasiswa">Data Mahasiswa</string>
+    <string name="title_data_dosen">Data Dosen</string>
+    <string name="name_jurusan">Jurusan Teknik Elektro dan Informatika</string>
+    <string name="name_fakultas">Fakultas Sains dan Teknologi</string>
+    <string name="name_universitas">Universitas Jambi</string>
+    <string name="prodi_teknik_elektro">Program Studi \nTeknik Elektro</string>
+    <string name="prodi_sistem_informasi">Program Studi \nSistem Informasi</string>
 
 </resources>
