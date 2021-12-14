@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/bgWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -112,7 +113,7 @@
                 <TextView
                     android:id="@+id/view_news"
                     style="@style/Text.Regular"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:text="@string/view_news"
                     android:textColor="@color/white"
@@ -132,28 +133,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="166dp"
                         android:layout_marginHorizontal="12dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="6dp"
                         tools:listitem="@layout/item_news_home" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="166dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/btn_list_news"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="@drawable/bg_button"
-                            android:src="@drawable/ic_arrow_next" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/berita_lainnya" />
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -175,7 +156,7 @@
                 <TextView
                     android:id="@+id/view_announcement"
                     style="@style/Text.Regular"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="20dp"
                     android:text="@string/view_announcement"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -187,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="12dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
