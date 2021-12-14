@@ -1,17 +1,11 @@
 package com.layanan.jurusan.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.RemoteDataSource
-import com.layanan.jurusan.data.remote.api.ApiConfig
+import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
-import kotlinx.coroutines.flow.Flow
 
 class DataRepository private constructor(
         private val remoteDataSource: RemoteDataSource,
@@ -42,4 +36,8 @@ class DataRepository private constructor(
     fun getDetailNews(id: Int): LiveData<NewsModel> = remoteDataSource.getDetailNews(id)
 
     fun listCharacter() = remoteDataSource.listCharacter()
+
+    fun getAnnouncement(id: Int): LiveData<AnnouncementModel> = remoteDataSource.getAnnouncement(id)
+
+    fun saveFcmToken(fcmToken: String, jwtToken: String): LiveData<SaveFcmTokenResponse> = remoteDataSource.saveFcmToken(fcmToken,jwtToken)
 }

@@ -3,18 +3,16 @@ package com.layanan.jurusan.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import androidx.paging.liveData
 import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
-import com.layanan.jurusan.data.datasource.RickyMortyPagingSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
+import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
+import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
@@ -58,7 +56,6 @@ class RemoteDataSource {
             override fun onResponse(call: Call<LatestNewsResponse>, response: Response<LatestNewsResponse>) {
                 if (response.isSuccessful) {
                     results.postValue(response.body()?.news)
-                    Log.e(TAG, "onSuccess: ${response.body()?.news}")
                 } else {
                     Log.e(TAG, "onFailure Response: ${response.message()}")
                 }
@@ -124,9 +121,47 @@ class RemoteDataSource {
         ListAnnouncementDataSource(ApiConfig.getApiService())
     }.flow
 
-//    fun getListNews() = Pager(config =
-//            PagingConfig(10, 30, false),
-//            1,
-//            { ListNewsDataSource( ApiConfig.getApiService()) }
-//        ).flow
+    fun getAnnouncement(id: Int): LiveData<AnnouncementModel>{
+        val result = MutableLiveData<AnnouncementModel>()
+        ApiConfig.getApiService().getAnnouncement(id).enqueue(object : Callback<DetailAnnouncementResponse>{
+            override fun onResponse(
+                call: Call<DetailAnnouncementResponse>,
+                response: Response<DetailAnnouncementResponse>
+            ) {
+                if (response.isSuccessful){
+                    Log.d("HasilResponse",response.body().toString())
+                    result.postValue(response.body()!!.data)
+                }else{
+                    Log.d("Failed","Tidak mendapat data")
+                }
+            }
+
+            override fun onFailure(call: Call<DetailAnnouncementResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+
+        return result
+    }
+
+    fun saveFcmToken(fcmToken: String, jwtToken: String): LiveData<SaveFcmTokenResponse>{
+        val result = MutableLiveData<SaveFcmTokenResponse>()
+        ApiConfig.getApiService().saveToken(fcmToken,"Bearer ${jwtToken}").enqueue(object : Callback<SaveFcmTokenResponse>{
+            override fun onResponse(
+                call: Call<SaveFcmTokenResponse>,
+                response: Response<SaveFcmTokenResponse>
+            ) {
+                result.postValue(response.body())
+                Log.d("HasilResponse",response.body().toString())
+            }
+
+            override fun onFailure(call: Call<SaveFcmTokenResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+        return result
+    }
+
 }

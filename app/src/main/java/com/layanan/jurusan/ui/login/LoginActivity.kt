@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.messaging.FirebaseMessaging
+import com.layanan.jurusan.FcmServices
 import com.layanan.jurusan.R
 import com.layanan.jurusan.databinding.ActivityLoginBinding
 import com.layanan.jurusan.ui.profile.ProfileViewModel
@@ -49,6 +51,9 @@ class LoginActivity : AppCompatActivity() {
                         editor?.putString("nomor_induk",it.user.nomor_induk)
                         editor?.putInt("role",it.user.role)
                         editor?.apply()
+//                        val fcmToken = fcmService()
+//                        viewModel.saveFcmToken(fcmToken,it.token)
+
                         startActivity(Intent(this,DashboardStudentActivity::class.java))
                     }else {
                         Toast.makeText(this, "Username atau Password salah", Toast.LENGTH_SHORT).show()
@@ -70,6 +75,24 @@ class LoginActivity : AppCompatActivity() {
             return false
         }
         return true
+    }
+
+    fun fcmService(): String{
+        FirebaseMessaging.getInstance().subscribeToTopic("news")
+        val msgs = getString(R.string.msg_subscribed)
+        val deviceToken = FcmServices
+        var token: String = ""
+        val msg = getString(R.string.msg_token_fmt, deviceToken)
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
+            val msg = getString(R.string.msg_token_fmt, deviceToken)
+            Log.d("OKE",msg)
+
+            Log.d("DeviceTokenLogin",deviceToken)
+            token = deviceToken
+        }
+
+        return token
+
     }
 
 

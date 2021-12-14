@@ -7,15 +7,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.messaging.FirebaseMessaging
+import com.layanan.jurusan.FcmServices
+import com.layanan.jurusan.R
+import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
+import com.layanan.jurusan.ui.announcement.AnnouncementActivity
 import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
-import com.layanan.jurusan.ui.news.TestNewsActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -27,6 +32,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        fcmService()
         return binding.root
     }
 
@@ -36,7 +42,7 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
         binding.btnProfile.setOnClickListener {
-            val intent = Intent(context,ProfileActivity::class.java)
+            val intent = Intent(context, ProfileActivity::class.java)
             startActivity(intent)
         }
 
@@ -73,7 +79,7 @@ class HomeFragment : Fragment() {
                 newsAdapter.setOnItemClickCallback(object : HomeNewsAdapter.OnItemClickCallback {
                     override fun onItemClicked(data: NewsModel) {
                         Log.d("DataId",data.id.toString())
-                        val intent = Intent(activity,NewsActivity::class.java)
+                        val intent = Intent(activity, NewsActivity::class.java)
                         intent.putExtra(NewsActivity.EXTRA_NEWS,data.id)
                         startActivity(intent)
                     }
@@ -84,6 +90,7 @@ class HomeFragment : Fragment() {
 
     fun populateAnnouncement(){
         viewModel.getLatestAnnouncement().observe(viewLifecycleOwner,{
+            Log.d("Announcement",it.toString())
             if (it != null){
                 announcementAdapter = HomeAnnouncementAdapter(it, requireContext())
                 announcementAdapter.notifyDataSetChanged()
@@ -93,8 +100,37 @@ class HomeFragment : Fragment() {
                     rvAnnouncement.setHasFixedSize(true)
                     rvAnnouncement.adapter = announcementAdapter
                 }
+                announcementAdapter.setOnItemClickCallback(object : HomeAnnouncementAdapter.OnItemClickCallback{
+                    override fun onItemClicked(data: AnnouncementModel) {
+                        val intent = Intent(activity, AnnouncementActivity::class.java)
+                        val putExtra = intent.putExtra(AnnouncementActivity.EXTRA_ANNOUNCEMENT, data.id)
+                        startActivity(intent)
+                    }
+
+                })
             }
         })
     }
 
+    fun fcmService(){
+        FirebaseMessaging.getInstance().subscribeToTopic("news")
+        val msgs = getString(R.string.msg_subscribed)
+        val deviceToken = FcmServices
+        val msg = getString(R.string.msg_token_fmt, deviceToken)
+        val userPref = context?.getSharedPreferences("user",
+            AppCompatActivity.MODE_PRIVATE
+        )
+        val jwtToken = userPref?.getString("token","devicetoken")
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
+            val msg = getString(R.string.msg_token_fmt, deviceToken)
+            Log.d("OKE",msg)
+
+            Log.d("DeviceToken",deviceToken)
+//            val token = DeviceToken(deviceToken)
+//            viewModel.postToken(token)
+            viewModel.saveFcmToken(deviceToken,jwtToken!!).observe(viewLifecycleOwner,{
+
+            })
+        }
+    }
 }
