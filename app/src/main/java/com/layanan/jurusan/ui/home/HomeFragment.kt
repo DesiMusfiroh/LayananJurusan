@@ -46,11 +46,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.btnListNews.setOnClickListener {
-            val listNewsIntent = Intent(context, TestNewsActivity::class.java)
-            startActivity(listNewsIntent)
-        }
-
         binding.viewNews.setOnClickListener {
             val listNewsIntent = Intent(context, ListNewsActivity::class.java)
             startActivity(listNewsIntent)
