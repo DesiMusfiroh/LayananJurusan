@@ -22,6 +22,6 @@ class SplashScreenActivity : AppCompatActivity() {
             } else {
                 startActivity(Intent(this,LoginActivity::class.java))
             }
-        },2000)
+        },1000)
     }
 }
