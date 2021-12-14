@@ -1,14 +1,10 @@
 package com.layanan.jurusan.ui.news
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.ActivityListNewsBinding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 import kotlinx.coroutines.flow.collectLatest

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
+import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
@@ -42,6 +43,11 @@ class HomeFragment : Fragment() {
         binding.viewNews.setOnClickListener {
             val listNewsIntent = Intent(context, ListNewsActivity::class.java)
             startActivity(listNewsIntent)
+        }
+
+        binding.viewAnnouncement.setOnClickListener {
+            val listAnnouncementIntent = Intent(context, ListAnnouncementActivity::class.java)
+            startActivity(listAnnouncementIntent)
         }
 
         binding.cardJurusan.setOnClickListener {

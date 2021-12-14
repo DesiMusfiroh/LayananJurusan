@@ -8,6 +8,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
+import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
 import com.layanan.jurusan.data.datasource.RickyMortyPagingSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
@@ -118,6 +119,10 @@ class RemoteDataSource {
         ListNewsDataSource(ApiConfig.getApiService())
     }.flow
 
+    fun getListAnnouncement() = Pager(PagingConfig(pageSize = 1)) {
+        Log.d("pengumuman",  ListAnnouncementDataSource(ApiConfig.getApiService()).toString())
+        ListAnnouncementDataSource(ApiConfig.getApiService())
+    }.flow
 
 //    fun getListNews() = Pager(config =
 //            PagingConfig(10, 30, false),

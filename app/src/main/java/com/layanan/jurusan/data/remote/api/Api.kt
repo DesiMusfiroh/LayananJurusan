@@ -2,6 +2,7 @@ package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.ResponseApi
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
+import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
@@ -44,4 +45,9 @@ interface Api {
 
     @GET("latest_announcement")
     fun getLatestAnnouncement(): Call<LatestAnnouncementResponse>
+
+    @GET("announcement")
+    suspend fun getListAnnouncement(
+            @Query("page") page: Int
+    ): Response<ListAnnouncementResponse>
 }
