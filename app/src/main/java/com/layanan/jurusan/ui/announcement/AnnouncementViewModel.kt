@@ -2,9 +2,10 @@ package com.layanan.jurusan.ui.announcement
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.layanan.jurusan.data.DataRepository
 import com.layanan.jurusan.data.model.AnnouncementModel
-import com.layanan.jurusan.data.model.NewsModel
 
 class AnnouncementViewModel(private val repository: DataRepository) : ViewModel() {
     private var announcementId: Int = 0
@@ -14,4 +15,6 @@ class AnnouncementViewModel(private val repository: DataRepository) : ViewModel(
     }
 
     fun getAnnouncement(): LiveData<AnnouncementModel> = repository.getAnnouncement(announcementId)
+    val listAnnouncement = repository.getListAnnouncement().cachedIn(viewModelScope)
+
 }

@@ -17,10 +17,10 @@ import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding
 import com.layanan.jurusan.ui.announcement.AnnouncementActivity
+import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
-import com.layanan.jurusan.ui.news.TestNewsActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -42,13 +42,18 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
         binding.btnProfile.setOnClickListener {
-            val intent = Intent(context,ProfileActivity::class.java)
+            val intent = Intent(context, ProfileActivity::class.java)
             startActivity(intent)
         }
 
         binding.viewNews.setOnClickListener {
             val listNewsIntent = Intent(context, ListNewsActivity::class.java)
             startActivity(listNewsIntent)
+        }
+
+        binding.viewAnnouncement.setOnClickListener {
+            val listAnnouncementIntent = Intent(context, ListAnnouncementActivity::class.java)
+            startActivity(listAnnouncementIntent)
         }
 
         binding.cardJurusan.setOnClickListener {
@@ -74,7 +79,7 @@ class HomeFragment : Fragment() {
                 newsAdapter.setOnItemClickCallback(object : HomeNewsAdapter.OnItemClickCallback {
                     override fun onItemClicked(data: NewsModel) {
                         Log.d("DataId",data.id.toString())
-                        val intent = Intent(activity,NewsActivity::class.java)
+                        val intent = Intent(activity, NewsActivity::class.java)
                         intent.putExtra(NewsActivity.EXTRA_NEWS,data.id)
                         startActivity(intent)
                     }
@@ -98,7 +103,7 @@ class HomeFragment : Fragment() {
                 announcementAdapter.setOnItemClickCallback(object : HomeAnnouncementAdapter.OnItemClickCallback{
                     override fun onItemClicked(data: AnnouncementModel) {
                         val intent = Intent(activity, AnnouncementActivity::class.java)
-                        intent.putExtra(AnnouncementActivity.EXTRA_ANNOUNCEMENT, data.id)
+                        val putExtra = intent.putExtra(AnnouncementActivity.EXTRA_ANNOUNCEMENT, data.id)
                         startActivity(intent)
                     }
 
@@ -129,5 +134,4 @@ class HomeFragment : Fragment() {
 
         }
     }
-
 }

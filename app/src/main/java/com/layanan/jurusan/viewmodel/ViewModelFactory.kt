@@ -46,6 +46,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             modelClass.isAssignableFrom(NewsViewModel::class.java) -> {
                 NewsViewModel(dataRepository) as T
             }
+            modelClass.isAssignableFrom(AnnouncementViewModel::class.java) -> {
+                AnnouncementViewModel(dataRepository) as T
+            }
             modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
                 DetailNewsViewModel(dataRepository) as T
             }

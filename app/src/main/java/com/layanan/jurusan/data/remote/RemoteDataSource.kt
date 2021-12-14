@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.AnnouncementModel
@@ -113,6 +114,11 @@ class RemoteDataSource {
 
     fun getListNews() = Pager(PagingConfig(pageSize = 1)) {
         ListNewsDataSource(ApiConfig.getApiService())
+    }.flow
+
+    fun getListAnnouncement() = Pager(PagingConfig(pageSize = 1)) {
+        Log.d("pengumuman",  ListAnnouncementDataSource(ApiConfig.getApiService()).toString())
+        ListAnnouncementDataSource(ApiConfig.getApiService())
     }.flow
 
     fun getAnnouncement(id: Int): LiveData<AnnouncementModel>{

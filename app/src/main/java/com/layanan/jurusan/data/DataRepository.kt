@@ -29,6 +29,8 @@ class DataRepository private constructor(
 
     fun getListNews() = remoteDataSource.getListNews()
 
+    fun getListAnnouncement() = remoteDataSource.getListAnnouncement()
+
     fun login(username: String,password: String): LiveData<LoginDataResponse> = remoteDataSource.getUserLogin(username,password)
 
     fun getDetailNews(id: Int): LiveData<NewsModel> = remoteDataSource.getDetailNews(id)

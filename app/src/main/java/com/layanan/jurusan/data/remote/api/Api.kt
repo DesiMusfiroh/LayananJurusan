@@ -4,6 +4,7 @@ import com.layanan.jurusan.data.remote.response.ResponseApi
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
+import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
@@ -46,6 +47,11 @@ interface Api {
 
     @GET("latest_announcement")
     fun getLatestAnnouncement(): Call<LatestAnnouncementResponse>
+
+    @GET("announcement")
+    suspend fun getListAnnouncement(
+            @Query("page") page: Int
+    ): Response<ListAnnouncementResponse>
 
     @GET("announcements/{id}")
     fun getAnnouncement(@Path("id") id: Int): Call<DetailAnnouncementResponse>
