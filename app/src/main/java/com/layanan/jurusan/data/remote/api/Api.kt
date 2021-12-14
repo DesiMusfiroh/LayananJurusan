@@ -48,7 +48,7 @@ interface Api {
     @GET("latest_announcement")
     fun getLatestAnnouncement(): Call<LatestAnnouncementResponse>
 
-    @GET("announcement")
+    @GET("announcements")
     suspend fun getListAnnouncement(
             @Query("page") page: Int
     ): Response<ListAnnouncementResponse>

@@ -10,7 +10,7 @@
     <string name="hai_user">Hai, Desi Musfiroh</string>
     <string name="title_notification">Notification</string>
     <string name="title_news">Berita</string>
-    <string name="view_news">Lihat Semua ></string>
+    <string name="view_news">Lihat Semua</string>
     <string name="title_announcement">Pengumuman</string>
     <string name="view_announcement">Lihat Semua</string>
     <string name="snippet_announcement">Cuplikan Pengumuman</string>
@@ -41,8 +41,8 @@
     <string name="title_document">Document</string>
     <string name="other_menu">Menu Lainnya</string>
     <string name="title_jurusan">Jurusan</string>
-    <string name="title_data_mahasiswa">Data Mahasiswa</string>
-    <string name="title_data_dosen">Data Dosen</string>
+    <string name="title_data_mahasiswa">Mahasiswa</string>
+    <string name="title_data_dosen">Dosen</string>
     <string name="name_jurusan">Jurusan Teknik Elektro dan Informatika</string>
     <string name="name_fakultas">Fakultas Sains dan Teknologi</string>
     <string name="name_universitas">Universitas Jambi</string>

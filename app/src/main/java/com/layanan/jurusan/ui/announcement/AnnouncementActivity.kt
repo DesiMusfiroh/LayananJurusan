@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.databinding.ActivityAnnouncementBinding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
@@ -37,16 +40,20 @@ class AnnouncementActivity : AppCompatActivity() {
         }
     }
 
-    fun setUpView(data: AnnouncementModel){
+    private fun setUpView(data: AnnouncementModel){
         binding.apply {
             tvTitle.text = data.title
+            tvDate.text = data.expires
+            tvCategory.text = data.category
+            Glide.with(this@AnnouncementActivity)
+                .load(data.image)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
+                .into(imgUser)
             tvAnnouncementContent.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                 Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
             }else{
                 Html.fromHtml(data.desc)
             }
-
-            tvCategory.text = data.category
         }
     }
 }
