@@ -6,38 +6,32 @@ import androidx.paging.PagingState
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.data.remote.api.Api
 
-class ListNewsDataSource(private val apiService: Api) : PagingSource<Int, NewsModel>() {
+class ListSearchNewsDataSource(private val apiService: Api, private val search: String) : PagingSource<Int, NewsModel>() {
+    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
+        return null
+    }
 
     override suspend fun load(params: LoadParams<Int>):
             LoadResult<Int, NewsModel> {
 
         return try {
             val currentPage = params.key ?: 1
-            val response = apiService.getListNews(currentPage)
+            val response = apiService.getSearchNews(search,currentPage)
             val responseData = mutableListOf<NewsModel>()
             val data = response.body()?.news ?: emptyList()
             responseData.addAll(data)
 
-            LoadResult.Page(
+            val loadData = LoadResult.Page(
                 data = responseData,
                 prevKey = if (currentPage == 1) null else -1,
                 nextKey = currentPage.plus(1)
             )
+
+            Log.d("LoadData",loadData.toString())
+            return loadData
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
 
     }
-
-//    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
-//        return null
-//    }
-
-    override fun getRefreshKey(state: PagingState<Int, NewsModel>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-                    ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
-        }
-    }
-
 }

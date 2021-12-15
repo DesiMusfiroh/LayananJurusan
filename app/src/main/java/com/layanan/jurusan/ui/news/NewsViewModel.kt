@@ -25,6 +25,15 @@ class NewsViewModel(private val repository: DataRepository): ViewModel() {
 //        ListNewsDataSource(ApiConfig.getApiService())
 //    }.flow.cachedIn(viewModelScope)
 
+    private var searchQuery: String = ""
+
     val testNews = repository.getTestNews().cachedIn(viewModelScope)
     val listNews = repository.getListNews().cachedIn(viewModelScope)
+
+    fun setQuery(search: String){
+        this.searchQuery = search
+    }
+
+    fun searchNews() = repository.getSearchNews(searchQuery).cachedIn(viewModelScope)
+
 }

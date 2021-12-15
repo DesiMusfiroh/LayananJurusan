@@ -40,4 +40,6 @@ class DataRepository private constructor(
     fun getAnnouncement(id: Int): LiveData<AnnouncementModel> = remoteDataSource.getAnnouncement(id)
 
     fun saveFcmToken(fcmToken: String, jwtToken: String): LiveData<SaveFcmTokenResponse> = remoteDataSource.saveFcmToken(fcmToken,jwtToken)
+
+    fun getSearchNews(search: String) = remoteDataSource.getSearchNews(search)
 }

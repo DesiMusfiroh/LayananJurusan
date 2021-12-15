@@ -25,6 +25,6 @@ class ListAnnouncementDataSource(private val apiService: Api): PagingSource<Int,
     }
 
     override fun getRefreshKey(state: PagingState<Int, AnnouncementModel>): Int? {
-        TODO("Not yet implemented")
+        return null
     }
 }
