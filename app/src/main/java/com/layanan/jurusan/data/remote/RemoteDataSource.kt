@@ -7,6 +7,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
+import com.layanan.jurusan.data.datasource.ListSearchNewsDataSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
@@ -114,6 +115,10 @@ class RemoteDataSource {
 
     fun getListNews() = Pager(PagingConfig(pageSize = 1)) {
         ListNewsDataSource(ApiConfig.getApiService())
+    }.flow
+
+    fun getSearchNews(search: String) = Pager(PagingConfig(pageSize = 5)){
+        ListSearchNewsDataSource(ApiConfig.getApiService(),search)
     }.flow
 
     fun getListAnnouncement() = Pager(PagingConfig(pageSize = 1)) {

@@ -120,6 +120,7 @@ class HomeFragment : Fragment() {
         val userPref = context?.getSharedPreferences("user",
             AppCompatActivity.MODE_PRIVATE
         )
+
         val jwtToken = userPref?.getString("token","devicetoken")
         FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
             val msg = getString(R.string.msg_token_fmt, deviceToken)
