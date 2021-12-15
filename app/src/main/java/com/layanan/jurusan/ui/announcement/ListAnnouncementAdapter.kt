@@ -14,9 +14,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.AnnouncementModel
-import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.ItemAnnouncementBinding
-import com.layanan.jurusan.ui.news.ListNewsAdapter
 
 class ListAnnouncementAdapter : PagingDataAdapter<AnnouncementModel, ListAnnouncementAdapter.ListAnnouncementViewHolder>(DiffCallback) {
     companion object {
@@ -53,13 +51,12 @@ class ListAnnouncementAdapter : PagingDataAdapter<AnnouncementModel, ListAnnounc
         return ListAnnouncementViewHolder(binding)
     }
 
-
     inner class ListAnnouncementViewHolder(val binding: ItemAnnouncementBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(data: AnnouncementModel){
             with(binding){
-                titleAnnouncement.text = data?.title
+                titleAnnouncement.text = data.title
                 Glide.with(itemView.context)
-                        .load(data?.image)
+                        .load(data.image)
                         .centerCrop()
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .apply(
@@ -73,8 +70,8 @@ class ListAnnouncementAdapter : PagingDataAdapter<AnnouncementModel, ListAnnounc
                 }
                 itemView.setOnClickListener {
                     val intent =  Intent(itemView.context, AnnouncementActivity::class.java)
-//                    intent.putExtra(AnnouncementActivity.EXTRA_ANNOUNCEMENT, data?.id)
-//                    itemView.context.startActivity(intent)
+                    intent.putExtra(AnnouncementActivity.EXTRA_ANNOUNCEMENT, data?.id)
+                    itemView.context.startActivity(intent)
                 }
             }
         }
