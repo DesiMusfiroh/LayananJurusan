@@ -4,11 +4,13 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.transition.TransitionManager
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.card.MaterialCardView
 import com.layanan.jurusan.R
+import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.databinding.ActivityProfileBinding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -35,6 +37,24 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
         setUpAccordionView()
+
+        val userPref = this.getSharedPreferences("user",
+            AppCompatActivity.MODE_PRIVATE
+        )
+
+        val jwtToken = userPref?.getString("token","devicetoken")
+        if (jwtToken != null) {
+            Log.d("Jwt",jwtToken)
+        }
+        viewModel.getUserProfile(jwtToken!!).observe(this,{
+            setUpView(it)
+        })
+    }
+
+    fun setUpView(user: UserModel){
+        binding.apply {
+            tvNim.text = user.nomor_induk
+        }
     }
 
     fun setUpAccordionView(){

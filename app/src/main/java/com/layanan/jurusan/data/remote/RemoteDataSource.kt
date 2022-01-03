@@ -11,8 +11,12 @@ import com.layanan.jurusan.data.datasource.ListSearchNewsDataSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
+import com.layanan.jurusan.data.model.ProfileJurusanModel
+import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.data.remote.api.ApiConfig
+import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
+import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
@@ -166,6 +170,53 @@ class RemoteDataSource {
             }
 
         })
+        return result
+    }
+
+    fun getProfileJurusan(): LiveData<ProfileJurusanModel>{
+        val result = MutableLiveData<ProfileJurusanModel>()
+        ApiConfig.getApiService().getProfileJurusan().enqueue(object : Callback<ProfileJurusanResponse>{
+            override fun onResponse(
+                call: Call<ProfileJurusanResponse>,
+                response: Response<ProfileJurusanResponse>
+            ) {
+                if (response.isSuccessful){
+                    result.postValue(response.body()!!.data)
+                }else{
+                    Log.d("Failed","Tidak mendapat data")
+                }
+            }
+
+            override fun onFailure(call: Call<ProfileJurusanResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+
+        return result
+    }
+
+    fun getUserProfile(jwtToken: String): LiveData<UserModel>{
+        val result = MutableLiveData<UserModel>()
+        ApiConfig.getApiService().getUserProfile(jwtToken).enqueue(object : Callback<UserProfileResponse>{
+            override fun onResponse(
+                call: Call<UserProfileResponse>,
+                response: Response<UserProfileResponse>
+            ) {
+                if (response.isSuccessful){
+                    result.postValue(response.body()!!.data)
+                    Log.d("HasilResponse",response.body().toString())
+                }else{
+                    Log.d("Failed","Tidak mendapat data User Profile")
+                }
+            }
+
+            override fun onFailure(call: Call<UserProfileResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+
         return result
     }
 

@@ -42,4 +42,8 @@ class DataRepository private constructor(
     fun saveFcmToken(fcmToken: String, jwtToken: String): LiveData<SaveFcmTokenResponse> = remoteDataSource.saveFcmToken(fcmToken,jwtToken)
 
     fun getSearchNews(search: String) = remoteDataSource.getSearchNews(search)
+
+    fun getProfileJurusan() = remoteDataSource.getProfileJurusan()
+
+    fun getUserProfile(jwtToken: String) = remoteDataSource.getUserProfile(jwtToken)
 }

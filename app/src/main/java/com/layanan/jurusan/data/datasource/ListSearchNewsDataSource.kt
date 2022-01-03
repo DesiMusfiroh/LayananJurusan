@@ -21,10 +21,17 @@ class ListSearchNewsDataSource(private val apiService: Api, private val search: 
             val data = response.body()?.news ?: emptyList()
             responseData.addAll(data)
 
+            var nextKey: Int?
+            if(currentPage == response.body()?.meta?.page || currentPage > response.body()?.meta?.page!!){
+                nextKey = null
+            }else{
+                nextKey = currentPage.plus(1)
+            }
+
             val loadData = LoadResult.Page(
                 data = responseData,
                 prevKey = if (currentPage == 1) null else -1,
-                nextKey = currentPage.plus(1)
+                nextKey = nextKey
             )
 
             Log.d("LoadData",loadData.toString())

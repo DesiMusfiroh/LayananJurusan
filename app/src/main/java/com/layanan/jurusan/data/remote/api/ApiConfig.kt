@@ -15,7 +15,7 @@ class ApiConfig {
                     .addInterceptor(loggingInterceptor)
                     .build()
             val retrofit = Retrofit.Builder()
-                    .baseUrl("http://jurusan.fakultassyariahuinjambi.com/api/")
+                    .baseUrl("http://tesi.unja.ac.id/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build()

@@ -105,6 +105,7 @@
                     tools:layout_editor_absoluteX="16dp">
 
                     <ImageView
+                        android:id="@+id/img_jurusan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -113,13 +114,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                style="@style/Text.Regular"
                 android:id="@+id/tv_desc"
+                style="@style/Text.Regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lorem"
                 android:layout_marginHorizontal="20dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="@string/lorem" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
