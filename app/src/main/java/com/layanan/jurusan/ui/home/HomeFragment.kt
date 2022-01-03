@@ -61,6 +61,7 @@ class HomeFragment : Fragment() {
             startActivity(jurusanIntent)
         }
 
+
         populateNews()
         populateAnnouncement()
     }

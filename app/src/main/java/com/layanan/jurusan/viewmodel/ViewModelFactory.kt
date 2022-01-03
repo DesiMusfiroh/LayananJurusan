@@ -9,6 +9,7 @@ import com.layanan.jurusan.ui.CharacterViewModel
 import com.layanan.jurusan.ui.announcement.AnnouncementViewModel
 import com.layanan.jurusan.ui.announcement.ListAnnouncementViewModel
 import com.layanan.jurusan.ui.home.HomeViewModel
+import com.layanan.jurusan.ui.jurusan.JurusanViewModel
 import com.layanan.jurusan.ui.login.LoginViewModel
 import com.layanan.jurusan.ui.news.DetailNewsViewModel
 import com.layanan.jurusan.ui.news.NewsViewModel
@@ -60,6 +61,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(ListAnnouncementViewModel::class.java) -> {
                 ListAnnouncementViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(JurusanViewModel::class.java) -> {
+                JurusanViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

@@ -42,6 +42,7 @@ class ListNewsActivity : AppCompatActivity() {
                 viewModel.setQuery(p0)
                 lifecycleScope.launch {
                     viewModel.searchNews().collectLatest {
+                        newsAdapter.notifyDataSetChanged()
                         newsAdapter.submitData(it)
                         closeKeyboard()
                     }
@@ -50,7 +51,15 @@ class ListNewsActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-                return false
+                viewModel.setQuery(p0!!)
+                lifecycleScope.launch {
+                    viewModel.searchNews().collectLatest {
+                        newsAdapter.notifyDataSetChanged()
+                        newsAdapter.submitData(it)
+                        closeKeyboard()
+                    }
+                }
+                return true
             }
 
         })
@@ -91,6 +100,8 @@ class ListNewsActivity : AppCompatActivity() {
     fun populateNews(){
         newsAdapter = ListNewsAdapter()
         binding.rvNews.apply {
+//            adapter = newsAdapter
+
             adapter = newsAdapter.withLoadStateHeaderAndFooter(
                 header = NewsLoadStateAdapter{newsAdapter.retry()},
                 footer = NewsLoadStateAdapter{newsAdapter.retry()}
