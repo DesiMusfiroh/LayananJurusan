@@ -49,6 +49,7 @@
     <string name="prodi_teknik_elektro">Program Studi \nTeknik Elektro</string>
     <string name="prodi_sistem_informasi">Program Studi \nSistem Informasi</string>
     <string name="profil_jurusan">Profil Jurusan</string>
+    <string name="profil_prodi">Profil Prodi</string>
 
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="default_notification_channel_name">News</string>

@@ -9,12 +9,10 @@ import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
 import com.layanan.jurusan.data.datasource.ListNewsDataSource
 import com.layanan.jurusan.data.datasource.ListSearchNewsDataSource
 import com.layanan.jurusan.data.datasource.TestNewsDataSource
-import com.layanan.jurusan.data.model.AnnouncementModel
-import com.layanan.jurusan.data.model.NewsModel
-import com.layanan.jurusan.data.model.ProfileJurusanModel
-import com.layanan.jurusan.data.model.UserModel
+import com.layanan.jurusan.data.model.*
 import com.layanan.jurusan.data.remote.api.ApiConfig
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
+import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
@@ -183,7 +181,7 @@ class RemoteDataSource {
                 if (response.isSuccessful){
                     result.postValue(response.body()!!.data)
                 }else{
-                    Log.d("Failed","Tidak mendapat data")
+                    Log.d("Failed","Tidak mendapat data jurusan")
                 }
             }
 
@@ -198,7 +196,8 @@ class RemoteDataSource {
 
     fun getUserProfile(jwtToken: String): LiveData<UserModel>{
         val result = MutableLiveData<UserModel>()
-        ApiConfig.getApiService().getUserProfile(jwtToken).enqueue(object : Callback<UserProfileResponse>{
+        Log.d("JwtDataSource",jwtToken)
+        ApiConfig.getApiService().getUserProfile("Bearer ${jwtToken}").enqueue(object : Callback<UserProfileResponse>{
             override fun onResponse(
                 call: Call<UserProfileResponse>,
                 response: Response<UserProfileResponse>
@@ -217,6 +216,28 @@ class RemoteDataSource {
 
         })
 
+        return result
+    }
+
+    fun getProfileProdi(name: String): LiveData<ProfileProdiModel>{
+        val result = MutableLiveData<ProfileProdiModel>()
+        ApiConfig.getApiService().getProfileProdi(name).enqueue(object : Callback<ProfileProdiResponse>{
+            override fun onResponse(
+                call: Call<ProfileProdiResponse>,
+                response: Response<ProfileProdiResponse>
+            ) {
+                if (response.isSuccessful){
+                    result.postValue(response.body()!!.data)
+                }else{
+                    Log.d("Failed","Tidak mendapat data jurusan")
+                }
+            }
+
+            override fun onFailure(call: Call<ProfileProdiResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
         return result
     }
 

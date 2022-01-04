@@ -21,6 +21,7 @@ import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
+import com.layanan.jurusan.ui.prodi.ProdiActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
@@ -61,6 +62,17 @@ class HomeFragment : Fragment() {
             startActivity(jurusanIntent)
         }
 
+        binding.cardSistemInformasi.setOnClickListener {
+            val intent = Intent(context,ProdiActivity::class.java)
+            intent.putExtra(ProdiActivity.EXTRA_PRODI_NAME,"sistem_informasi")
+            startActivity(intent)
+        }
+
+        binding.cardTeknikElektro.setOnClickListener {
+            val intent = Intent(context,ProdiActivity::class.java)
+            intent.putExtra(ProdiActivity.EXTRA_PRODI_NAME,"teknik_elektro")
+            startActivity(intent)
+        }
 
         populateNews()
         populateAnnouncement()

@@ -1,8 +1,10 @@
 package com.layanan.jurusan.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
+import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.data.remote.RemoteDataSource
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
@@ -45,5 +47,10 @@ class DataRepository private constructor(
 
     fun getProfileJurusan() = remoteDataSource.getProfileJurusan()
 
-    fun getUserProfile(jwtToken: String) = remoteDataSource.getUserProfile(jwtToken)
+    fun getUserProfile(jwtToken: String): LiveData<UserModel>{
+        Log.d("JwtRepository",jwtToken)
+        return remoteDataSource.getUserProfile(jwtToken)
+    }
+
+    fun getProfileProdi(name: String) = remoteDataSource.getProfileProdi(name)
 }
