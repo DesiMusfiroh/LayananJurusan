@@ -31,8 +31,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
-
                 </FrameLayout>
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="@color/primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_picture"
@@ -68,15 +77,6 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="@string/student_name" />
-
-                        <TextView
-                            android:id="@+id/tv_prodi"
-                            style="@style/Text.Regular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="@string/major_name" />
 
                         <TextView
                             android:id="@+id/tv_nim"

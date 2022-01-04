@@ -31,6 +31,9 @@
         Massa id neque aliquam vestibulum. Egestas pretium aenean pharetra magna ac placerat. Tempor id eu nisl nunc mi. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Rhoncus est pellentesque elit ullamcorper. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Aliquet porttitor lacus luctus accumsan. Ornare arcu odio ut sem nulla pharetra diam sit amet. Consequat mauris nunc congue nisi vitae. Lacus sed viverra tellus in hac habitasse platea dictumst vestibulum. Posuere morbi leo urna molestie at elementum eu facilisis. Posuere morbi leo urna molestie at. Id donec ultrices tincidunt arcu non. Elementum pulvinar etiam non quam lacus. Etiam sit amet nisl purus in. Mi proin sed libero enim sed faucibus turpis in eu. Quisque egestas diam in arcu cursus. Aliquam purus sit amet luctus venenatis lectus magna. Volutpat ac tincidunt vitae semper quis lectus nulla at. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor.
         Suspendisse sed nisi lacus sed viverra tellus in hac. Metus aliquam eleifend mi in nulla posuere. Arcu non odio euismod lacinia. Senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras. Eu ultrices vitae auctor eu augue. Laoreet suspendisse interdum consectetur libero id. Nunc faucibus a pellentesque sit amet. Tincidunt eget nullam non nisi est sit amet facilisis. Nisi est sit amet facilisis magna etiam tempor orci eu. Aliquam ut porttitor leo a. Justo nec ultrices dui sapien eget mi proin. Pellentesque habitant morbi tristique senectus et netus et. Facilisis volutpat est velit egestas dui id ornare. Lorem dolor sed viverra ipsum nunc. In hac habitasse platea dictumst quisque sagittis.
     </string>
+    <string name="lorem_short">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In ante metus dictum at tempor commodo ullamcorper a. Lacus luctus accumsan tortor posuere ac. Pharetra diam sit amet nisl suscipit. Volutpat lacus laoreet non curabitur. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Feugiat nibh sed pulvinar proin gravida. Neque laoreet suspendisse interdum consectetur libero. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Purus viverra accumsan in nisl nisi scelerisque eu. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Commodo quis imperdiet massa tincidunt. Sed vulputate mi sit amet mauris commodo quis. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. Sed ullamcorper morbi tincidunt ornare massa eget. Magna fermentum iaculis eu non diam phasellus vestibulum. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc.
+    </string>
     <string name="student_name">Nama Mahasiswa</string>
     <string name="major_name">Nama Jurusan</string>
     <string name="generation">2018</string>
@@ -55,4 +58,24 @@
     <string name="default_notification_channel_name">News</string>
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="prodi">Program Studi</string>
+    <string name="visi">Visi</string>
+    <string name="misi">Misi</string>
+    <string name="indikator_kinerja_utama">Indikator Kinerja Utama</string>
+    <string name="iku_desc">Indikator kinerja utama atau IKU adalah ukuran atau indikator kinerja suatu instansi, utamanya dalam mencapai tujuan dan sasaran tertentu. Terdapat poin IKU pada Perguruan Tinggi</string>
+    <string name="iku1">IKU 1</string>
+    <string name="desc_iku1">Lulusan berhasil mendapatkan pekerjaan, melanjutkan studi, atau menjadi wiraswasta</string>
+    <string name="iku2">IKU 2</string>
+    <string name="desc_iku2">Mahasiswa mendapat pengalaman di luar kampus atau berprestasi nasional / internasional</string>
+    <string name="pengurusan_surat">Pengurusan Sura</string>
+    <string name="title_activity_prodi">ProdiActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="civitas_akademik">Data Civitas Akademik</string>
+    <string name="content_tab_mahasiswa">Mahasiswa</string>
+    <string name="content_tab_dosen">Dosen</string>
+    <string name="content_tab_alumni">Alumni</string>
 </resources>

@@ -20,7 +20,8 @@
             android:layout_height="match_parent"
             android:background="@color/primary"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorSecondary"
+            app:contentScrim="@color/primary"
+            app:title="@string/title_news"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <FrameLayout

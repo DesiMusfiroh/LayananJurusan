@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.layanan.jurusan.R
 import com.layanan.jurusan.databinding.ActivityDashboardStudentBinding
 import com.layanan.jurusan.ui.academic.AcademicFragment
-import com.layanan.jurusan.ui.association.AssociationFragment
+import com.layanan.jurusan.ui.iku.AssociationFragment
 import com.layanan.jurusan.ui.home.HomeFragment
 import com.layanan.jurusan.ui.mail.MailFragment
 
