@@ -1,4 +1,4 @@
-package com.layanan.jurusan.ui.association
+package com.layanan.jurusan.ui.iku
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -35,7 +35,7 @@ class AssociationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_association, container, false)
+        return inflater.inflate(R.layout.fragment_iku, container, false)
     }
 
     companion object {

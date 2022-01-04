@@ -60,4 +60,17 @@
     <string name="prodi">Program Studi</string>
     <string name="visi">Visi</string>
     <string name="misi">Misi</string>
+    <string name="indikator_kinerja_utama">Indikator Kinerja Utama</string>
+    <string name="iku_desc">Indikator kinerja utama atau IKU adalah ukuran atau indikator kinerja suatu instansi, utamanya dalam mencapai tujuan dan sasaran tertentu. Terdapat poin IKU pada Perguruan Tinggi</string>
+    <string name="iku1">IKU 1</string>
+    <string name="desc_iku1">Lulusan berhasil mendapatkan pekerjaan, melanjutkan studi, atau menjadi wiraswasta</string>
+    <string name="iku2">IKU 2</string>
+    <string name="desc_iku2">Mahasiswa mendapat pengalaman di luar kampus atau berprestasi nasional / internasional</string>
+    <string name="pengurusan_surat">Pengurusan Sura</string>
+    <string name="title_activity_prodi">ProdiActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

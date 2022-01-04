@@ -14,7 +14,6 @@ import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.databinding.ActivityProfileBinding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
-
 class ProfileActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var binding: ActivityProfileBinding
