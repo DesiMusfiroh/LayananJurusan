@@ -8,14 +8,14 @@
         android:title="@string/title_home"
         app:cnb_iconColor="@color/primary"/>
     <item
-        android:id="@+id/navigation_academic"
+        android:id="@+id/navigation_civitas"
         android:icon="@drawable/ic_academic"
-        android:title="@string/title_academic"
+        android:title="@string/title_civitas"
         app:cnb_iconColor="@color/primary"/>
     <item
-        android:id="@+id/navigation_association"
-        android:icon="@drawable/ic_association"
-        android:title="@string/title_association"
+        android:id="@+id/navigation_iku"
+        android:icon="@drawable/ic_iku"
+        android:title="@string/title_iku"
         app:cnb_iconColor="@color/primary"/>
     <item
         android:id="@+id/navigation_mail"

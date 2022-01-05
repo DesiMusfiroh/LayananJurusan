@@ -1,4 +1,4 @@
-package com.layanan.jurusan.ui.academic
+package com.layanan.jurusan.ui.civitas
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,10 +11,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.layanan.jurusan.R
-import com.layanan.jurusan.databinding.FragmentAcademicBinding
+import com.layanan.jurusan.databinding.FragmentCivitasBinding
 
-class AcademicFragment : Fragment() {
-    private lateinit var binding: FragmentAcademicBinding
+class CivitasFragment : Fragment() {
+    private lateinit var binding: FragmentCivitasBinding
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
@@ -25,7 +25,7 @@ class AcademicFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentAcademicBinding.inflate(layoutInflater, container, false)
+        binding = FragmentCivitasBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

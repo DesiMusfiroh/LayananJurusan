@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="InputText">
@@ -29,7 +30,8 @@
     <style name="Text.Large">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
-        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="fontFamily">@font/noto_sans_bold</item>
+        <item name="color">@android:color/black</item>
     </style>
 
     <style name="Text.Medium">
@@ -48,4 +50,20 @@
         <item name="fontFamily">@font/merriweather_sans</item>
     </style>
 
+    <style name="CustomTextAppearanceTab" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/merriweather_sans</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_dialog_bottom</item>
+    </style>
 </resources>

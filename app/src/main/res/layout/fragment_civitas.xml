@@ -10,16 +10,21 @@
     <TextView
         style="@style/Text.Large"
         android:text="@string/civitas_akademik"
-        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/black"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="4dp"
+        android:layout_marginHorizontal="20dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/bgWhite"
-        app:tabTextColor="@android:color/black"/>
+        android:background="@drawable/tab_layout_bg"
+        app:tabTextColor="@android:color/black"
+        app:tabGravity="start"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab"
+        android:layout_marginHorizontal="8dp"/>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

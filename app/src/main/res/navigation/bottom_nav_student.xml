@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_academic"
-        android:name="com.layanan.jurusan.ui.academic.AcademicFragment"
+        android:id="@+id/navigation_civitas"
+        android:name="com.layanan.jurusan.ui.civitas.CivitasFragment"
         android:label="@string/title_academic"
-        tools:layout="@layout/fragment_academic" />
+        tools:layout="@layout/fragment_civitas" />
 
     <fragment
-        android:id="@+id/navigation_association"
+        android:id="@+id/navigation_iku"
         android:name="com.layanan.jurusan.ui.iku.AssociationFragment"
         android:label="@string/title_association"
-        tools:layout="@layout/fragment_academic" />
+        tools:layout="@layout/fragment_civitas" />
 
     <fragment
         android:id="@+id/navigation_mail"

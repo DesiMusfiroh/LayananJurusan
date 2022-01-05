@@ -77,4 +77,8 @@
     <string name="content_tab_mahasiswa">Mahasiswa</string>
     <string name="content_tab_dosen">Dosen</string>
     <string name="content_tab_alumni">Alumni</string>
+    <string name="cari">Cari ...</string>
+    <string name="title_civitas">Civitas</string>
+    <string name="title_iku">IKU</string>
+    <string name="filter_data_mahasiswa">Filter Data Mahasiswa</string>
 </resources>
