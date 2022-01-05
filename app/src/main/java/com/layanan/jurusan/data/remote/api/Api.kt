@@ -1,6 +1,7 @@
 package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
+import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
 import com.layanan.jurusan.data.remote.response.ResponseApi
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.UserProfileResponse
@@ -76,4 +77,7 @@ interface Api {
 
     @GET("get_user")
     fun getUserProfile(@Header("Authorization") token: String): Call<UserProfileResponse>
+
+    @GET("profil/{name}")
+    fun getProfileProdi(@Path("name") name: String): Call<ProfileProdiResponse>
 }

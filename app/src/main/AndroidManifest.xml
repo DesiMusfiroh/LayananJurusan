@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
+
+        <activity android:name=".ui.prodi.ProdiActivity"></activity>
         <activity android:name=".ui.announcement.ListAnnouncementActivity" />
         <activity android:name=".ui.announcement.AnnouncementActivity" />
         <activity android:name=".ui.jurusan.JurusanActivity" />
