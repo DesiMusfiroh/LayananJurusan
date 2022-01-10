@@ -36,9 +36,6 @@ class LoginActivity : AppCompatActivity() {
                 val username = binding.etUsername.text.toString()
                 val password = binding.etPassword.text.toString()
 
-                Log.d("LoginActivity",username)
-                Log.d("LoginActivity",password)
-
                 viewModel.login(username,password).observe(this,{
                     if(it != null){
                         Log.d("Hasil",it.toString())
@@ -55,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
 //                        viewModel.saveFcmToken(fcmToken,it.token)
 
                         startActivity(Intent(this,DashboardStudentActivity::class.java))
+                        finish()
                     }else {
                         Toast.makeText(this, "Username atau Password salah", Toast.LENGTH_SHORT).show()
                     }

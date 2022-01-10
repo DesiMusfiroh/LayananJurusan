@@ -11,6 +11,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.layanan.jurusan.ui.news.NewsActivity
 
 class FcmServices : FirebaseMessagingService() {
     companion object {
@@ -32,8 +33,8 @@ class FcmServices : FirebaseMessagingService() {
     private fun sendNotification(remoteMessage: RemoteMessage) {
         val channelId = getString(R.string.default_notification_channel_id)
         val channelName = getString(R.string.default_notification_channel_name)
-        val intent = Intent(this, MainActivity::class.java)
-//        intent.putExtra(DetailActivity.EXTRA_HISTORY_ID, remoteMessage.data["historyId"]?.toInt())
+        val intent = Intent(this, NewsActivity::class.java)
+        intent.putExtra(NewsActivity.EXTRA_NEWS, remoteMessage.data["newsId"]?.toInt())
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent,
             PendingIntent.FLAG_CANCEL_CURRENT)

@@ -8,6 +8,7 @@ import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.data.remote.RemoteDataSource
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
+import okhttp3.MultipartBody
 
 class DataRepository private constructor(
         private val remoteDataSource: RemoteDataSource,
@@ -53,4 +54,6 @@ class DataRepository private constructor(
     }
 
     fun getProfileProdi(name: String) = remoteDataSource.getProfileProdi(name)
+
+    fun uploadSignature(image: MultipartBody.Part, jwtToken: String) = remoteDataSource.uploadSignature(image,jwtToken)
 }

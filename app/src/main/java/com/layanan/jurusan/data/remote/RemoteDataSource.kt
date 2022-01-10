@@ -21,6 +21,8 @@ import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
+import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -234,6 +236,28 @@ class RemoteDataSource {
             }
 
             override fun onFailure(call: Call<ProfileProdiResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+        return result
+    }
+
+    fun  uploadSignature(image: MultipartBody.Part, jwtToken: String): LiveData<SignatureResponse>{
+        val result = MutableLiveData<SignatureResponse>()
+        ApiConfig.getApiService().uploadSignature(image,"Bearer ${jwtToken}").enqueue(object : Callback<SignatureResponse>{
+            override fun onResponse(
+                call: Call<SignatureResponse>,
+                response: Response<SignatureResponse>
+            ) {
+                if (response.isSuccessful){
+                    result.postValue(response.body())
+                }else{
+                    Log.d("Failed","Tidak mendapat data jurusan")
+                }
+            }
+
+            override fun onFailure(call: Call<SignatureResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
 

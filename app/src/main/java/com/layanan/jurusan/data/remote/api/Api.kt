@@ -12,6 +12,8 @@ import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.news.ListNewsResponse
+import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -80,4 +82,11 @@ interface Api {
 
     @GET("profil/{name}")
     fun getProfileProdi(@Path("name") name: String): Call<ProfileProdiResponse>
+
+    @Multipart
+    @POST("profile/signature")
+    fun uploadSignature(
+        @Part signature: MultipartBody.Part,
+        @Header("Authorization") token: String
+    ): Call<SignatureResponse>
 }
