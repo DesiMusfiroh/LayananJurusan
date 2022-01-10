@@ -1,4 +1,4 @@
-package com.layanan.jurusan.ui.academic
+package com.layanan.jurusan.ui.civitas
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

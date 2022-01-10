@@ -67,7 +67,7 @@
     <string name="desc_iku1">Lulusan berhasil mendapatkan pekerjaan, melanjutkan studi, atau menjadi wiraswasta</string>
     <string name="iku2">IKU 2</string>
     <string name="desc_iku2">Mahasiswa mendapat pengalaman di luar kampus atau berprestasi nasional / internasional</string>
-    <string name="pengurusan_surat">Pengurusan Sura</string>
+    <string name="pengurusan_surat">Pengurusan Surat</string>
     <string name="title_activity_prodi">ProdiActivity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
@@ -78,4 +78,23 @@
     <string name="content_tab_mahasiswa">Mahasiswa</string>
     <string name="content_tab_dosen">Dosen</string>
     <string name="content_tab_alumni">Alumni</string>
+    <string name="cari">Cari ...</string>
+    <string name="title_civitas">Civitas</string>
+    <string name="title_iku">IKU</string>
+    <string name="filter_data_mahasiswa">Filter Data Mahasiswa</string>
+    <string name="iku3">IKU 3</string>
+    <string name="desc_iku3">Dosen berkegiatan tridharma di kampus lain, bekerja sebagai praktisi, atau memiliki prestasi membimbing mahasiswa</string>
+    <string name="iku4">IKU 4</string>
+    <string name="desc_iku4">Dosen berkualifikasi 53, memiliki sertifikat kompetensi/ profesi, atau berpengalaman kerja sebagai praktisi</string>
+    <string name="iku5">IKU 5</string>
+    <string name="desc_iku5">Hasil kerja dosen atau keluaran penelitian yang mendapat rekognisi internasional atau digunakan oleh industri/ masyarakat/ pemerintah.</string>
+    <string name="iku6">IKU 6</string>
+    <string name="desc_iku6">Program Studi melaksanakan kerjasama dengan mitra</string>
+    <string name="iku7">IKU 7</string>
+    <string name="desc_iku7">Mata kuliah menerapkan project-based learning atau case method</string>
+    <string name="iku8">IKU 8</string>
+    <string name="desc_iku8">Program Studi memiliki akreditasi berstadar internasional</string>
+    <string name="name">Nama</string>
+    <string name="riwayat_pengajuan_surat">Riwayat Pengajuan Surat</string>
+    <string name="pembuatan_surat">Pembuatan Surat</string>
 </resources>

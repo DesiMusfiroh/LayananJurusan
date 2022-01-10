@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_bottom">
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="3dp"
+        android:background="@color/grey"
+        android:layout_gravity="center"/>
+
+    <TextView
+        style="@style/Text.Medium"
+        android:text="@string/filter_data_mahasiswa"
+        android:layout_marginVertical="16dp"/>
+
+</LinearLayout>
+
+
