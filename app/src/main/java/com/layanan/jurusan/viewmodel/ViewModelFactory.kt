@@ -13,6 +13,7 @@ import com.layanan.jurusan.ui.jurusan.JurusanViewModel
 import com.layanan.jurusan.ui.login.LoginViewModel
 import com.layanan.jurusan.ui.news.DetailNewsViewModel
 import com.layanan.jurusan.ui.news.NewsViewModel
+import com.layanan.jurusan.ui.notification.NotificationViewModel
 import com.layanan.jurusan.ui.prodi.ProdiViewModel
 import com.layanan.jurusan.ui.profile.ProfileFragmentViewModel
 import com.layanan.jurusan.ui.profile.ProfileViewModel
@@ -72,6 +73,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(SignatureViewModel::class.java) -> {
                 SignatureViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(NotificationViewModel::class.java) -> {
+                NotificationViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

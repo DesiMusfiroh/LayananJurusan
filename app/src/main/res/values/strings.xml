@@ -97,4 +97,8 @@
     <string name="name">Nama</string>
     <string name="riwayat_pengajuan_surat">Riwayat Pengajuan Surat</string>
     <string name="pembuatan_surat">Pembuatan Surat</string>
+    <string name="no">No</string>
+    <string name="nama">Nama</string>
+    <string name="nim">NIM</string>
+    <string name="desc_notification">Deskripsi Notifikasi</string>
 </resources>

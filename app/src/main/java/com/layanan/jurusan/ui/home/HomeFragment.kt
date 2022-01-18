@@ -21,6 +21,7 @@ import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
+import com.layanan.jurusan.ui.notification.NotificationActivity
 import com.layanan.jurusan.ui.prodi.ProdiActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
@@ -44,6 +45,11 @@ class HomeFragment : Fragment() {
 
         binding.btnProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnNotification.setOnClickListener {
+            val intent = Intent(context, NotificationActivity::class.java)
             startActivity(intent)
         }
 
