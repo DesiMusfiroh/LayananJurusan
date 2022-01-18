@@ -93,7 +93,7 @@
     <string name="iku7">IKU 7</string>
     <string name="desc_iku7">Mata kuliah menerapkan project-based learning atau case method</string>
     <string name="iku8">IKU 8</string>
-    <string name="desc_iku8">Program Studi memiliki akreditasi berstadar internasional</string>
+    <string name="desc_iku8">Program Studi memiliki akreditasi berstandar internasional</string>
     <string name="name">Nama</string>
     <string name="riwayat_pengajuan_surat">Riwayat Pengajuan Surat</string>
     <string name="pembuatan_surat">Pembuatan Surat</string>
@@ -101,4 +101,8 @@
     <string name="nama">Nama</string>
     <string name="nim">NIM</string>
     <string name="desc_notification">Deskripsi Notifikasi</string>
+    <string name="title_info">Info</string>
+    <string name="sistem_layanan_jurusan">Sistem\nLayanan\nJurusan</string>
+    <string name="jenis_surat">Jenis Surat</string>
+    <string name="deskripsi_surat">Deskripsi Surat</string>
 </resources>

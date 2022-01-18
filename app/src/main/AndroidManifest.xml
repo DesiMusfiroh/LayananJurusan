@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.notification.NotificationActivity"></activity>
+        <activity android:name=".ui.document.ListDocumentActivity"></activity>
+        <activity android:name=".ui.notification.NotificationActivity" />
         <activity android:name=".ui.profile.SignatureActivity" />
         <activity android:name=".ui.iku.Iku1Activity" />
         <activity android:name=".ui.prodi.ProdiActivity" />

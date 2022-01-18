@@ -90,16 +90,27 @@
 
                     <TextView
                         android:id="@+id/desc_iku1"
+                        style="@style/Text.Menu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginBottom="10dp"
                         android:text="@string/desc_iku1"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/next1"
                         app:layout_constraintStart_toEndOf="@+id/title_iku1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                        android:id="@+id/next1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -131,16 +142,27 @@
 
                     <TextView
                         android:id="@+id/desc_iku2"
+                        style="@style/Text.Menu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginBottom="10dp"
                         android:text="@string/desc_iku2"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/next2"
                         app:layout_constraintStart_toEndOf="@+id/title_iku2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                        android:id="@+id/next2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -171,6 +193,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -212,6 +235,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -253,6 +277,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku5"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -294,6 +319,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku6"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -335,6 +361,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku7"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -376,6 +403,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        style="@style/Text.Menu"
                         android:id="@+id/desc_iku8"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
