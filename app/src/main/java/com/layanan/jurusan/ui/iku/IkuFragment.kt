@@ -23,5 +23,9 @@ class AssociationFragment : Fragment() {
             val iku1Intent = Intent(context, Iku1Activity::class.java)
             startActivity(iku1Intent)
         }
+        binding.cardIku2.setOnClickListener {
+            val iku2Intent = Intent(context, Iku2Activity::class.java)
+            startActivity(iku2Intent)
+        }
     }
 }

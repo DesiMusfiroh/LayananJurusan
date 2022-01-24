@@ -86,26 +86,31 @@
                         android:layout_margin="10dp">
 
                         <TableRow
-                            >
+                            android:background="@color/primary">
 
                             <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/no"
-                                style="@style/table_head"
+                                android:textColor="@android:color/white"
                                 android:padding="10sp"
-                                android:textSize="14sp"/>
+                                android:textSize="14sp"
+                                android:gravity="center_horizontal"/>
+
+
                             <TextView
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="@string/nim"
-                                style="@style/table_head"
+                                android:textColor="@android:color/white"
                                 android:padding="10sp"
-                                android:textSize="14sp"/>
+                                android:textSize="14sp"
+
+                                android:gravity="center_horizontal" />
                             <TextView
                                 android:layout_width="300dp"
                                 android:layout_height="wrap_content"
-                                style="@style/table_head"
+                                android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="@string/nama"
                                 android:textColor="@android:color/white"
@@ -113,7 +118,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                style="@style/table_head"
+                                android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="Jenjang Prodi"
                                 android:textColor="@android:color/white"
@@ -121,7 +126,7 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                style="@style/table_head"
+                                android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="Nama Prodi"
                                 android:textColor="@android:color/white"
@@ -129,24 +134,24 @@
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                style="@style/table_head"
+                                android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="Nomor Ijazah"
+                                android:textColor="@android:color/white"
                                 android:textSize="14sp" />
                             <TextView
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                style="@style/table_head"
+                                android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="Tanggal Ijazah"
-                                android:textSize="14sp"
-                                />
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
                             <LinearLayout
                                 android:orientation="vertical"
                                 android:layout_width="1700dp"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:background="@color/primary">
+                                android:gravity="center_horizontal">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -162,65 +167,74 @@
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Masa Tunggu"
-                                        android:textSize="14sp"
-                                        style="@style/table_head"/>
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="250dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Kota Tempat Kerja"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="UMK Kota"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Penghasilan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Presentase dari UMK"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Kriteria Perusahaan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Nama Perusahaan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Perjanjian Kerja"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Ijin Usaha"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -229,8 +243,7 @@
                                 android:orientation="vertical"
                                 android:layout_width="1700dp"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:background="@color/primary">
+                                android:gravity="center_horizontal">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -246,67 +259,76 @@
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Masa Tunggu"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="250dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Kota Tempat Kerja"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="UMK Kota"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Penghasilan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Presentase dari UMK"
-                                        style="@style/table_head"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Kriteria Kewiraswastaan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Kriteria Usaha"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
 
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
-                                        style="@style/table_head"
                                         android:text="Nama Usaha"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Ijin Usaha"
-                                        style="@style/table_head"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -315,8 +337,7 @@
                                 android:orientation="vertical"
                                 android:layout_width="800dp"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:background="@color/primary">
+                                android:gravity="center_horizontal">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -331,30 +352,34 @@
                                     <TextView
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Masa Tunggu"
-                                        style="@style/table_head"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
-                                        style="@style/table_head"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Jenjang Prodi Lanjutan"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="200dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Nama Prodi"
-                                        style="@style/table_head"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                     <TextView
                                         android:layout_width="250dp"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
                                         android:padding="10sp"
                                         android:text="Nama Perguruan Tinggi"
-                                        style="@style/table_head"
+                                        android:textColor="@android:color/white"
                                         android:textSize="14sp" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -364,11 +389,11 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:text="Bukti"
-                                android:textSize="14sp"
-                                style="@style/table_head"/>
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
                         </TableRow>
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_iku1"
+                            android:id="@+id/rv_news"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             tools:listitem="@layout/item_iku1"
@@ -382,33 +407,33 @@
         </ScrollView>
     </FrameLayout>
 
-    <!--    <?xml version="1.0" encoding="utf-8"?>-->
-    <!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:orientation="vertical" >-->
-    <!--        <ScrollView-->
-    <!--            android:id="@+id/layout"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:scrollbars="horizontal|vertical"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_marginTop="5dip"-->
-    <!--            android:scrollbarStyle="outsideInset"-->
-    <!--            android:fillViewport="true">-->
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical" >-->
+<!--        <ScrollView-->
+<!--            android:id="@+id/layout"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scrollbars="horizontal|vertical"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginTop="5dip"-->
+<!--            android:scrollbarStyle="outsideInset"-->
+<!--            android:fillViewport="true">-->
 
-    <!--            <HorizontalScrollView-->
-    <!--                android:id="@+id/horizontalView"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:scrollbars="horizontal|vertical"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_marginTop="5dip">-->
+<!--            <HorizontalScrollView-->
+<!--                android:id="@+id/horizontalView"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:scrollbars="horizontal|vertical"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_marginTop="5dip">-->
 
-    <!--                <TableLayout-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:id="@+id/tlGridTable" >-->
-    <!--                </TableLayout>-->
-    <!--            </HorizontalScrollView>-->
-    <!--        </ScrollView>-->
-    <!--    </LinearLayout>-->
+<!--                <TableLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/tlGridTable" >-->
+<!--                </TableLayout>-->
+<!--            </HorizontalScrollView>-->
+<!--        </ScrollView>-->
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

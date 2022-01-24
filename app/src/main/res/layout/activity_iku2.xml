@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.announcement.AnnouncementActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/primary"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            style="@style/Text.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/iku2"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal|vertical"
+            android:scrollbarStyle="outsideInset"
+            android:background="@drawable/bg_top_radius_white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="50dp"
+                    android:layout_height="3dp"
+                    android:background="@color/grey"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/Text.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/desc_iku2"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalView2"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal|vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dip"
+                    android:padding="5dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:layout_margin="10dp">
+
+                        <TableRow
+                            android:background="@color/primary">
+
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no"
+                                android:textColor="@android:color/white"
+                                android:padding="10sp"
+                                android:textSize="14sp"
+                                android:gravity="center_horizontal"/>
+
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nim"
+                                android:textColor="@android:color/white"
+                                android:padding="10sp"
+                                android:textSize="14sp"
+
+                                android:gravity="center_horizontal" />
+                            <TextView
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:text="@string/nama"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:text="Jenjang Prodi"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:text="Nama Prodi"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:text="SKS"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="700dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_horizontal"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp"
+                                    android:text="Pengalaman Luar Kampus"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Jenis Kegiatan"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="250dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Nama Tempat Kegiatan"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Dosen Pembimbing"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="SK Rektor"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="800dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_horizontal"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="14sp"
+                                    android:text="Prestasi Nasional / Internasional"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Juara"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="250dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Nama Lomba"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="200dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Penyelenggara"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="200dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal"
+                                        android:padding="10sp"
+                                        android:text="Dosen Pembimbing"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="14sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:text="Bukti"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp" />
+                        </TableRow>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_iku2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_iku2"
+                            />
+
+                    </TableLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

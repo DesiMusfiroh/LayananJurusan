@@ -8,6 +8,8 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
+import com.layanan.jurusan.data.remote.response.iku.Iku1Response
+import com.layanan.jurusan.data.remote.response.iku.Iku2Response
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
@@ -89,4 +91,10 @@ interface Api {
         @Part signature: MultipartBody.Part,
         @Header("Authorization") token: String
     ): Call<SignatureResponse>
+
+    @GET("iku/iku1/{year}")
+    fun getIku1(@Path("year") year: String): Call<Iku1Response>
+
+    @GET("iku/iku2/{year}")
+    fun getIku2(@Path("year") year: String): Call<Iku2Response>
 }
