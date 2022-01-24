@@ -22,6 +22,19 @@
         <item name="android:layout_marginTop">12dp</item>
     </style>
 
+    <style name="table_head">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/bg_cell_table_head</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="table_cell_body">
+        <item name="android:background">@drawable/bg_cell_table_body</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="Text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
