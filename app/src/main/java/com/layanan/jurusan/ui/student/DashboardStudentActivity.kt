@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.layanan.jurusan.R
 import com.layanan.jurusan.databinding.ActivityDashboardStudentBinding
 import com.layanan.jurusan.ui.civitas.CivitasFragment
-import com.layanan.jurusan.ui.iku.AssociationFragment
+import com.layanan.jurusan.ui.iku.IkuFragment
 import com.layanan.jurusan.ui.home.HomeFragment
 import com.layanan.jurusan.ui.mail.MailFragment
 
@@ -32,7 +32,7 @@ class DashboardStudentActivity : AppCompatActivity() {
         binding.navView.setOnItemSelectedListener {
             val fragment: Fragment = when (it) {
                 R.id.navigation_civitas ->  CivitasFragment()
-                R.id.navigation_iku ->  AssociationFragment()
+                R.id.navigation_iku ->  IkuFragment()
                 R.id.navigation_mail -> MailFragment()
                 else -> HomeFragment()
             }

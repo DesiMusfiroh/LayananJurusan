@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_iku"
-        android:name="com.layanan.jurusan.ui.iku.AssociationFragment"
+        android:name="com.layanan.jurusan.ui.iku.IkuFragment"
         android:label="@string/title_association"
         tools:layout="@layout/fragment_civitas" />
 

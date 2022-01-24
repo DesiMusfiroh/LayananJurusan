@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.layanan.jurusan.R
 
 import com.layanan.jurusan.databinding.ActivityIku2Binding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
 class Iku2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityIku2Binding
-    private lateinit var viewModel: Iku2ViewModel
+    private lateinit var viewModel: IkuViewModel
     private lateinit var adapter: Iku2Adapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +20,7 @@ class Iku2Activity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[Iku2ViewModel::class.java]
+        viewModel = ViewModelProvider(this, factory)[IkuViewModel::class.java]
 
         populateIku2()
     }

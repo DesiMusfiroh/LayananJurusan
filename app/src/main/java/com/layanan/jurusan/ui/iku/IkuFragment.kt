@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.layanan.jurusan.databinding.FragmentIkuBinding
 
-class AssociationFragment : Fragment() {
+class IkuFragment : Fragment() {
     private lateinit var binding: FragmentIkuBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -105,4 +105,25 @@
     <string name="sistem_layanan_jurusan">Sistem\nLayanan\nJurusan</string>
     <string name="jenis_surat">Jenis Surat</string>
     <string name="deskripsi_surat">Deskripsi Surat</string>
+    <string name="tanggal_ijasah">Tanggal Ijasah</string>
+    <string name="dots"> : </string>
+    <string name="nomor_ijasah">Nomor Ijasah</string>
+    <string name="mendapat_pekerjaan">Mendapat Pekerjaan</string>
+    <string name="bukti">Bukti</string>
+    <string name="masa_tunggu">Masa Tunggu</string>
+    <string name="kota_tempat_kerja">Kab/Kota Tempat Kerja</string>
+    <string name="umk_kota">UMK Kab/Kota</string>
+    <string name="penghasilan">Penghasilan</string>
+    <string name="kriteria_perusahaan">Kriteria Perusahaan</string>
+    <string name="nama_lembaga_perusahaan">Nama Lembaga Perusahaan</string>
+    <string name="wiraswasta">Wiraswasta</string>
+    <string name="melanjutkan_studi">Melanjutkan Studi</string>
+    <string name="perjanjian_kerja">Perjanjian Kerja</string>
+    <string name="izin_usaha">Izin Usaha</string>
+    <string name="kriteria_kewiraswastaan">Kriteria Kewiraswastaan</string>
+    <string name="kriteria_usaha">Kriteria Usaha</string>
+    <string name="nama_usaha">Nama Usaha</string>
+    <string name="jenjang_prodi_lanjutan">Jenjang Prodi Lanjutan</string>
+    <string name="nama_prodi">Nama Prodi</string>
+    <string name="nama_perguruan_tinggi">Nama Perguruan Tinggi</string>
 </resources>
