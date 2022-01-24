@@ -7,28 +7,29 @@
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-        <TextView
-            android:id="@+id/tv_nama"
-            style="@style/Text.Regular"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nama"/>
-        <TextView
-            android:id="@+id/tv_prodi"
-            style="@style/Text.Small"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/prodi"/>
-        <TextView
-            android:id="@+id/tv_ijazah"
-            style="@style/Text.Small"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tanggal_ijasah"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tv_nama"
+                style="@style/Text.Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nama"/>
+            <TextView
+                android:id="@+id/tv_prodi"
+                style="@style/Text.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/prodi"/>
+            <TextView
+                android:id="@+id/tv_ijazah"
+                style="@style/Text.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tanggal_ijasah"/>
+        </LinearLayout>
+
 </androidx.cardview.widget.CardView>

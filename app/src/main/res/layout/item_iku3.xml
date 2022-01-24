@@ -19,11 +19,11 @@
             android:layout_height="wrap_content"
             android:text="@string/nama"/>
         <TextView
-            android:id="@+id/tv_prodi"
+            android:id="@+id/tv_nim"
             style="@style/Text.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/prodi"/>
+            android:text="@string/nim"/>
         <TextView
             android:id="@+id/tv_pengalaman_luar_kampus"
             style="@style/Text.Small"

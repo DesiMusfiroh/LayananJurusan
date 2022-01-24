@@ -1,10 +1,14 @@
 package com.layanan.jurusan.ui.iku
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -59,11 +63,10 @@ class Iku1Activity : AppCompatActivity() {
     @SuppressLint("InflateParams")
     private fun showDialogData(data: Iku1Model) {
         val dialog = BottomSheetDialog(this)
-        val view = layoutInflater.inflate(R.layout.dialog_iku1, null)
+//        val view = layoutInflater.inflate(R.layout.dialog_iku1, null)
+//        val tvNama = view.findViewById<TextView>(R.id.tv_nama)
 
         val dialogIku1Binding = DialogIku1Binding.inflate(layoutInflater)
-        dialog.setContentView(dialogIku1Binding.root)
-
 
         dialogIku1Binding.apply {
             tvNama.text = data.nama
@@ -100,10 +103,20 @@ class Iku1Activity : AppCompatActivity() {
             tvJenjangProdiLanjutan.text = data.melanjutkanStudi?.jenjangProdiLanjutan
             tvNamaProdi.text = data.melanjutkanStudi?.namaProdi
             tvNamaPerguruanTinggi.text = data.melanjutkanStudi?.namaPerguruanTinggi
-        }
 
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.setContentView(view)
+            if (data.mendapatPekerjaan?.namaPerusahaan == null) tableMendapatPekerjaan.visibility = GONE
+            if (data.wiraswasta?.namaUsaha == null) tableWiraswasta.visibility = GONE
+            if (data.melanjutkanStudi?.namaPerguruanTinggi == null) tableMelanjutkanStudi.visibility = GONE
+
+            btnBukti.setOnClickListener {
+                val url = data.bukti
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                startActivity(intent)
+            }
+        }
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.setContentView(dialogIku1Binding.root)
         dialog.show()
     }
 
