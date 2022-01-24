@@ -101,4 +101,6 @@
     <string name="nama">Nama</string>
     <string name="nim">NIM</string>
     <string name="desc_notification">Deskripsi Notifikasi</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
 </resources>

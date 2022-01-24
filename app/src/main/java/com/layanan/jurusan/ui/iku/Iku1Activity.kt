@@ -1,15 +1,16 @@
 package com.layanan.jurusan.ui.iku
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.DatePicker
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.layanan.jurusan.R
 import com.layanan.jurusan.databinding.ActivityIku1Binding
-import com.layanan.jurusan.ui.news.ListNewsAdapter
-import com.layanan.jurusan.ui.news.NewsViewModel
 import com.layanan.jurusan.viewmodel.ViewModelFactory
+
 
 class Iku1Activity : AppCompatActivity() {
     private lateinit var binding: ActivityIku1Binding
@@ -43,4 +44,6 @@ class Iku1Activity : AppCompatActivity() {
 
 
     }
+
+
 }
