@@ -75,9 +75,6 @@ class Iku1Activity : AppCompatActivity() {
     @SuppressLint("InflateParams")
     private fun showDialogData(data: Iku1Model) {
         val dialog = BottomSheetDialog(this)
-//        val view = layoutInflater.inflate(R.layout.dialog_iku1, null)
-//        val tvNama = view.findViewById<TextView>(R.id.tv_nama)
-
         val dialogIku1Binding = DialogIku1Binding.inflate(layoutInflater)
 
         dialogIku1Binding.apply {
@@ -131,5 +128,4 @@ class Iku1Activity : AppCompatActivity() {
             dialog.setContentView(dialogIku1Binding.root)
         dialog.show()
     }
-
 }

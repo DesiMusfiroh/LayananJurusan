@@ -25,14 +25,22 @@
             android:layout_height="wrap_content"
             android:text="@string/nim"/>
         <TextView
-            android:id="@+id/tv_pengalaman_luar_kampus"
+            android:id="@+id/tv_kegiatan_tridharma"
             style="@style/Text.Small"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
         <TextView
-            android:id="@+id/tv_prestasi"
+            android:id="@+id/tv_praktisi"
             style="@style/Text.Small"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_prestasi_membimbing"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
