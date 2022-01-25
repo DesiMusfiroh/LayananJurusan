@@ -101,6 +101,10 @@
     <string name="nama">Nama</string>
     <string name="nim">NIM</string>
     <string name="desc_notification">Deskripsi Notifikasi</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
+
     <string name="title_info">Info</string>
     <string name="sistem_layanan_jurusan">Sistem\nLayanan\nJurusan</string>
     <string name="jenis_surat">Jenis Surat</string>
@@ -126,6 +130,7 @@
     <string name="jenjang_prodi_lanjutan">Jenjang Prodi Lanjutan</string>
     <string name="nama_prodi">Nama Prodi</string>
     <string name="nama_perguruan_tinggi">Nama Perguruan Tinggi</string>
+
     <string name="pengalaman_luar_kampus">Pengalaman Luar Kampus</string>
     <string name="prestasi_nasional_internasional">Prestasi Nasional / Internasional</string>
     <string name="sks">SKS</string>

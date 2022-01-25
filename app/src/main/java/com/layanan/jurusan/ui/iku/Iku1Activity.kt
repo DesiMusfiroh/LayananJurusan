@@ -1,14 +1,18 @@
 package com.layanan.jurusan.ui.iku
 
+import android.app.DatePickerDialog
+import android.util.Log
+import android.view.View
+import android.widget.DatePicker
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -21,11 +25,16 @@ import java.lang.StringBuilder
 import java.text.DecimalFormat
 import java.util.*
 
+
 class Iku1Activity : AppCompatActivity() {
     private lateinit var binding: ActivityIku1Binding
     private lateinit var viewModel: IkuViewModel
     private lateinit var adapter: Iku1Adapter
     private lateinit var dataResponse: List<Iku1Model>
+
+    companion object {
+        const val EXTRA_YEAR = "year"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +45,13 @@ class Iku1Activity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[IkuViewModel::class.java]
 
-        populateIku1()
+        val extras = intent.extras
+        val year = extras?.getString(EXTRA_YEAR,"0")
+        Log.d("ExtraTahun",year!!)
+        populateIku1(year)
     }
 
-    private fun populateIku1() {
+    private fun populateIku1(year: String) {
         viewModel.getIku1("2022").observe(this, { data ->
             dataResponse = data
             if (data !== null) {

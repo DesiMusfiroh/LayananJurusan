@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,9 @@ class Iku2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityIku2Binding
     private lateinit var viewModel: IkuViewModel
     private lateinit var adapter: Iku2Adapter
+    companion object {
+        const val EXTRA_YEAR = "year"
+    }
     private lateinit var dataResponse: List<Iku2Model>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +34,18 @@ class Iku2Activity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[IkuViewModel::class.java]
 
-        populateIku2()
+        val extras = intent.extras
+        val year = extras?.getString(EXTRA_YEAR,"0")
+        Log.d("ExtraTahun",year!!)
+        populateIku2(year)
     }
 
-    private fun populateIku2() {
-        viewModel.getIku2("2022").observe(this,{ data ->
-            dataResponse = data
+    private fun populateIku2(year: String) {
+        viewModel.getIku2(year).observe(this,{
+            Log.d("Iku2Activity",it.toString())
+            dataResponse = it
             adapter = Iku2Adapter(dataResponse)
+
             adapter.notifyDataSetChanged()
 
             with(binding){
