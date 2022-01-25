@@ -19,11 +19,11 @@
             android:layout_height="wrap_content"
             android:text="@string/nama"/>
         <TextView
-            android:id="@+id/tv_nim"
+            android:id="@+id/tv_no_induk"
             style="@style/Text.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nim"/>
+            android:text="@string/no_induk"/>
         <TextView
             android:id="@+id/tv_kegiatan_tridharma"
             style="@style/Text.Small"

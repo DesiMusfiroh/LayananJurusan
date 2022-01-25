@@ -136,4 +136,25 @@
     <string name="juara">Juara</string>
     <string name="nama_lomba">Nama Lomba</string>
     <string name="penyelenggara">Penyelenggara</string>
+    <string name="no_induk">Nomor Induk</string>
+    <string name="mitra">Mitra</string>
+    <string name="no_pks">No PKS</string>
+    <string name="nama_kegiatan">Nama Kegiatan</string>
+    <string name="tipe_mitra">Tipe Mitra</string>
+    <string name="mata_kuliah">Mata Kuliah</string>
+    <string name="metode_pembelajaran">Metode Pembelajaran</string>
+    <string name="tipe_lembaga">Tipe Lembaga Akreditasi</string>
+    <string name="no_sk">No SK</string>
+    <string name="nidn_nidk">NIDN/NIDK</string>
+    <string name="kegiatan_tridharma_kampus_lain">Kegiatan Tridharma Kampus Lain</string>
+    <string name="praktisi">Praktisi</string>
+    <string name="prestasi_membimbing_mahasiswa">Prestasi Membimbing Mahasiswa</string>
+    <string name="tipe_kampus">Tipe Kampus</string>
+    <string name="nama_kampus">Nama Kampus</string>
+    <string name="jenis_pekerjaan">Jenis Pekerjaan</string>
+    <string name="jenis_perusahaan">Jenis Perusahaan</string>
+    <string name="persetujuan">Persetujuan Prodi/Dekan/Rektor</string>
+    <string name="tipe_lomba">Tipe Lomba</string>
+    <string name="nama_mahasiswa">Nama Mahasiswa</string>
+    <string name="berkualifikasi_s3">Berkualifikasi S3</string>
 </resources>

@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/prodi"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_prodi" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/mitra"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_mitra"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/jenis_kegiatan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_jenis_kegiatan"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nama_kegiatan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nama_kegiatan"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/tipe_mitra"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_tipe_mitra"/>
+        </TableRow>
+
+        <TextView
+            android:id="@+id/tv_no_pks"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_pks"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
