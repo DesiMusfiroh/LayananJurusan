@@ -1,6 +1,7 @@
 package com.layanan.jurusan.ui.iku
 
 import android.view.LayoutInflater
+import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -23,26 +24,10 @@ class Iku2Adapter(private val list: List<Iku2Model>) : RecyclerView.Adapter<Iku2
             with(binding){
                 tvNama.text = data.nama
                 tvProdi.text = StringBuilder("${data.nim} ( ${data.jenjangProdi} - ${data.namaProdi} )")
-                if (data.pengalamanLuarKampus != null) tvPengalamanLuarKampus.text = StringBuilder(" - ${data.pengalamanLuarKampus.namaTempat}")
-                else tvPengalamanLuarKampus.isVisible = false
-                if (data.prestasi != null) tvPrestasi.text = StringBuilder(" - ${data.prestasi.namaLomba}")
-                else tvPrestasi.isVisible = false
-
-//                val no = position + 1
-//                tvNo.text = no.toString()
-//                tvNama.text = data.nama
-//                tvNim.text = data.nim
-//                tvJenjangProdi.text = data.jenjangProdi
-//                tvNamaProdi.text = data.namaProdi
-//                tvSks.text = data.pengalamanLuarKampus?.sks
-//                tvJenisKegiatan.text = data.pengalamanLuarKampus?.jenisKegiatan
-//                tvNamaTempatKegiatan.text = data.pengalamanLuarKampus?.namaTempat
-//                tvDosenPembimbing.text = data.pengalamanLuarKampus?.dosenPembimbing
-//                tvSkRektor.text = data.pengalamanLuarKampus?.noSk
-//                tvJuara.text = data.prestasi?.juara
-//                tvNamaLomba.text = data.prestasi?.namaLomba
-//                tvPenyelenggara.text = data.prestasi?.penyelenggara
-//                tvDosenPembimbingLomba.text = data.prestasi?.dosenPembimbing
+                if (data.pengalamanLuarKampus != null) tvPengalamanLuarKampus.text = StringBuilder(" - ${data.pengalamanLuarKampus.jenisKegiatan} ( ${data.pengalamanLuarKampus.namaTempat} )")
+                else tvPengalamanLuarKampus.visibility = GONE
+                if (data.prestasi != null) tvPrestasi.text = StringBuilder(" - ${data.prestasi.juara} ( ${data.prestasi.namaLomba} )")
+                else tvPrestasi.visibility = GONE
             }
         }
     }

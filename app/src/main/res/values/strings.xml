@@ -126,4 +126,14 @@
     <string name="jenjang_prodi_lanjutan">Jenjang Prodi Lanjutan</string>
     <string name="nama_prodi">Nama Prodi</string>
     <string name="nama_perguruan_tinggi">Nama Perguruan Tinggi</string>
+    <string name="pengalaman_luar_kampus">Pengalaman Luar Kampus</string>
+    <string name="prestasi_nasional_internasional">Prestasi Nasional / Internasional</string>
+    <string name="sks">SKS</string>
+    <string name="jenis_kegiatan">Jenis Kegiatan</string>
+    <string name="nama_tempat_kegiatan">Nama Tempat Kegiatan</string>
+    <string name="dosen_pembimbing">Dosen Pembimbing</string>
+    <string name="sk_rektor">SK Rektor</string>
+    <string name="juara">Juara</string>
+    <string name="nama_lomba">Nama Lomba</string>
+    <string name="penyelenggara">Penyelenggara</string>
 </resources>
