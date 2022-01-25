@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="4">
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="50dp"
+            android:text="@string/no"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_nim"
+            android:layout_width="100dp"
+            android:text="@string/nim"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="300dp"
+            android:text="@string/nama"
+            android:padding="10sp"
+            style="@style/table_cell_body"
+            />
+        <TextView
+            android:id="@+id/tv_jenjang_prodi"
+            android:layout_width="150dp"
+            android:text="Jenjang Prodi"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_nama_prodi"
+            android:layout_width="150dp"
+            android:text="Nama Prodi"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_nomor_ijazah"
+            android:layout_width="150dp"
+            android:text="Nomor Ijazah"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_tanggal_ijazah"
+            android:layout_width="150dp"
+            android:text="Tanggal Ijazah"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_masa_tunggu"
+            android:layout_width="150dp"
+            android:text="Masa Tunggu"
+            android:padding="10sp"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_kota_tempat_kerja"
+            android:layout_width="250dp"
+            android:padding="10sp"
+            android:text="Kota Tempat Kerja"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_umk"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="UMK Kota"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_penghasilan"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="Penghasilan"
+            style="@style/table_cell_body"
+            />
+        <TextView
+            android:id="@+id/tv_presentase_dari_umk"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Presentase dari UMK"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_kriteria_perusahaan"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Kriteria Perusahaan"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_nama_perusahaan"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Nama Perusahaan"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_perjanjian_kerja"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Perjanjian Kerja"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_ijin_usaha"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Ijin Usaha"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_masa_tunggu_usaha"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="Masa Tunggu"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_kota_tempat_usaha"
+            android:layout_width="250dp"
+            android:padding="10sp"
+            android:text="Kota Tempat Kerja"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_umk_kota_usaha"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="UMK Kota"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_penghasilan_usaha"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="Penghasilan"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_presentase_dari_umk_usaha"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Presentase dari UMK"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_kriteria_kewiraswastaan"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Kriteria Kewiraswastaan"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_kriteria_usaha"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Kriteria Usaha"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:id="@+id/tv_nama_usaha"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Nama Usaha"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_ijin_usaha_wiraswasta"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Ijin Usaha"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_masa_tunggu_lanjutan_studi"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="Masa Tunggu"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_jenjang_prodi_lanjutan"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Jenjang Prodi Lanjutan"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_nama_prodi_lanjutan"
+            android:layout_width="200dp"
+            android:padding="10sp"
+            android:text="Nama Prodi"
+            style="@style/table_cell_body"/>
+        <TextView
+            android:id="@+id/tv_perguruan_tinggi"
+            android:layout_width="250dp"
+            android:padding="10sp"
+            android:text="Nama Perguruan Tinggi"
+            style="@style/table_cell_body"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:text="Bukti"
+            style="@style/table_cell_body"/>
+</TableRow>

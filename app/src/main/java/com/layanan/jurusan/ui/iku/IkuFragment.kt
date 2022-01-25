@@ -14,7 +14,8 @@ import com.layanan.jurusan.utils.YearPickerDialog
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AssociationFragment : Fragment(), DatePickerDialog.OnDateSetListener {
+
+class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: FragmentIkuBinding
     private lateinit var yearText: String
     private val format = SimpleDateFormat("yyyy",Locale.getDefault())
@@ -29,10 +30,12 @@ class AssociationFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
         binding.cardIku1.setOnClickListener {
             val iku1Intent = Intent(context, Iku1Activity::class.java)
+            iku1Intent.putExtra(Iku1Activity.EXTRA_YEAR,yearText)
             startActivity(iku1Intent)
         }
         binding.cardIku2.setOnClickListener {
             val iku2Intent = Intent(context, Iku2Activity::class.java)
+            iku2Intent.putExtra()
             startActivity(iku2Intent)
         }
 

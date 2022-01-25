@@ -186,191 +186,140 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"/>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/menu_document"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/menu_news"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_document"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        app:cardUseCompatPadding="true">
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="50dp"
+                        android:elevation="8dp"
+                        android:layout_marginTop="2dp">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_menu_card">
-
-                            <ImageView
-                                android:id="@+id/img_icon_document"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/ic_file"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/title_document"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/img_icon_document" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:padding="10dp"
+                            android:src="@drawable/ic_file"/>
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_mail"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        app:cardUseCompatPadding="true">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_menu_card">
-
-                            <ImageView
-                                android:id="@+id/img_icon_mail"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/ic_mail"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/title_mail"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/img_icon_mail" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_jurusan"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        app:cardUseCompatPadding="true">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_menu_card">
-
-                            <ImageView
-                                android:id="@+id/img_icon_jurusan"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/ic_mail"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/title_jurusan"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/img_icon_jurusan" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_data_mahasiswa"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        app:cardUseCompatPadding="true">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_menu_card">
-
-                            <ImageView
-                                android:id="@+id/img_icon_mahasiswa"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/ic_mail"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/title_data_mahasiswa"
-                                android:gravity="center"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/img_icon_mahasiswa" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_data_dosen"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
-                        app:cardUseCompatPadding="true">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_menu_card">
-
-                            <ImageView
-                                android:id="@+id/img_icon_dosen"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/ic_mail"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/title_data_dosen"
-                                android:gravity="center"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/img_icon_dosen" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        style="@style/Text.Menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/title_document" />
                 </LinearLayout>
 
-            </androidx.core.widget.NestedScrollView>
+                <LinearLayout
+                    android:id="@+id/menu_news"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/menu_announcement"
+                    app:layout_constraintStart_toEndOf="@+id/menu_document"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="50dp"
+                        android:elevation="8dp"
+                        android:layout_marginTop="2dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_news"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        style="@style/Text.Menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/title_news" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_announcement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/menu_jurusan"
+                    app:layout_constraintStart_toEndOf="@+id/menu_news"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="50dp"
+                        android:elevation="8dp"
+                        android:layout_marginTop="2dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_announcement"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        style="@style/Text.Menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/title_info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_jurusan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/menu_announcement"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="50dp"
+                        android:elevation="8dp"
+                        android:layout_marginTop="2dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_jurusan"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        style="@style/Text.Menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/title_jurusan" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -418,10 +367,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="36dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/card_teknik_elektro"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_universitas">
 
@@ -443,10 +394,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="36dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/card_sistem_informasi"
                     app:layout_constraintTop_toBottomOf="@+id/tv_universitas">
 
@@ -454,12 +408,12 @@
                         style="@style/Text.Regular"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginHorizontal="8dp"
-                        android:layout_marginBottom="12dp"
                         android:layout_gravity="center"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
                         android:gravity="center"
-                        android:text="@string/prodi_teknik_elektro"/>
+                        android:text="@string/prodi_teknik_elektro" />
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

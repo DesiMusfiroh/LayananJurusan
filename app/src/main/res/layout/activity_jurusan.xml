@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal"
         android:background="@color/primaryLight"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="12dp">
 
@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profil_jurusan"
-            android:layout_marginStart="20dp"/>
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"/>
     </LinearLayout>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                     style="@style/Text.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="@string/name_jurusan"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +117,6 @@
             <TextView
                 android:id="@+id/tv_desc"
                 style="@style/Text.Regular"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -137,7 +136,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView5"
+                    android:id="@+id/card_si"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -145,7 +144,7 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView4"
+                    app:layout_constraintEnd_toStartOf="@+id/card_te"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -162,7 +161,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView4"
+                    android:id="@+id/card_te"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
@@ -171,7 +170,7 @@
                     app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView5"
+                    app:layout_constraintStart_toEndOf="@+id/card_si"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView

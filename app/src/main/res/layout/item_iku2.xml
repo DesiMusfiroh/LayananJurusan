@@ -1,128 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/tv_no"
-        android:layout_width="50dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/tv_nim"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="@string/nim"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_nama"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="@string/nama"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_jenjang_prodi"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Jenjang Prodi"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_nama_prodi"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Nama Prodi"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_sks"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="SKS"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_jenis_kegiatan"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Jenis Kegiatan"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_nama_tempat_kegiatan"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Nama Tempat Kegiatan"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_dosen_pembimbing"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Dosen Pembimbing"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_sk_rektor"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="SK Rektor"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_juara"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Juara"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_nama_lomba"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Nama Lomba"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_penyelenggara"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Penyelenggara"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_dosen_pembimbing_lomba"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Dosen Pembimbing"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/tv_bukti"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Bukti"
-        android:padding="10sp"
-        android:textSize="14sp"
-        android:gravity="center_horizontal" />
-
-</TableRow>
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tv_nama"
+            style="@style/Text.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nama"/>
+        <TextView
+            android:id="@+id/tv_prodi"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prodi"/>
+        <TextView
+            android:id="@+id/tv_pengalaman_luar_kampus"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_prestasi"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

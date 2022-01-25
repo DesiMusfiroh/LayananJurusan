@@ -26,4 +26,7 @@ data class Iku2Model(
 
     @SerializedName("prestasi")
     val prestasi: PrestasiModel?,
+
+    @SerializedName("tahun")
+    val tahun: String,
 )

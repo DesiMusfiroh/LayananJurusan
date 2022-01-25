@@ -15,25 +15,24 @@
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal"
         android:background="@color/primaryLight"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="10dp">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
 
         <ImageButton
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_arrow_back"
-            android:background="@drawable/bg_button"/>
+            android:src="@drawable/ic_arrow_back_dark"
+            android:background="@color/primaryLight"/>
 
         <TextView
             style="@style/Text.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profil_prodi"
-            android:layout_marginStart="20dp"/>
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"/>
     </LinearLayout>
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -119,7 +118,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:gravity="center"
                 android:text="@string/lorem" />
         </LinearLayout>
     </ScrollView>
