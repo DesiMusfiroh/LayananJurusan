@@ -76,7 +76,7 @@
         android:textStyle="bold" />
 
     <TableLayout
-        android:id="@+id/table_pengalaman_luar_kampus"
+        android:id="@+id/table_kegiatan_tridharma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -202,7 +202,7 @@
         android:textStyle="bold" />
 
     <TableLayout
-        android:id="@+id/table_prestasi"
+        android:id="@+id/table_praktisi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

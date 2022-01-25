@@ -20,6 +20,8 @@ import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementR
 import com.layanan.jurusan.data.model.Iku1Model
 import com.layanan.jurusan.data.remote.response.iku.Iku1Response
 import com.layanan.jurusan.data.remote.response.iku.Iku2Response
+import com.layanan.jurusan.data.remote.response.iku.Iku3Response
+import com.layanan.jurusan.data.remote.response.iku.Iku4Response
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -303,4 +305,39 @@ class RemoteDataSource {
         return results
     }
 
+    fun getIku3(year: String): LiveData<List<Iku3Model>> {
+        val results = MutableLiveData<List<Iku3Model>>()
+        ApiConfig.getApiService().getIku3(year).enqueue(object: Callback<Iku3Response> {
+            override fun onResponse(call: Call<Iku3Response>, response: Response<Iku3Response>) {
+                if (response.isSuccessful) {
+                    Log.d("DataIku3", response.body()?.data.toString())
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<Iku3Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getIku4(year: String): LiveData<List<Iku4Model>> {
+        val results = MutableLiveData<List<Iku4Model>>()
+        ApiConfig.getApiService().getIku4(year).enqueue(object: Callback<Iku4Response> {
+            override fun onResponse(call: Call<Iku4Response>, response: Response<Iku4Response>) {
+                if (response.isSuccessful) {
+                    Log.d("DataIku4", response.body()?.data.toString())
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<Iku4Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
 }

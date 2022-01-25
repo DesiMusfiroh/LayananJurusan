@@ -23,6 +23,9 @@ class Iku3Model(
     @SerializedName("kegiatan_tri_dharma")
     val kegiatanTriDharma: KegiatanTriDharmaModel?,
 
+    @SerializedName("prestasi_membimbing_mahasiswa")
+    val prestasiMembimbingMahasiswa: PrestasiMembimbingMahasiswa?,
+
     @SerializedName("bukti")
     val bukti: String?,
 

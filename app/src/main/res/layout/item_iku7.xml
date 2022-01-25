@@ -18,7 +18,7 @@
             style="@style/Text.Regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nama"/>
+            android:text="@string/prodi"/>
         <TextView
             android:id="@+id/tv_mata_kuliah"
             style="@style/Text.Regular"

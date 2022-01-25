@@ -13,6 +13,12 @@
         android:orientation="vertical"
         android:padding="16dp">
         <TextView
+            android:id="@+id/tv_judul"
+            style="@style/Text.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/judul_penelitian"/>
+        <TextView
             android:id="@+id/tv_nama"
             style="@style/Text.Regular"
             android:layout_width="match_parent"
@@ -30,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/tv_judul"
+            android:id="@+id/tv_luaran_hasil"
             style="@style/Text.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

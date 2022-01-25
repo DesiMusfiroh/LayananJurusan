@@ -35,10 +35,19 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         }
         binding.cardIku2.setOnClickListener {
             val iku2Intent = Intent(context, Iku2Activity::class.java)
-            iku2Intent.putExtra()
+            iku2Intent.putExtra(Iku2Activity.EXTRA_YEAR,yearText)
             startActivity(iku2Intent)
         }
-
+        binding.cardIku3.setOnClickListener {
+            val iku3Intent = Intent(context, Iku3Activity::class.java)
+            iku3Intent.putExtra(Iku3Activity.EXTRA_YEAR, yearText)
+            startActivity(iku3Intent)
+        }
+        binding.cardIku4.setOnClickListener {
+            val iku4Intent = Intent(context, Iku4Activity::class.java)
+            iku4Intent.putExtra(Iku4Activity.EXTRA_YEAR, yearText)
+            startActivity(iku4Intent)
+        }
         binding.btnFilter.setOnClickListener {
             val pd = YearPickerDialog()
             pd.setListener(this)

@@ -1,6 +1,185 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_bottom">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/Text.Medium"
+        android:id="@+id/tv_judul"
+        android:layout_width="match_parent"
+        android:text="@string/judul_penelitian"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/nama_dosen"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_nama_dosen"
+                android:text="@string/nama" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/prodi"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_prodi"
+                android:text="@string/prodi" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/nidn_nidk"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_no_induk"
+                android:text="@string/no_induk" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/tipe_kegiatan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_tipe_kegiatan"
+                android:text="@string/tipe_kegiatan" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/luaran_hasil"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_luaran_hasil"
+                android:text="@string/luaran_hasil" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:id="@+id/link_url"
+        android:layout_width="wrap_content"
+        android:text="@string/link_url"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/penerapan_di_masyarakat"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/kolaborator"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/karya_terapan"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/karya_seni"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_bukti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bukti"
+        android:background="@drawable/bg_button"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
+
+

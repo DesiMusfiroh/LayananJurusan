@@ -90,7 +90,7 @@
             <TextView
                 style="@style/Text.Small"
                 android:layout_width="110dp"
-                android:text="@string/nama_prodi"
+                android:text="@string/prodi_lulus"
                 android:textStyle="bold" />
 
             <TextView
@@ -101,7 +101,7 @@
 
             <TextView
                 style="@style/Text.Small"
-                android:id="@+id/tv_nama_prodi" />
+                android:id="@+id/tv_prodi_lulus" />
         </TableRow>
 
         <TableRow
@@ -112,7 +112,7 @@
             <TextView
                 style="@style/Text.Small"
                 android:layout_width="110dp"
-                android:text="@string/nama_perguruan_tinggi"
+                android:text="@string/pt_lulus"
                 android:textStyle="bold" />
 
             <TextView
@@ -123,9 +123,215 @@
 
             <TextView
                 style="@style/Text.Small"
-                android:id="@+id/tv_nama_perguruan_tinggi" />
+                android:id="@+id/tv_pt_lulus" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nama_pt"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nama_pt" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nomor_ijasah"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nomor_ijazah" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/sertifikat_kompetensi"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/table_sertifikat_kompetensi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/jenis_sertifikat"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_jenis_sertifikat" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nomor_sertifikat"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nomor_sertifikat" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nama_lembaga"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nama_lembaga" />
+        </TableRow>
+
+
+        <TextView
+            style="@style/Text.Regular"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/praktisi_profesional"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/table_praktisi_profesional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            tools:ignore="UselessParent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="110dp"
+                    android:text="@string/jenis_pekerjaan"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    android:id="@+id/tv_jenis_pekerjaan"
+                    style="@style/Text.Small" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="110dp"
+                    android:text="@string/jenis_perusahaan"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    android:id="@+id/tv_jenis_perusahaan"
+                    style="@style/Text.Small" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="110dp"
+                    android:text="@string/nama_perusahaan"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    android:id="@+id/tv_nama_perusahaan"
+                    style="@style/Text.Small" />
+            </TableRow>
+
+        </TableLayout>
     </TableLayout>
 
     <Button

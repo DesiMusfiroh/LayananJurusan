@@ -162,4 +162,23 @@
     <string name="tipe_lomba">Tipe Lomba</string>
     <string name="nama_mahasiswa">Nama Mahasiswa</string>
     <string name="berkualifikasi_s3">Berkualifikasi S3</string>
+    <string name="prodi_lulus">Prodi Lulus</string>
+    <string name="pt_lulus">PT Lulus</string>
+    <string name="nama_pt">Nama PT</string>
+    <string name="sertifikat_kompetensi">Sertifikat kompetensi</string>
+    <string name="jenis_sertifikat">Jenis Sertifikat</string>
+    <string name="nama_sertifikat">Nama Sertifikat</string>
+    <string name="nama_lembaga">Nama Lembaga</string>
+    <string name="praktisi_profesional">Praktisi Profesional</string>
+    <string name="nama_perusahaan">Nama Perusahaan</string>
+    <string name="nomor_sertifikat">Nomor Sertifikat</string>
+    <string name="judul_penelitian">Judul Penelitian</string>
+    <string name="nama_dosen">Nama Dosen</string>
+    <string name="tipe_kegiatan">Tipe Kegiatan</string>
+    <string name="luaran_hasil">Luaran Hasil</string>
+    <string name="link_url">Link URL</string>
+    <string name="penerapan_di_masyarakat">Penerapan di Masyarakat</string>
+    <string name="kolaborator">Kolaborator</string>
+    <string name="karya_terapan">Karya Terapan</string>
+    <string name="karya_seni">Karya Seni</string>
 </resources>

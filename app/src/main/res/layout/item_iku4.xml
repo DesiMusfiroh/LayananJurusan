@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/tv_praktisi_internasional"
+            android:id="@+id/tv_praktisi_profesional"
             style="@style/Text.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
