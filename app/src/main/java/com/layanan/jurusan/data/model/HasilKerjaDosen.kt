@@ -2,7 +2,7 @@ package com.layanan.jurusan.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class HasilKerjaDosen(
+data class HasilKerjaDosen(
     @SerializedName("id")
     val id: Int,
 

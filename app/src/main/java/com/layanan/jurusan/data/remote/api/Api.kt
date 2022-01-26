@@ -10,6 +10,7 @@ import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementR
 import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.iku.Iku1Response
 import com.layanan.jurusan.data.remote.response.iku.Iku2Response
+import com.layanan.jurusan.data.remote.response.iku.Iku5Response
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
@@ -97,4 +98,7 @@ interface Api {
 
     @GET("iku/iku2/{year}")
     fun getIku2(@Path("year") year: String): Call<Iku2Response>
+
+    @GET("iku/iku5/{year}")
+    fun getIku5(@Path("year") year: String): Call<Iku5Response>
 }

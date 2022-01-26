@@ -1,6 +1,580 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_bottom">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/Text.Medium"
+        android:id="@+id/tv_nama"
+        android:layout_width="match_parent"
+        android:text="@string/nama"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="NIDN/NIDK"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_no_induk"
+                android:text="@string/no_induk" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/tipe_kegiatan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_jenis_kegiatan"
+                android:text="@string/tipe_kegiatan" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="110dp"
+                android:text="@string/judul"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:id="@+id/tv_judul"
+                android:text="@string/judul" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:text="@string/luaran_hasil"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:id="@+id/table_luaran_hasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/luaran_hasil"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_luaran_hasil" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/link"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_link" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/jumlah_kutipan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_kutipan" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/sitasi_index"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_sitasi_index"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:text="@string/penerapan_di_masyarakat"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:id="@+id/table_penerapan_di_masyarakat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/jenis_lembaga_penerap"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_jenis_lembaga" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nama_lembaga_penerap"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nama_lembaga_penerap" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/no_pks"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_no_pks" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:text="@string/kolaborator"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:id="@+id/table_kolaborator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/tipe_kolaborator"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_tipe_kolaborator" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/nama_lembaga_kolaborator"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_lembaga_kolaborator" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:text="@string/karya_terapan"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:id="@+id/table_karya_terapan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/tipe_penghargaan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_tipe_penghargaan" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/pemberi_penghargaan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_pemberi_penghargaan" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="wrap_content"
+        android:text="@string/karya_seni"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:id="@+id/table_karya_seni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/tipe_pendanaan"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_tipe_pendanaan" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/lembaga"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_nama_lembaga_karya_seni" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/kriteria_luaran"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_kriteria_luaran" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/metode_berkarya"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_metode_berkarya" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/studi_kasus"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_studi_kasus" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/substantial_review"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_substantial_review" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="110dp"
+                android:text="@string/link_review"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:layout_width="20dp"
+                android:gravity="center"
+                android:text="@string/dots" />
+
+            <TextView
+                style="@style/Text.Small"
+                android:id="@+id/tv_link_review" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn_bukti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bukti"
+        android:background="@drawable/bg_button"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
+
+

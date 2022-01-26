@@ -14,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".ui.document.ListDocumentActivity"></activity>
-
-        <activity android:name=".ui.iku.Iku2Activity"></activity>
+        <activity android:name=".ui.iku.Iku6Activity"></activity>
+        <activity android:name=".ui.iku.Iku5Activity" />
+        <activity android:name=".ui.iku.Iku3Activity" />
+        <activity android:name=".ui.document.ListDocumentActivity" />
+        <activity android:name=".ui.iku.Iku2Activity" />
         <activity android:name=".ui.iku.Iku1TestActivity" />
         <activity android:name=".ui.notification.NotificationActivity" />
         <activity android:name=".ui.profile.SignatureActivity" />

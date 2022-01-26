@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.iku.Iku2Activity">
+    tools:context=".ui.iku.Iku5Activity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -65,17 +65,17 @@
                     style="@style/Text.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/desc_iku2"
+                    android:text="@string/desc_iku5"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="10dp"
                     android:layout_gravity="center"
                     android:gravity="center"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_iku2"
+                    android:id="@+id/rv_iku5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/item_iku2"
+                    tools:listitem="@layout/item_iku5"
                     android:layout_marginHorizontal="16dp"/>
 
             </LinearLayout>
