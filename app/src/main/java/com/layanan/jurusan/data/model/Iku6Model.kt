@@ -9,8 +9,11 @@ class Iku6Model(
     @SerializedName("nama_prodi")
     val namaProdi: String,
 
+    @SerializedName("jenjang_prodi")
+    val jenjangProdi: String,
+
     @SerializedName("mitra")
-    val namaLembaga: Mitra?,
+    val mitra: Mitra?,
 
     val fakultas: String = "Sains dan Teknologi",
 

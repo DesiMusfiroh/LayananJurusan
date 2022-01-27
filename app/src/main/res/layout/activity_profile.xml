@@ -71,6 +71,7 @@
                         android:padding="20dp">
 
                         <TextView
+                            android:id="@+id/tv_nama"
                             style="@style/Text.Medium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -85,7 +86,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="Nomor Induk"/>
+                            android:text="@string/no_induk"/>
+
+                        <TextView
+                            android:id="@+id/tv_angkatan"
+                            style="@style/Text.Regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/angkatan"/>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

@@ -14,4 +14,7 @@ data class UserModel (
 
     @field:SerializedName("role")
     val role: Int,
+
+    @field:SerializedName("mahasiswa")
+    val mahasiswa: Mahasiswa,
 )

@@ -42,13 +42,16 @@ class ProfileActivity : AppCompatActivity() {
             Log.d("Jwt",jwtToken)
         }
         viewModel.getUserProfile(jwtToken!!).observe(this,{
+            Log.d("ProfileUser",it.toString())
             setUpView(it)
         })
     }
 
     fun setUpView(user: UserModel){
         binding.apply {
-            tvNim.text = user.nomor_induk
+            tvNama.text = user.mahasiswa.nama
+            tvNim.text = user.mahasiswa.nim
+            tvAngkatan.text = user.mahasiswa.angkatan
         }
 
         binding.cvSignature.setOnClickListener {

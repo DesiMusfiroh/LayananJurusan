@@ -18,9 +18,7 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.model.Iku1Model
-import com.layanan.jurusan.data.remote.response.iku.Iku1Response
-import com.layanan.jurusan.data.remote.response.iku.Iku2Response
-import com.layanan.jurusan.data.remote.response.iku.Iku5Response
+import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -316,6 +314,57 @@ class RemoteDataSource {
                 }
             }
             override fun onFailure(call: Call<Iku5Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getIku6(year: String): LiveData<List<Iku6Model>> {
+        val results = MutableLiveData<List<Iku6Model>>()
+        ApiConfig.getApiService().getIku6(year).enqueue(object: Callback<Iku6Response> {
+            override fun onResponse(call: Call<Iku6Response>, response: Response<Iku6Response>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<Iku6Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getIku7(year: String): LiveData<List<Iku7Model>> {
+        val results = MutableLiveData<List<Iku7Model>>()
+        ApiConfig.getApiService().getIku7(year).enqueue(object: Callback<Iku7Response> {
+            override fun onResponse(call: Call<Iku7Response>, response: Response<Iku7Response>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<Iku7Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getIku8(year: String): LiveData<List<Iku8Model>> {
+        val results = MutableLiveData<List<Iku8Model>>()
+        ApiConfig.getApiService().getIku8(year).enqueue(object: Callback<Iku8Response> {
+            override fun onResponse(call: Call<Iku8Response>, response: Response<Iku8Response>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<Iku8Response>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
