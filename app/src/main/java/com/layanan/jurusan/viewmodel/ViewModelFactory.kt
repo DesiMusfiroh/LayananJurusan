@@ -12,6 +12,7 @@ import com.layanan.jurusan.ui.home.HomeViewModel
 import com.layanan.jurusan.ui.iku.IkuViewModel
 import com.layanan.jurusan.ui.jurusan.JurusanViewModel
 import com.layanan.jurusan.ui.login.LoginViewModel
+import com.layanan.jurusan.ui.mail.FormSuratViewModel
 import com.layanan.jurusan.ui.mail.MailViewModel
 import com.layanan.jurusan.ui.news.DetailNewsViewModel
 import com.layanan.jurusan.ui.news.NewsViewModel
@@ -84,6 +85,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(MailViewModel::class.java) -> {
                 MailViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(FormSuratViewModel::class.java) -> {
+                FormSuratViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

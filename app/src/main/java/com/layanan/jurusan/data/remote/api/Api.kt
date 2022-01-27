@@ -116,7 +116,7 @@ interface Api {
     @GET("iku/iku8/{year}")
     fun getIku8(@Path("year") year: String): Call<Iku8Response>
 
-    @GET("jenis_surat/{tipe}")
+    @GET("surat/jenis-surat/{tipe}")
     fun getJenisSurat(@Path("tipe") tipe: String): Call<JenisSuratResponse>
 
 }

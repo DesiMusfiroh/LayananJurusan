@@ -211,5 +211,7 @@
     <string name="nama_lembaga_akreditasi">Nama Lembaga Akreditasi</string>
     <string name="tahun_sk">Tahun SK</string>
     <string name="angkatan">Angkatan</string>
->>>>>>> 71727881527fce341397f28fc3d81ef67d68ec8c
+    <string name="title_surat">Title Surat</string>
+    <string name="form_pembuatan_surat">Form Pembuatan Surat</string>
+    >>>>>>> 71727881527fce341397f28fc3d81ef67d68ec8c
 </resources>
