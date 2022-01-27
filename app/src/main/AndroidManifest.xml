@@ -16,6 +16,10 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.mail.FormSuratActivity"></activity>
         <activity android:name=".ui.iku.Iku4Activity" />
+        <activity android:name=".ui.iku.Iku8Activity"></activity>
+        <activity android:name=".ui.iku.Iku7Activity" />
+        <activity android:name=".ui.iku.Iku6Activity" />
+        <activity android:name=".ui.iku.Iku5Activity" />
         <activity android:name=".ui.iku.Iku3Activity" />
         <activity android:name=".ui.document.ListDocumentActivity" />
         <activity android:name=".ui.iku.Iku2Activity" />

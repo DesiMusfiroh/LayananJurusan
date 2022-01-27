@@ -186,4 +186,30 @@
     <string name="internal">Internal</string>
     <string name="eksternal">Eksternal</string>
     <string name="pilih_jenis_surat">Pilih Jenis Surat</string>
+    <string name="judul">Judul</string>
+    <string name="link">Link / URL</string>
+    <string name="jumlah_kutipan">Jumlah Kutipan / Sitasi</string>
+    <string name="sitasi_index">SITASI i10-Index</string>
+    <string name="jenis_lembaga_penerap">Jenis Lembaga Penerap</string>
+    <string name="nama_lembaga_penerap">Nama Lembaga Penerap</string>
+    <string name="tipe_kolaborator">Tipe Kolaborator</string>
+    <string name="nama_lembaga_kolaborator">Nama Lembaga Kolaborator</string>
+    <string name="tipe_penghargaan">Tipe Penghargaan</string>
+    <string name="pemberi_penghargaan">Pemberi Penghargaan</string>
+    <string name="tipe_pendanaan">Tipe Pendanaan</string>
+    <string name="lembaga">Nama / Lembaga</string>
+    <string name="kriteria_luaran">Kriteria Luaran</string>
+    <string name="metode_berkarya">Metode Berkarya</string>
+    <string name="studi_kasus">Studi Kasus</string>
+    <string name="substantial_review">Substantial Review</string>
+    <string name="link_review">Link Review</string>
+    <string name="jenjang">Jenjang</string>
+    <string name="sains_dan_teknologi">Sains dan Teknologi</string>
+    <string name="fakultas_title">Fakultas</string>
+    <string name="nama_mitra">Nama Mitra</string>
+    <string name="tipe_lembaga_akreditasi">Tipe Lembaga Akreditasi</string>
+    <string name="nama_lembaga_akreditasi">Nama Lembaga Akreditasi</string>
+    <string name="tahun_sk">Tahun SK</string>
+    <string name="angkatan">Angkatan</string>
+>>>>>>> 71727881527fce341397f28fc3d81ef67d68ec8c
 </resources>

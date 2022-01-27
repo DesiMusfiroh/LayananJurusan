@@ -25,7 +25,7 @@ data class Iku5Model(
     val karyaTerapan: KaryaTerapan?,
 
     @SerializedName("karya_seni")
-    val karyaSeni: String?,
+    val karyaSeni: KaryaSeni?,
 
     @SerializedName("tahun")
     val tahun: String,

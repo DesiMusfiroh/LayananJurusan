@@ -58,11 +58,13 @@ class DataRepository private constructor(
     fun uploadSignature(image: MultipartBody.Part, jwtToken: String) = remoteDataSource.uploadSignature(image,jwtToken)
 
     fun getIku1(year: String) = remoteDataSource.getIku1(year)
-
     fun getIku2(year: String) = remoteDataSource.getIku2(year)
     fun getIku3(year: String) = remoteDataSource.getIku3(year)
     fun getIku4(year: String) = remoteDataSource.getIku4(year)
-
+    fun getIku5(year: String) = remoteDataSource.getIku5(year)
+    fun getIku6(year: String) = remoteDataSource.getIku6(year)
+    fun getIku7(year: String) = remoteDataSource.getIku7(year)
+    fun getIku8(year: String) = remoteDataSource.getIku8(year)
 
     fun getJenisSurat(tipe: String) = remoteDataSource.getJenisSurat(tipe)
 }

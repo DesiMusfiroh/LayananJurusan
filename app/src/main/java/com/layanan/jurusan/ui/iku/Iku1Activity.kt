@@ -52,7 +52,7 @@ class Iku1Activity : AppCompatActivity() {
     }
 
     private fun populateIku1(year: String) {
-        viewModel.getIku1("2022").observe(this, { data ->
+        viewModel.getIku1(year).observe(this, { data ->
             dataResponse = data
             if (data !== null) {
                 adapter = Iku1Adapter(data)

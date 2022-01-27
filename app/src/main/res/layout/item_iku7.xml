@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,17 +13,17 @@
         android:orientation="vertical"
         android:padding="16dp">
         <TextView
-            android:id="@+id/tv_prodi"
-            style="@style/Text.Regular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/prodi"/>
-        <TextView
             android:id="@+id/tv_mata_kuliah"
             style="@style/Text.Regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mata_kuliah"/>
+            android:text="@string/nama"/>
+        <TextView
+            android:id="@+id/tv_prodi"
+            style="@style/Text.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prodi"/>
         <TextView
             android:id="@+id/tv_metode_pembelajaran"
             style="@style/Text.Small"
@@ -32,10 +31,10 @@
             android:layout_height="wrap_content"
             android:text="@string/metode_pembelajaran"/>
         <TextView
-            android:id="@+id/tv_sk_rektor"
+            android:id="@+id/tv_no_sk"
             style="@style/Text.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sk_rektor"/>
+            android:text="@string/no_sk"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

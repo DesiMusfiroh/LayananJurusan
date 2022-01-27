@@ -2,7 +2,7 @@ package com.layanan.jurusan.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class Kolaborator(
+data class Kolaborator(
     @SerializedName("id")
     val id: Int,
 

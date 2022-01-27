@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardElevation="4dp"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true">
@@ -13,29 +13,110 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-        <TextView
-            android:id="@+id/tv_nama_lembaga"
-            style="@style/Text.Regular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nama"/>
+
         <TextView
             android:id="@+id/tv_prodi"
             style="@style/Text.Regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/prodi"/>
-        <TextView
-            android:id="@+id/tv_tipe_lembaga"
-            style="@style/Text.Small"
+
+        <TableLayout
+            android:id="@+id/table_lembaga_akreditasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tipe_lembaga"/>
-        <TextView
-            android:id="@+id/tv_no_sk"
-            style="@style/Text.Small"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/no_sk"/>
+            tools:ignore="UselessParent"
+            android:layout_marginTop="10dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="150dp"
+                    android:text="@string/tipe_lembaga_akreditasi"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:id="@+id/tv_tipe_lembaga"
+                    android:layout_width="195dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="150dp"
+                    android:text="@string/nama_lembaga_akreditasi"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:id="@+id/tv_nama_lembaga" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="150dp"
+                    android:text="@string/no_sk"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:id="@+id/tv_no_sk" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="150dp"
+                    android:text="@string/tahun_sk"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="20dp"
+                    android:gravity="center"
+                    android:text="@string/dots" />
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:id="@+id/tv_tahun_sk" />
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

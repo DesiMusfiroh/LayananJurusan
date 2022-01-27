@@ -84,9 +84,11 @@ class Iku3Activity : AppCompatActivity() {
             tvNamaMahasiswa.text = data.prestasiMembimbingMahasiswa?.namaMahasiswa
             tvNim.text = data.prestasiMembimbingMahasiswa?.nimMahasiswa
 
-            if (data.kegiatanTriDharma?.jenisKegiatan == null) tableKegiatanTridharma.visibility = View.GONE
+            if (data.kegiatanTriDharma?.jenisKegiatan == null) tableKegiatanTridharma.visibility =
+                View.GONE
             if (data.praktisi?.jenisPekerjaan == null) tablePraktisi.visibility = View.GONE
-            if (data.prestasiMembimbingMahasiswa?.namaLomba == null) tablePrestasiMembimbing.visibility = View.GONE
+            if (data.prestasiMembimbingMahasiswa?.namaLomba == null) tablePrestasiMembimbing.visibility =
+                View.GONE
 
             btnBukti.setOnClickListener {
                 val url = data.bukti
