@@ -26,6 +26,7 @@ import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
+import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -335,6 +336,24 @@ class RemoteDataSource {
                 }
             }
             override fun onFailure(call: Call<Iku4Response>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getJenisSurat(tipe: String): LiveData<List<JenisSuratModel>> {
+        val results = MutableLiveData<List<JenisSuratModel>>()
+        ApiConfig.getApiService().getJenisSurat(tipe).enqueue(object: Callback<JenisSuratResponse> {
+            override fun onResponse(call: Call<JenisSuratResponse>, response: Response<JenisSuratResponse>) {
+                if (response.isSuccessful) {
+                    Log.d("DataIku4", response.body()?.data.toString())
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<JenisSuratResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })

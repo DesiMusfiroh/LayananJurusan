@@ -1,5 +1,6 @@
 package com.layanan.jurusan.data.remote.api
 
+import com.layanan.jurusan.data.model.JenisSuratModel
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
 import com.layanan.jurusan.data.remote.response.ResponseApi
@@ -16,6 +17,7 @@ import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.news.ListNewsResponse
+import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -118,4 +120,6 @@ interface Api {
 //    @GET("iku/iku8/{year}")
 //    fun getIku8(@Path("year") year: String): Call<Iku8Response>
 
+    @GET("jenis_surat/{tipe}")
+    fun getJenisSurat(@Path("tipe") tipe: String): Call<JenisSuratResponse>
 }

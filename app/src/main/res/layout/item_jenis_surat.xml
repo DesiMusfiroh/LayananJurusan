@@ -15,17 +15,17 @@
         android:layout_margin="16dp">
         <TextView
             style="@style/Text.Regular"
-            android:id="@+id/tv_jenis_surat"
+            android:id="@+id/tv_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jenis_surat"/>
 
         <TextView
             style="@style/Text.Small"
-            android:id="@+id/tv_deskripsi"
+            android:id="@+id/tv_tipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/deskripsi_surat"
+            android:text="@string/tipe_surat"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

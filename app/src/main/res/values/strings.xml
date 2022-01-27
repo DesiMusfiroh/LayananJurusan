@@ -181,4 +181,9 @@
     <string name="kolaborator">Kolaborator</string>
     <string name="karya_terapan">Karya Terapan</string>
     <string name="karya_seni">Karya Seni</string>
+    <string name="tipe_surat">Tipe Surat</string>
+    <string name="pilih_tipe_surat">Pilih Tipe Surat</string>
+    <string name="internal">Internal</string>
+    <string name="eksternal">Eksternal</string>
+    <string name="pilih_jenis_surat">Pilih Jenis Surat</string>
 </resources>

@@ -27,4 +27,55 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/pembuatan_surat" />
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pilih_tipe_surat"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_tipe_surat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/Text.Regular"
+            android:id="@+id/internal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/internal"
+            android:layout_marginEnd="20dp"
+            android:checked="true"/>
+
+        <RadioButton
+            style="@style/Text.Regular"
+            android:id="@+id/eksternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eksternal"
+            android:layout_marginEnd="20dp"/>
+    </RadioGroup>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pilih_jenis_surat"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_jenis_surat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        tools:listitem="@layout/item_jenis_surat" />
 </LinearLayout>

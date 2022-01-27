@@ -62,4 +62,7 @@ class DataRepository private constructor(
     fun getIku2(year: String) = remoteDataSource.getIku2(year)
     fun getIku3(year: String) = remoteDataSource.getIku3(year)
     fun getIku4(year: String) = remoteDataSource.getIku4(year)
+
+
+    fun getJenisSurat(tipe: String) = remoteDataSource.getJenisSurat(tipe)
 }
