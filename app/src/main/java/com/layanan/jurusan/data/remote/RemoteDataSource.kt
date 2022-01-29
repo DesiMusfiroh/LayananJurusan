@@ -25,12 +25,14 @@ import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
 import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.PermohonanSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import okhttp3.MultipartBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -447,8 +449,9 @@ class RemoteDataSource {
         return results
     }
 
-    fun storePermohonanSurat(params: RequestParams,jwtToken: String){
+    fun storePermohonanSurat(params: RequestParams,jwtToken: String): LiveData<String>{
         val client = AsyncHttpClient()
+        val message = MutableLiveData<String>()
         client.addHeader("Authorization", "Bearer ${jwtToken}")
         client.post("http://jurusan.doswiteljambi.com/api/surat/permohonan-surat",params,object: AsyncHttpResponseHandler(){
             override fun onSuccess(
@@ -457,7 +460,11 @@ class RemoteDataSource {
                 responseBody: ByteArray?
             ) {
                 val result = String(responseBody!!)
-                Log.d("ResponseSurat",result)
+                val responseObject = JSONObject(result)
+
+                message.postValue(responseObject.getString("message"))
+
+
             }
 
             override fun onFailure(
@@ -466,11 +473,13 @@ class RemoteDataSource {
                 responseBody: ByteArray?,
                 error: Throwable?
             ) {
-                val response =  String(responseBody!!)
-                Log.d("RequestError",response)
+                val result =  String(responseBody!!)
+                val responseObject = JSONObject(result)
+                message.postValue(responseObject.getString("message"))
             }
 
         })
+        return message
     }
 
 }

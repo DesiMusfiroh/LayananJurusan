@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.view.marginTop
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputEditText
@@ -130,7 +131,14 @@ class FormSuratActivity : AppCompatActivity() {
                 if (jwtToken != null) {
                     Log.d("Jwt",jwtToken)
                 }
-                viewModel.storePermohonanSurat(requestParam,jwtToken!!)
+                viewModel.storePermohonanSurat(requestParam,jwtToken!!).observe(this@FormSuratActivity,{
+                    if (it == "success"){
+                        Toast.makeText(this@FormSuratActivity, "Berhasil", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }else{
+                        Toast.makeText(this@FormSuratActivity, it, Toast.LENGTH_SHORT).show()
+                    }
+                })
 
             }
         }

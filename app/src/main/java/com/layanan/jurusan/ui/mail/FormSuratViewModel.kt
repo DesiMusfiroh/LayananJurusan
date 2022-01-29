@@ -1,5 +1,6 @@
 package com.layanan.jurusan.ui.mail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.layanan.jurusan.data.DataRepository
 import com.loopj.android.http.RequestParams
@@ -12,5 +13,7 @@ class FormSuratViewModel(private val repository: DataRepository): ViewModel() {
         this.jenisSuratId = jenisSuratId
     }
 
-    fun storePermohonanSurat(params: RequestParams, jwtToken: String) = repository.storePermohonanSurat(params,jwtToken)
+    fun storePermohonanSurat(params: RequestParams, jwtToken: String): LiveData<String> {
+        return repository.storePermohonanSurat(params,jwtToken)
+    }
 }
