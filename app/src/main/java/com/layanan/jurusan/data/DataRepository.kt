@@ -8,6 +8,7 @@ import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.data.remote.RemoteDataSource
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
+import com.loopj.android.http.RequestParams
 import okhttp3.MultipartBody
 
 class DataRepository private constructor(
@@ -67,4 +68,6 @@ class DataRepository private constructor(
     fun getIku8(year: String) = remoteDataSource.getIku8(year)
 
     fun getJenisSurat(tipe: String) = remoteDataSource.getJenisSurat(tipe)
+    fun getKeywordSurat(jenisSuratId: Int)= remoteDataSource.getKeywordSurat(jenisSuratId)
+    fun storePermohonanSurat(params: RequestParams, jwtToken: String) = remoteDataSource.storePermohonanSurat(params,jwtToken)
 }

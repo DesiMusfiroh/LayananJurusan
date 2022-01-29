@@ -14,6 +14,7 @@ import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.news.ListNewsResponse
 import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -118,5 +119,8 @@ interface Api {
 
     @GET("surat/jenis-surat/{tipe}")
     fun getJenisSurat(@Path("tipe") tipe: String): Call<JenisSuratResponse>
+
+    @GET("surat/keyword/{jenisSuratId}")
+    fun getKeywordSurat(@Path("jenisSuratId") jenisSuratId: Int): Call<KeywordSuratResponse>
 
 }
