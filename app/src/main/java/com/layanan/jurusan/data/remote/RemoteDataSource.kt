@@ -24,8 +24,15 @@ import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.PermohonanSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
+import com.loopj.android.http.AsyncHttpClient
+import com.loopj.android.http.AsyncHttpResponseHandler
+import com.loopj.android.http.RequestParams
+import cz.msebera.android.httpclient.Header
 import okhttp3.MultipartBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -423,6 +430,56 @@ class RemoteDataSource {
             }
         })
         return results
+    }
+
+    fun getKeywordSurat(jenisSuratId: Int): LiveData<List<KeywordSuratModel>> {
+        val results = MutableLiveData<List<KeywordSuratModel>>()
+        ApiConfig.getApiService().getKeywordSurat(jenisSuratId).enqueue(object: Callback<KeywordSuratResponse> {
+            override fun onResponse(call: Call<KeywordSuratResponse>, response: Response<KeywordSuratResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<KeywordSuratResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun storePermohonanSurat(params: RequestParams,jwtToken: String): LiveData<String>{
+        val client = AsyncHttpClient()
+        val message = MutableLiveData<String>()
+        client.addHeader("Authorization", "Bearer ${jwtToken}")
+        client.post("http://jurusan.doswiteljambi.com/api/surat/permohonan-surat",params,object: AsyncHttpResponseHandler(){
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?
+            ) {
+                val result = String(responseBody!!)
+                val responseObject = JSONObject(result)
+
+                message.postValue(responseObject.getString("message"))
+
+
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?,
+                error: Throwable?
+            ) {
+                val result =  String(responseBody!!)
+                val responseObject = JSONObject(result)
+                message.postValue(responseObject.getString("message"))
+            }
+
+        })
+        return message
     }
 
 }
