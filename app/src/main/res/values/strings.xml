@@ -213,5 +213,11 @@
     <string name="angkatan">Angkatan</string>
     <string name="title_surat">Title Surat</string>
     <string name="form_pembuatan_surat">Form Pembuatan Surat</string>
+    <string name="status">Status</string>
+    <string name="dowwnload_surat">Download Surat</string>
+    <string name="buat_surat">Buat Surat</string>
+    <string name="download_surat">Download Surat</string>
+    <string name="keyword">Keyword</string>
+    <string name="value">Value</string>
     >>>>>>> 71727881527fce341397f28fc3d81ef67d68ec8c
 </resources>

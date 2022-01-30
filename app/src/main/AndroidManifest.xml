@@ -14,9 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.mail.FormSuratActivity"></activity>
+        <activity android:name=".ui.mail.RiwayatSuratActivity"></activity>
+        <activity android:name=".ui.mail.FormSuratActivity" />
         <activity android:name=".ui.iku.Iku4Activity" />
-        <activity android:name=".ui.iku.Iku8Activity"></activity>
+        <activity android:name=".ui.iku.Iku8Activity" />
         <activity android:name=".ui.iku.Iku7Activity" />
         <activity android:name=".ui.iku.Iku6Activity" />
         <activity android:name=".ui.iku.Iku5Activity" />

@@ -15,17 +15,25 @@
         android:layout_margin="16dp">
         <TextView
             style="@style/Text.Regular"
-            android:id="@+id/tv_judul"
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/jenis_surat"/>
+            android:text="@string/riwayat_pengajuan_surat"/>
 
         <TextView
             style="@style/Text.Small"
-            android:id="@+id/tv_tipe"
+            android:id="@+id/tv_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tipe_surat"
+            android:text="@string/status"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            style="@style/Text.Small"
+            android:id="@+id/tv_datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
             android:layout_marginTop="4dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

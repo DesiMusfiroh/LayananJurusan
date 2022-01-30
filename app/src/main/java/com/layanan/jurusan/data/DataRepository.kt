@@ -72,4 +72,5 @@ class DataRepository private constructor(
     fun storePermohonanSurat(params: RequestParams, jwtToken: String): LiveData<String>{
         return remoteDataSource.storePermohonanSurat(params,jwtToken)
     }
+    fun getRiwayatSurat(userId: String) = remoteDataSource.getRiwayatSurat(userId)
 }

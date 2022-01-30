@@ -26,6 +26,7 @@ import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
 import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
 import com.layanan.jurusan.data.remote.response.surat.PermohonanSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.RiwayatSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -482,4 +483,21 @@ class RemoteDataSource {
         return message
     }
 
+
+    fun getRiwayatSurat(userId: String): LiveData<List<RiwayatSuratModel>> {
+        val results = MutableLiveData<List<RiwayatSuratModel>>()
+        ApiConfig.getApiService().getRiwayatSurat(userId).enqueue(object: Callback<RiwayatSuratResponse> {
+            override fun onResponse(call: Call<RiwayatSuratResponse>, response: Response<RiwayatSuratResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<RiwayatSuratResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
 }
