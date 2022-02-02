@@ -1,81 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/Text.Large"
-        android:text="@string/pengurusan_surat"
-        android:textColor="@color/black"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/title_history"
-        style="@style/Text.Medium"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/riwayat_pengajuan_surat" />
-
-    <TextView
-        android:id="@+id/title_create"
-        style="@style/Text.Medium"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/pembuatan_surat" />
-
-    <TextView
-        style="@style/Text.Regular"
+    <FrameLayout
+        android:id="@+id/frame_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/pilih_tipe_surat"/>
-
-    <RadioGroup
-        android:id="@+id/radio_group_tipe_surat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            style="@style/Text.Regular"
-            android:id="@+id/internal"
+        android:padding="20dp"
+        android:background="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/Text.Large"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/internal"
-            android:layout_marginEnd="20dp"
-            android:checked="true"/>
+            android:text="@string/pengurusan_surat"
+            android:textColor="@color/white"/>
+    </FrameLayout>
 
-        <RadioButton
-            style="@style/Text.Regular"
-            android:id="@+id/eksternal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/eksternal"
-            android:layout_marginEnd="20dp"/>
-    </RadioGroup>
-
-    <TextView
-        style="@style/Text.Regular"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/pilih_jenis_surat"/>
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_title">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_jenis_surat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
-        tools:listitem="@layout/item_jenis_surat" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_history"
+                style="@style/Text.Medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/riwayat_pengajuan_surat" />
+
+            <Button
+                android:id="@+id/btn_riwayat_surat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/riwayat_pengajuan_surat"
+                android:background="@drawable/bg_button"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"/>
+
+            <TextView
+                android:id="@+id/title_create"
+                style="@style/Text.Medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/pembuatan_surat" />
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/pilih_tipe_surat" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_tipe_surat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/internal"
+                    style="@style/Text.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:checked="true"
+                    android:text="@string/internal" />
+
+                <RadioButton
+                    android:id="@+id/eksternal"
+                    style="@style/Text.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/eksternal" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/Text.Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/pilih_jenis_surat" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_jenis_surat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="70dp"
+                tools:listitem="@layout/item_jenis_surat" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

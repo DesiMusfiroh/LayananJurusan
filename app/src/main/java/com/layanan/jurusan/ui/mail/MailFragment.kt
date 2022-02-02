@@ -11,6 +11,7 @@ import android.widget.RadioGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.layanan.jurusan.data.model.JenisSuratModel
 import com.layanan.jurusan.data.model.RiwayatSuratModel
 import com.layanan.jurusan.databinding.FragmentMailBinding
@@ -42,34 +43,13 @@ class MailFragment : Fragment() {
                 showJenisSurat(tipeSurat)
             }
         })
-        binding.titleHistory.setOnClickListener {
+
+        binding.btnRiwayatSurat.setOnClickListener {
             val intent = Intent(activity,ListRiwayatSuratActivity::class.java)
             startActivity(intent)
         }
         showJenisSurat(tipeSurat)
-//        showRiwayatSurat("1")
     }
-
-//    private fun showRiwayatSurat(userId: String) {
-//        viewModel.getRiwayatSurat(userId).observe(requireActivity(), {
-//            riwayatSuratResponse = it
-//            riwayatSuratAdapter = RiwayatSuratAdapter(riwayatSuratResponse, requireContext())
-//            riwayatSuratAdapter.notifyDataSetChanged()
-//
-//            with(binding){
-//                rvRiwayatSurat.layoutManager = LinearLayoutManager(requireContext())
-//                rvRiwayatSurat.setHasFixedSize(true)
-//                rvRiwayatSurat.adapter = riwayatSuratAdapter
-//            }
-//            riwayatSuratAdapter.setOnItemClickCallback(object : RiwayatSuratAdapter.OnItemClickCallback {
-//                override fun onItemClicked(data: RiwayatSuratModel) {
-//                    val intent = Intent(activity, RiwayatSuratActivity::class.java)
-//                    intent.putExtra(RiwayatSuratActivity.EXTRA_MAIL, data)
-//                    startActivity(intent)
-//                }
-//            })
-//        })
-//    }
 
     private fun showJenisSurat(tipe: String) {
         viewModel.getJenisSurat(tipe).observe(requireActivity(),{
@@ -78,7 +58,7 @@ class MailFragment : Fragment() {
             jenisSuratAdapter.notifyDataSetChanged()
 
             with(binding){
-                rvJenisSurat.layoutManager = GridLayoutManager(requireContext(), 2)
+                rvJenisSurat.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 rvJenisSurat.setHasFixedSize(true)
                 rvJenisSurat.adapter = jenisSuratAdapter
             }

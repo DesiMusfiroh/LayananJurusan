@@ -27,6 +27,7 @@ class RiwayatSuratActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRiwayatSuratBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[RiwayatSuratViewModel::class.java]

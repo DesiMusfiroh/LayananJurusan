@@ -21,6 +21,7 @@ class ListRiwayatSuratActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListRiwayatSuratBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[ListRiwayatSuratViewModel::class.java]

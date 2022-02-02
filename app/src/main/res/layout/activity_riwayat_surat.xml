@@ -87,27 +87,6 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"/>
 
-                <LinearLayout
-                    android:id="@+id/container_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        style="@style/Text.Small"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/keyword"/>
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/value"
-                        android:paddingVertical="4dp"/>
-                </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
