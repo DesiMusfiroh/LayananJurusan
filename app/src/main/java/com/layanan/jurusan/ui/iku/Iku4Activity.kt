@@ -38,6 +38,9 @@ class Iku4Activity : AppCompatActivity() {
         val year = extras?.getString(EXTRA_YEAR,"0")
         Log.d("ExtraTahun",year!!)
         populateIku4(year)
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun populateIku4(year: String) {

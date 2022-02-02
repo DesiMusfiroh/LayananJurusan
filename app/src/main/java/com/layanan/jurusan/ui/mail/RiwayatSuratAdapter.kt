@@ -1,13 +1,14 @@
 package com.layanan.jurusan.ui.mail
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.layanan.jurusan.data.model.RiwayatSuratModel
 import com.layanan.jurusan.databinding.ItemRiwayatSuratBinding
 
-class RiwayatSuratAdapter(private val list: List<RiwayatSuratModel>, val context: Context) : RecyclerView.Adapter<RiwayatSuratAdapter.RiwayatSuratViewHolder>()  {
+class RiwayatSuratAdapter(private val list: List<RiwayatSuratModel>) : RecyclerView.Adapter<RiwayatSuratAdapter.RiwayatSuratViewHolder>()  {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
@@ -41,6 +42,10 @@ class RiwayatSuratAdapter(private val list: List<RiwayatSuratModel>, val context
                 tvStatus.text = data.status
                 tvDatetime.text = data.tanggalPengajuan
             }
+//            itemView.setOnClickListener {
+//                val intent = Intent(itemView.context,RiwayatSuratActivity::class.java)
+//
+//            }
         }
     }
 }

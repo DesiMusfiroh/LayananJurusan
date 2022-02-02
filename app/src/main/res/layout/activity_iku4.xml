@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/iku3"
+            android:text="@string/iku4"
             android:textColor="@color/white" />
     </LinearLayout>
 

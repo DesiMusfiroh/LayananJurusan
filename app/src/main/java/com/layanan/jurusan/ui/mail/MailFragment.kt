@@ -42,30 +42,34 @@ class MailFragment : Fragment() {
                 showJenisSurat(tipeSurat)
             }
         })
+        binding.titleHistory.setOnClickListener {
+            val intent = Intent(activity,ListRiwayatSuratActivity::class.java)
+            startActivity(intent)
+        }
         showJenisSurat(tipeSurat)
-        showRiwayatSurat("1")
+//        showRiwayatSurat("1")
     }
 
-    private fun showRiwayatSurat(userId: String) {
-        viewModel.getRiwayatSurat(userId).observe(requireActivity(), {
-            riwayatSuratResponse = it
-            riwayatSuratAdapter = RiwayatSuratAdapter(riwayatSuratResponse, requireContext())
-            riwayatSuratAdapter.notifyDataSetChanged()
-
-            with(binding){
-                rvRiwayatSurat.layoutManager = LinearLayoutManager(requireContext())
-                rvRiwayatSurat.setHasFixedSize(true)
-                rvRiwayatSurat.adapter = riwayatSuratAdapter
-            }
-            riwayatSuratAdapter.setOnItemClickCallback(object : RiwayatSuratAdapter.OnItemClickCallback {
-                override fun onItemClicked(data: RiwayatSuratModel) {
-                    val intent = Intent(activity, RiwayatSuratActivity::class.java)
-                    intent.putExtra(RiwayatSuratActivity.EXTRA_MAIL, data)
-                    startActivity(intent)
-                }
-            })
-        })
-    }
+//    private fun showRiwayatSurat(userId: String) {
+//        viewModel.getRiwayatSurat(userId).observe(requireActivity(), {
+//            riwayatSuratResponse = it
+//            riwayatSuratAdapter = RiwayatSuratAdapter(riwayatSuratResponse, requireContext())
+//            riwayatSuratAdapter.notifyDataSetChanged()
+//
+//            with(binding){
+//                rvRiwayatSurat.layoutManager = LinearLayoutManager(requireContext())
+//                rvRiwayatSurat.setHasFixedSize(true)
+//                rvRiwayatSurat.adapter = riwayatSuratAdapter
+//            }
+//            riwayatSuratAdapter.setOnItemClickCallback(object : RiwayatSuratAdapter.OnItemClickCallback {
+//                override fun onItemClicked(data: RiwayatSuratModel) {
+//                    val intent = Intent(activity, RiwayatSuratActivity::class.java)
+//                    intent.putExtra(RiwayatSuratActivity.EXTRA_MAIL, data)
+//                    startActivity(intent)
+//                }
+//            })
+//        })
+//    }
 
     private fun showJenisSurat(tipe: String) {
         viewModel.getJenisSurat(tipe).observe(requireActivity(),{

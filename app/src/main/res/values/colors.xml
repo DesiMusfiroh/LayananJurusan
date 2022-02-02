@@ -13,6 +13,8 @@
     <color name="primaryDark">#444559</color>
     <color name="primaryLight">#D3EDE1</color>
     <color name="secondary">#F2FFF5</color>
+    <color name="process">#F3D300</color>
+    <color name="decline">#FD1F1F</color>
     <color name="secondaryDark">#113873</color>
     <color name="accent">#2E94F2</color>
     <color name="grey">#D1D1D1</color>

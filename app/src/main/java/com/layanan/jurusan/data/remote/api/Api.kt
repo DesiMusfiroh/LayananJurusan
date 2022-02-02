@@ -11,12 +11,10 @@ import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementRes
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
+import com.layanan.jurusan.data.remote.response.login.LogoutResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.news.ListNewsResponse
-import com.layanan.jurusan.data.remote.response.surat.IsiKeywordSuratResponse
-import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
-import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
-import com.layanan.jurusan.data.remote.response.surat.RiwayatSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.*
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -125,10 +123,16 @@ interface Api {
     @GET("surat/keyword/{jenisSuratId}")
     fun getKeywordSurat(@Path("jenisSuratId") jenisSuratId: Int): Call<KeywordSuratResponse>
 
-    @GET("surat/riwayat-surat/{userId}")
-    fun getRiwayatSurat(@Path("userId") userId: String): Call<RiwayatSuratResponse>
+    @GET("surat/riwayat-surat/mahasiswa")
+    fun getRiwayatSurat(@Header("Authorization") token: String): Call<ListRiwayatSuratResponse>
+
+    @GET("surat/riwayat-surat/mahasiswa/{id}")
+    fun showRiwayatSurat(@Header("Authorization") token: String,@Path("id") id: Int): Call<RiwayatSuratResponse>
 
     @GET("surat/isi-keyword/{riwayatSuratId}")
     fun getIsiKeywordSurat(@Path("riwayatSuratId") riwayatSuratId: Int): Call<IsiKeywordSuratResponse>
+
+    @GET("logout")
+    fun logout(@Header("Authorization") token: String): Call<LogoutResponse>
 
 }

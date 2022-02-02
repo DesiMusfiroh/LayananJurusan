@@ -3,6 +3,7 @@ package com.layanan.jurusan.ui.profile
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.transition.TransitionManager
 import android.util.Log
@@ -13,13 +14,15 @@ import com.google.android.material.card.MaterialCardView
 import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.databinding.ActivityProfileBinding
+import com.layanan.jurusan.ui.login.LoginActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var binding: ActivityProfileBinding
     private lateinit var cvSertifikat: MaterialCardView
-
+    private lateinit var jwtToken: String
+    private lateinit var userPref: SharedPreferences
 
     private var clickArrow1 = 1
 
@@ -33,11 +36,11 @@ class ProfileActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setUpAccordionView()
 
-        val userPref = this.getSharedPreferences("user",
+        userPref = this.getSharedPreferences("user",
             AppCompatActivity.MODE_PRIVATE
         )
 
-        val jwtToken = userPref?.getString("token","devicetoken")
+        jwtToken = userPref?.getString("token","devicetoken").toString()
         if (jwtToken != null) {
             Log.d("Jwt",jwtToken)
         }
@@ -57,6 +60,18 @@ class ProfileActivity : AppCompatActivity() {
         binding.cvSignature.setOnClickListener {
             val intent = Intent(this, SignatureActivity::class.java)
             startActivity(intent)
+        }
+        binding.cvLogout.setOnClickListener {
+
+            viewModel.logout(jwtToken).observe(this,{
+                if (it.message == "success"){
+                    userPref.edit().clear().apply()
+                    val intent = Intent(this,LoginActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+            })
         }
     }
 

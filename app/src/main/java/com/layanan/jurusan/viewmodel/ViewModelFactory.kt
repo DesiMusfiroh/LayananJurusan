@@ -13,6 +13,7 @@ import com.layanan.jurusan.ui.iku.IkuViewModel
 import com.layanan.jurusan.ui.jurusan.JurusanViewModel
 import com.layanan.jurusan.ui.login.LoginViewModel
 import com.layanan.jurusan.ui.mail.FormSuratViewModel
+import com.layanan.jurusan.ui.mail.ListRiwayatSuratViewModel
 import com.layanan.jurusan.ui.mail.MailViewModel
 import com.layanan.jurusan.ui.mail.RiwayatSuratViewModel
 import com.layanan.jurusan.ui.news.DetailNewsViewModel
@@ -92,6 +93,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(RiwayatSuratViewModel::class.java) -> {
                 RiwayatSuratViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(ListRiwayatSuratViewModel::class.java) -> {
+                ListRiwayatSuratViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

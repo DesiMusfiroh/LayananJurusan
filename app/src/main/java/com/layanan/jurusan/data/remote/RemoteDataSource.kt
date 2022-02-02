@@ -22,10 +22,11 @@ import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
+import com.layanan.jurusan.data.remote.response.login.LogoutResponse
 import com.layanan.jurusan.data.remote.response.news.DetailNewsResponse
 import com.layanan.jurusan.data.remote.response.surat.JenisSuratResponse
 import com.layanan.jurusan.data.remote.response.surat.KeywordSuratResponse
-import com.layanan.jurusan.data.remote.response.surat.PermohonanSuratResponse
+import com.layanan.jurusan.data.remote.response.surat.ListRiwayatSuratResponse
 import com.layanan.jurusan.data.remote.response.surat.RiwayatSuratResponse
 import com.layanan.jurusan.data.remote.response.userprofile.SignatureResponse
 import com.loopj.android.http.AsyncHttpClient
@@ -484,9 +485,26 @@ class RemoteDataSource {
     }
 
 
-    fun getRiwayatSurat(userId: String): LiveData<List<RiwayatSuratModel>> {
+    fun getRiwayatSurat(jwtToken: String): LiveData<List<RiwayatSuratModel>> {
         val results = MutableLiveData<List<RiwayatSuratModel>>()
-        ApiConfig.getApiService().getRiwayatSurat(userId).enqueue(object: Callback<RiwayatSuratResponse> {
+        ApiConfig.getApiService().getRiwayatSurat("Bearer ${jwtToken}").enqueue(object: Callback<ListRiwayatSuratResponse> {
+            override fun onResponse(call: Call<ListRiwayatSuratResponse>, response: Response<ListRiwayatSuratResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<ListRiwayatSuratResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun showRiwayatSurat(jwtToken: String, id: Int): LiveData<RiwayatSuratModel> {
+        val results = MutableLiveData<RiwayatSuratModel>()
+        ApiConfig.getApiService().showRiwayatSurat("Bearer ${jwtToken}", id).enqueue(object: Callback<RiwayatSuratResponse> {
             override fun onResponse(call: Call<RiwayatSuratResponse>, response: Response<RiwayatSuratResponse>) {
                 if (response.isSuccessful) {
                     results.postValue(response.body()?.data)
@@ -495,6 +513,23 @@ class RemoteDataSource {
                 }
             }
             override fun onFailure(call: Call<RiwayatSuratResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun logout(jwtToken: String): LiveData<LogoutResponse>{
+        val results = MutableLiveData<LogoutResponse>()
+        ApiConfig.getApiService().logout("Bearer ${jwtToken}").enqueue(object: Callback<LogoutResponse> {
+            override fun onResponse(call: Call<LogoutResponse>, response: Response<LogoutResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body())
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })

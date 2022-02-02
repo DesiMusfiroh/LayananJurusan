@@ -38,6 +38,9 @@ class Iku3Activity : AppCompatActivity() {
         val year = extras?.getString(EXTRA_YEAR,"0")
         Log.d("ExtraTahun",year!!)
         populateIku3(year)
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun populateIku3(year: String) {

@@ -1,6 +1,7 @@
 package com.layanan.jurusan.ui.home
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -32,10 +33,10 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
     private lateinit var newsAdapter: HomeNewsAdapter
     private lateinit var announcementAdapter: HomeAnnouncementAdapter
+    private var userPref: SharedPreferences? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        fcmService()
         return binding.root
     }
 
@@ -43,6 +44,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val factory = ViewModelFactory.getInstance(requireActivity())
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
+
+        userPref = context?.getSharedPreferences("user",
+            AppCompatActivity.MODE_PRIVATE
+        )
+        fcmService()
 
         binding.btnProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
@@ -98,6 +104,7 @@ class HomeFragment : Fragment() {
 
         populateNews()
         populateAnnouncement()
+        populateUserInfo()
     }
 
     private fun populateNews() {
@@ -120,6 +127,13 @@ class HomeFragment : Fragment() {
                     }
                 })
             }
+        })
+    }
+
+    private fun populateUserInfo(){
+        val jwtToken = userPref?.getString("token","devicetoken")
+        viewModel.getUserProfile(jwtToken!!).observe(viewLifecycleOwner,{
+            binding.haiUser.text = "Hai, ${it.mahasiswa.nama}"
         })
     }
 
@@ -152,11 +166,10 @@ class HomeFragment : Fragment() {
         val msgs = getString(R.string.msg_subscribed)
         val deviceToken = FcmServices
         val msg = getString(R.string.msg_token_fmt, deviceToken)
-        val userPref = context?.getSharedPreferences("user",
-            AppCompatActivity.MODE_PRIVATE
-        )
+
 
         val jwtToken = userPref?.getString("token","devicetoken")
+        Log.d("IsiJwt",jwtToken!!)
         FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
             val msg = getString(R.string.msg_token_fmt, deviceToken)
             Log.d("OKE",msg)

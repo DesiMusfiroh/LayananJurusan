@@ -40,6 +40,9 @@ class Iku5Activity : AppCompatActivity() {
         val year = extras?.getString(EXTRA_YEAR,"0")
         Log.d("ExtraTahun",year!!)
         populateIku5(year)
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun populateIku5(year: String){
