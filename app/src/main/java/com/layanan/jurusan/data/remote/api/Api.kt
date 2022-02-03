@@ -8,6 +8,8 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
+import com.layanan.jurusan.data.remote.response.civitas.AngkatanResponse
+import com.layanan.jurusan.data.remote.response.civitas.MahasiswaResponse
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -134,5 +136,16 @@ interface Api {
 
     @GET("logout")
     fun logout(@Header("Authorization") token: String): Call<LogoutResponse>
+
+
+    @GET("angkatan")
+    fun getAngkatan(): Call<AngkatanResponse>
+
+    @GET("civitas-akademik/mahasiswa")
+    fun getMahasiswa(
+            @Query("prodi") prodi: String,
+            @Query("angkatan") angkatan: String,
+            @Query("status_mahasiswa") status_mahasiswa: String,
+    ): Call<MahasiswaResponse>
 
 }

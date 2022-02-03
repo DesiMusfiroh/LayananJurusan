@@ -15,8 +15,85 @@
     <TextView
         style="@style/Text.Medium"
         android:text="@string/filter_data_mahasiswa"
-        android:layout_marginVertical="16dp"/>
+        android:layout_marginVertical="16dp"
+        android:layout_gravity="center"/>
 
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/prodi"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sistem_informasi"
+            android:layout_marginEnd="8dp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/teknik_elekto"
+            android:layout_marginEnd="8dp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/semua"/>
+    </RadioGroup>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/status_mahasiswa"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mahasiswa_aktif"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cuti_akademik"/>
+    </RadioGroup>
+
+    <TextView
+        style="@style/Text.Regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/angkatan"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pilih_angkatan"
+        android:layout_marginTop="8dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            style="@style/Text.Regular"
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/terapkan"
+        android:layout_gravity="end"
+        android:layout_marginVertical="20dp"/>
 </LinearLayout>
 
 

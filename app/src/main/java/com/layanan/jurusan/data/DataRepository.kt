@@ -77,4 +77,7 @@ class DataRepository private constructor(
     fun showRiwayatSurat(jwtToken: String, id: Int) = remoteDataSource.showRiwayatSurat(jwtToken,id)
 
     fun logout(jwtToken: String) = remoteDataSource.logout(jwtToken)
+
+    fun getAngkatan() = remoteDataSource.getAngkatan()
+    fun getMahasiswa(prodi: String, angkatan: String, status: String) = remoteDataSource.getMahasiswa(prodi, angkatan, status)
 }

@@ -18,6 +18,8 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.model.Iku1Model
+import com.layanan.jurusan.data.remote.response.civitas.AngkatanResponse
+import com.layanan.jurusan.data.remote.response.civitas.MahasiswaResponse
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
@@ -530,6 +532,42 @@ class RemoteDataSource {
                 }
             }
             override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getAngkatan(): LiveData<List<String>> {
+        val results = MutableLiveData<List<String>>()
+        ApiConfig.getApiService().getAngkatan().enqueue(object: Callback<AngkatanResponse> {
+            override fun onResponse(call: Call<AngkatanResponse>, response: Response<AngkatanResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<AngkatanResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getMahasiswa(prodi: String, angkatan: String, status: String): LiveData<List<Mahasiswa>> {
+        val results = MutableLiveData<List<Mahasiswa>>()
+        ApiConfig.getApiService().getMahasiswa(prodi, angkatan, status).enqueue(object : Callback<MahasiswaResponse> {
+            override fun onResponse(call: Call<MahasiswaResponse>, response: Response<MahasiswaResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                    Log.d(TAG, "remote mahasiswa ${response.body()?.data.toString()}")
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<MahasiswaResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
