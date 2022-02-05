@@ -44,6 +44,7 @@ class MailFragment : Fragment() {
             }
         })
 
+
         binding.btnRiwayatSurat.setOnClickListener {
             val intent = Intent(activity,ListRiwayatSuratActivity::class.java)
             startActivity(intent)

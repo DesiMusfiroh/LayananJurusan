@@ -16,15 +16,6 @@ import com.layanan.jurusan.data.remote.api.ApiConfig
 import kotlinx.coroutines.flow.Flow
 
 class NewsViewModel(private val repository: DataRepository): ViewModel() {
-//    fun getListNews(): Flow<PagingData<NewsModel>> {
-//        val data = repository.getListNews().cachedIn(viewModelScope)
-//        return data
-//    }
-
-//    val listNews = Pager(PagingConfig(pageSize = 10)){
-//        ListNewsDataSource(ApiConfig.getApiService())
-//    }.flow.cachedIn(viewModelScope)
-
     private var searchQuery: String = ""
 
     val testNews = repository.getTestNews().cachedIn(viewModelScope)

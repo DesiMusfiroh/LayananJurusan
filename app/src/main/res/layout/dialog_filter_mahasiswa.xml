@@ -25,22 +25,27 @@
         android:text="@string/prodi"/>
 
     <RadioGroup
+        android:id="@+id/radio_group_prodi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
+            android:id="@+id/prodi_semua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/semua"/>
+        <RadioButton
+            android:id="@+id/prodi_si"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sistem_informasi"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp"
+            />
         <RadioButton
+            android:id="@+id/prodi_te"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/teknik_elekto"
             android:layout_marginEnd="8dp"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/semua"/>
     </RadioGroup>
 
     <TextView
@@ -51,17 +56,24 @@
         android:text="@string/status_mahasiswa"/>
 
     <RadioGroup
+        android:id="@+id/radio_group_status_mahasiswa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <RadioButton
+            android:id="@+id/status_semua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mahasiswa_aktif"/>
+            android:text="@string/semua_kecil"/>
         <RadioButton
+            android:id="@+id/status_aktif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cuti_akademik"/>
+            android:text="@string/aktif"/>
+        <RadioButton
+            android:id="@+id/status_tidak_aktif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tidak_aktif"/>
     </RadioGroup>
 
     <TextView
@@ -71,21 +83,11 @@
         android:layout_marginTop="8dp"
         android:text="@string/angkatan"/>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/pilih_angkatan"
-        android:layout_marginTop="8dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-
-        <AutoCompleteTextView
-            style="@style/Text.Regular"
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="30dp"
+        android:id="@+id/spinner_angkatan"
+        style="@style/Widget.AppCompat.Spinner"/>
 
     <Button
         android:id="@+id/btn_filter"

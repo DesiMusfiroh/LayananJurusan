@@ -222,10 +222,12 @@
     <string name="sistem_informasi">Sistem Informasi</string>
     <string name="teknik_elekto">Teknik Elektro</string>
     <string name="semua">Semua</string>
+    <string name="semua_kecil">semua</string>
     <string name="status_mahasiswa">Status Mahasiswa</string>
     <string name="mahasiswa_aktif">Mahasiswa Aktif</string>
     <string name="cuti_akademik">Cuti Akademik</string>
     <string name="pilih_angkatan">Pilih Angkatan</string>
     <string name="terapkan">Terapkan</string>
-    >>>>>>> 71727881527fce341397f28fc3d81ef67d68ec8c
+    <string name="aktif">Aktif</string>
+    <string name="tidak_aktif">Tidak Aktif</string>
 </resources>

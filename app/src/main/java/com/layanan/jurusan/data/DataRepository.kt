@@ -80,4 +80,5 @@ class DataRepository private constructor(
 
     fun getAngkatan() = remoteDataSource.getAngkatan()
     fun getMahasiswa(prodi: String, angkatan: String, status: String) = remoteDataSource.getMahasiswa(prodi, angkatan, status)
+    fun getSearchMahasiswa(prodi: String, angkatan: String, status: String, search: String) = remoteDataSource.getSearchMahasiswa(prodi, angkatan, status, search)
 }

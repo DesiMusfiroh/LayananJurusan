@@ -148,4 +148,11 @@ interface Api {
             @Query("status_mahasiswa") status_mahasiswa: String,
     ): Call<MahasiswaResponse>
 
+    @GET("civitas-akademik/mahasiswa")
+    fun getSearchMahasiswa(
+        @Query("prodi") prodi: String,
+        @Query("angkatan") angkatan: String,
+        @Query("status_mahasiswa") status_mahasiswa: String,
+        @Query("search") search: String
+    ): Call<MahasiswaResponse>
 }

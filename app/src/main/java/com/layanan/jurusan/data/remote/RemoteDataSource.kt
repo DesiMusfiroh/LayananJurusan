@@ -573,4 +573,23 @@ class RemoteDataSource {
         })
         return results
     }
+
+    fun getSearchMahasiswa(prodi: String, angkatan: String, status: String, search: String): LiveData<List<Mahasiswa>> {
+        val results = MutableLiveData<List<Mahasiswa>>()
+        ApiConfig.getApiService().getSearchMahasiswa(prodi, angkatan, status,search).enqueue(object : Callback<MahasiswaResponse> {
+            override fun onResponse(call: Call<MahasiswaResponse>, response: Response<MahasiswaResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                    Log.d(TAG, "remote mahasiswa ${response.body()?.data.toString()}")
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<MahasiswaResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
 }
