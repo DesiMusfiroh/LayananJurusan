@@ -4,12 +4,15 @@ import androidx.lifecycle.ViewModel
 import com.layanan.jurusan.data.DataRepository
 
 class CivitasViewModel(private val repository: DataRepository) : ViewModel()  {
-    fun getAngkatan() = repository.getAngkatan()
-    fun getMahasiswa(prodi: String, angkatan: String, status: String) = repository.getMahasiswa(prodi, angkatan, status)
-
     private var searchMahasiswaQuery: String = ""
     private var searchDosenQuery: String = ""
     private var searchAlumniQuery: String = ""
+
+    fun getAngkatan() = repository.getAngkatan()
+    fun getMahasiswa(prodi: String, angkatan: String, status: String) = repository.getMahasiswa(prodi, angkatan, status)
+    fun getDosen(prodi: String,status: String) = repository.getDosen(prodi,status)
+    fun getStatusDosen() = repository.getStatusDosen()
+
 
     /*
         @param type = mahasiswa, dosen, alumni
@@ -24,4 +27,5 @@ class CivitasViewModel(private val repository: DataRepository) : ViewModel()  {
     }
 
     fun getSearchMahasiswa(prodi: String, angkatan: String, status: String) = repository.getSearchMahasiswa(prodi,angkatan,status,searchMahasiswaQuery)
+    fun getSearchDosen(prodi: String, status: String) = repository.getSearchDosen(prodi,status,searchDosenQuery)
 }

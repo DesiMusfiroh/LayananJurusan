@@ -19,7 +19,9 @@ import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementR
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.model.Iku1Model
 import com.layanan.jurusan.data.remote.response.civitas.AngkatanResponse
+import com.layanan.jurusan.data.remote.response.civitas.DosenResponse
 import com.layanan.jurusan.data.remote.response.civitas.MahasiswaResponse
+import com.layanan.jurusan.data.remote.response.civitas.StatusDosenResponse
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
@@ -587,6 +589,59 @@ class RemoteDataSource {
             }
 
             override fun onFailure(call: Call<MahasiswaResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getDosen(prodi: String, status: String): LiveData<List<DosenModel>> {
+        val results = MutableLiveData<List<DosenModel>>()
+        ApiConfig.getApiService().getDosen(prodi, status).enqueue(object : Callback<DosenResponse> {
+            override fun onResponse(call: Call<DosenResponse>, response: Response<DosenResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<DosenResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getSearchDosen(prodi: String, status: String, search:String): LiveData<List<DosenModel>> {
+        val results = MutableLiveData<List<DosenModel>>()
+        ApiConfig.getApiService().getSearchDosen(prodi, status,search).enqueue(object : Callback<DosenResponse> {
+            override fun onResponse(call: Call<DosenResponse>, response: Response<DosenResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<DosenResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getStatusDosen(): LiveData<List<String>> {
+        val results = MutableLiveData<List<String>>()
+        ApiConfig.getApiService().getStatusDosen().enqueue(object: Callback<StatusDosenResponse> {
+            override fun onResponse(call: Call<StatusDosenResponse>, response: Response<StatusDosenResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<StatusDosenResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })

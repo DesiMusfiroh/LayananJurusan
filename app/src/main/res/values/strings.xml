@@ -230,4 +230,5 @@
     <string name="terapkan">Terapkan</string>
     <string name="aktif">Aktif</string>
     <string name="tidak_aktif">Tidak Aktif</string>
+    <string name="filter_data_dosen">Filter Data Dosen</string>
 </resources>

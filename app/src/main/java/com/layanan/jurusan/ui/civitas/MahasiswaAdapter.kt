@@ -39,6 +39,7 @@ class MahasiswaAdapter(private val list: List<Mahasiswa>) : RecyclerView.Adapter
             with(binding) {
                 tvName.text = data.nama
                 tvNim.text = data.nim
+                tvProdi.text = data.prodi?.nama
 //                Glide.with(itemView.context)
 //                        .load(data.)
 //                        .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))

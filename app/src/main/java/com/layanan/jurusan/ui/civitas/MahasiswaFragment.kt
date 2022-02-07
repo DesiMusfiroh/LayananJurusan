@@ -48,26 +48,7 @@ class MahasiswaFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory)[CivitasViewModel::class.java]
 
         populateMahasiswa(prodiStr, angkatanStr, statusStr,isSearch = false)
-        val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        binding.searhMahasiswa.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
-        binding.searhMahasiswa.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    viewModel.setSearchQuery(query,"mahasiswa")
-                    populateMahasiswa(prodiStr,angkatanStr,statusStr,true)
-                }
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    viewModel.setSearchQuery(newText,"mahasiswa")
-                    populateMahasiswa(prodiStr,angkatanStr,statusStr,true)
-                }
-                return true
-            }
-
-        })
+        setupSearchView()
         binding.btnFilter.setOnClickListener {
             showFilterDialog()
         }
@@ -167,5 +148,28 @@ class MahasiswaFragment : Fragment() {
 
         dialog.setContentView(dialogBinding.root)
         dialog.show()
+    }
+
+    private fun setupSearchView(){
+        val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        binding.searhMahasiswa.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
+        binding.searhMahasiswa.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewModel.setSearchQuery(query,"mahasiswa")
+                    populateMahasiswa(prodiStr,angkatanStr,statusStr,true)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText != null) {
+                    viewModel.setSearchQuery(newText,"mahasiswa")
+                    populateMahasiswa(prodiStr,angkatanStr,statusStr,true)
+                }
+                return true
+            }
+
+        })
     }
 }

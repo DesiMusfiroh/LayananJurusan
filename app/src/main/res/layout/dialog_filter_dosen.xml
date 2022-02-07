@@ -14,7 +14,7 @@
 
     <TextView
         style="@style/Text.Medium"
-        android:text="@string/filter_data_mahasiswa"
+        android:text="@string/filter_data_dosen"
         android:layout_marginVertical="16dp"
         android:layout_gravity="center"/>
 
@@ -53,40 +53,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/status_mahasiswa"/>
+        android:text="@string/status"/>
 
-    <RadioGroup
-        android:id="@+id/radio_group_status_mahasiswa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/status_semua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/semua"/>
-        <RadioButton
-            android:id="@+id/status_aktif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/aktif"/>
-        <RadioButton
-            android:id="@+id/status_tidak_aktif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tidak_aktif"/>
-    </RadioGroup>
 
-    <TextView
-        style="@style/Text.Regular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/angkatan"/>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:id="@+id/spinner_angkatan"
+        android:id="@+id/spinner_status"
         style="@style/Widget.AppCompat.Spinner"/>
 
     <Button

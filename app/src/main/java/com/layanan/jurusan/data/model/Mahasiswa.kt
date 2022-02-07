@@ -14,4 +14,7 @@ data class Mahasiswa(
 
     @SerializedName("angkatan")
     val angkatan: String,
+
+    @SerializedName("prodi")
+    val prodi: ProdiModel?,
 )
