@@ -231,4 +231,6 @@
     <string name="aktif">Aktif</string>
     <string name="tidak_aktif">Tidak Aktif</string>
     <string name="filter_data_dosen">Filter Data Dosen</string>
+    <string name="mahasiswa">Mahasiswa</string>
+    <string name="prestasi">Prestasi</string>
 </resources>

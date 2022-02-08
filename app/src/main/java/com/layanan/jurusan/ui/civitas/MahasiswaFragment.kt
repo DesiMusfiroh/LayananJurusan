@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -35,7 +34,6 @@ class MahasiswaFragment : Fragment() {
     var prodiStr = "Semua"
     var statusStr = "Semua"
     var angkatanStr = "Semua"
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMahasiswaBinding.inflate(layoutInflater, container, false)
