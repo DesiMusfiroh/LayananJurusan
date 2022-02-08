@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     app:cardElevation="4dp"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
@@ -13,11 +13,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="match_parent"
+        android:background="@color/primaryLight">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             app:cardMaxElevation="4dp"
             android:background="@drawable/bg_icon"
@@ -29,8 +30,7 @@
                 android:id="@+id/img_item_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/title_news"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:background="@color/white"/>
         </androidx.cardview.widget.CardView>
 
@@ -40,11 +40,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/merriweather_sans"
             android:text="@string/nama_mahasiswa"
-            android:textColor="@color/black"
+            android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,8 +55,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginTop="4dp"
             android:text="@string/prodi"
-            android:textColor="@color/black"
+            android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
@@ -70,7 +70,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="10dp"
             android:text="@string/nim"
-            android:textColor="@color/black"
+            android:maxLines="1"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/tv_prodi" />
