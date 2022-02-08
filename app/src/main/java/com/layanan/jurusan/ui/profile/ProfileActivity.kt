@@ -1,16 +1,14 @@
 package com.layanan.jurusan.ui.profile
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.card.MaterialCardView
 import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.UserModel
 import com.layanan.jurusan.databinding.ActivityProfileBinding
@@ -20,11 +18,8 @@ import com.layanan.jurusan.viewmodel.ViewModelFactory
 class ProfileActivity : AppCompatActivity() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var binding: ActivityProfileBinding
-    private lateinit var cvSertifikat: MaterialCardView
     private lateinit var jwtToken: String
     private lateinit var userPref: SharedPreferences
-
-    private var clickArrow1 = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,27 +29,39 @@ class ProfileActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
         setContentView(binding.root)
         supportActionBar?.hide()
-        setUpAccordionView()
 
-        userPref = this.getSharedPreferences("user",
-            AppCompatActivity.MODE_PRIVATE
-        )
+        userPref = this.getSharedPreferences("user", MODE_PRIVATE)
 
-        jwtToken = userPref?.getString("token","devicetoken").toString()
-        if (jwtToken != null) {
-            Log.d("Jwt",jwtToken)
-        }
-        viewModel.getUserProfile(jwtToken!!).observe(this,{
+        jwtToken = userPref.getString("token","devicetoken").toString()
+
+        viewModel.getUserProfile(jwtToken).observe(this,{
             Log.d("ProfileUser",it.toString())
             setUpView(it)
         })
     }
 
-    fun setUpView(user: UserModel){
+    private fun setUpView(user: UserModel){
         binding.apply {
             tvNama.text = user.mahasiswa.nama
             tvNim.text = user.mahasiswa.nim
             tvAngkatan.text = user.mahasiswa.angkatan
+            tvProdi.text = user.mahasiswa.prodi?.nama
+        }
+
+        binding.apply {
+            cvInfo.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(p0: View?) {
+                    if (cardTableInfo.visibility == View.VISIBLE) {
+                        TransitionManager.beginDelayedTransition(cvInfo, AutoTransition())
+                        cardTableInfo.visibility = View.GONE
+                        icArrowInfo.setImageResource(R.drawable.ic_arrow_next)
+                    } else {
+                        TransitionManager.beginDelayedTransition(cvInfo, AutoTransition())
+                        cardTableInfo.visibility = View.VISIBLE
+                        icArrowInfo.setImageResource(R.drawable.ic_arrow_to_bottom)
+                    }
+                }
+            })
         }
 
         binding.cvSignature.setOnClickListener {
@@ -75,39 +82,38 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    fun setUpAccordionView(){
-        cvSertifikat = binding.cvSertifikat
-        binding.tvSertifikat.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                TransitionManager.beginDelayedTransition(cvSertifikat)
-                if (clickArrow1 % 2 == 0) {
-                    binding.listSertifikat.animate()
-                        .alpha(1f)
-                        .setDuration(300)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                binding.listSertifikat.setVisibility(View.VISIBLE)
-                                binding.line.setVisibility(View.VISIBLE)
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.iconArrow.setImageResource(R.drawable.dropup_black)
-                } else {
-                    binding.listSertifikat.animate()
-                        .alpha(0f)
-                        .setDuration(300)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                binding.listSertifikat.setVisibility(View.GONE)
-                                binding.line.setVisibility(View.GONE)
-                                super.onAnimationEnd(animation)
-                            }
-                        })
-                    binding.iconArrow.setImageResource(R.drawable.dropdown_black)
-                }
-                clickArrow1++
-            }
-        })
-
-    }
+//    fun setUpAccordionView(){
+//        cvSertifikat = binding.cvSertifikat
+//        binding.tvSertifikat.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(v: View?) {
+//                TransitionManager.beginDelayedTransition(cvSertifikat)
+//                if (clickArrow1 % 2 == 0) {
+//                    binding.listSertifikat.animate()
+//                        .alpha(1f)
+//                        .setDuration(300)
+//                        .setListener(object : AnimatorListenerAdapter() {
+//                            override fun onAnimationEnd(animation: Animator?) {
+//                                binding.listSertifikat.setVisibility(View.VISIBLE)
+//                                binding.line.setVisibility(View.VISIBLE)
+//                                super.onAnimationEnd(animation)
+//                            }
+//                        })
+//                    binding.iconArrow.setImageResource(R.drawable.dropup_black)
+//                } else {
+//                    binding.listSertifikat.animate()
+//                        .alpha(0f)
+//                        .setDuration(300)
+//                        .setListener(object : AnimatorListenerAdapter() {
+//                            override fun onAnimationEnd(animation: Animator?) {
+//                                binding.listSertifikat.setVisibility(View.GONE)
+//                                binding.line.setVisibility(View.GONE)
+//                                super.onAnimationEnd(animation)
+//                            }
+//                        })
+//                    binding.iconArrow.setImageResource(R.drawable.dropdown_black)
+//                }
+//                clickArrow1++
+//            }
+//        })
+//    }
 }
