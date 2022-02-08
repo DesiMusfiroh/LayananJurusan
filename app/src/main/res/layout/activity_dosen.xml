@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.civitas.MahasiswaActivity">
+    tools:context=".ui.civitas.DosenActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="@string/mahasiswa"
+                        android:text="@string/dosen"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -98,16 +98,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="@string/student_name" />
+                            android:text="@string/nama_dosen" />
 
                         <TextView
-                            android:id="@+id/tv_nim"
+                            android:id="@+id/tv_no_induk"
                             style="@style/Text.Regular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="@string/nim" />
+                            android:text="@string/no_induk" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -148,7 +148,7 @@
                     <TextView
                         style="@style/Text.Regular"
                         android:layout_width="wrap_content"
-                        android:text="@string/angkatan"
+                        android:text="@string/jabatan"
                         android:textStyle="bold" />
 
                     <TextView
@@ -159,51 +159,7 @@
 
                     <TextView
                         style="@style/Text.Regular"
-                        android:id="@+id/tv_angkatan"/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="wrap_content"
-                        android:text="@string/dosen_pembimbing"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="20dp"
-                        android:gravity="center"
-                        android:text="@string/dots" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:id="@+id/tv_dosen_pa"/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="wrap_content"
-                        android:text="@string/status_mahasiswa"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="20dp"
-                        android:gravity="center"
-                        android:text="@string/dots" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:id="@+id/tv_status"/>
+                        android:id="@+id/tv_jabatan"/>
                 </TableRow>
             </TableLayout>
 
@@ -223,7 +179,7 @@
                     android:background="@color/grey">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card_prestasi"
+                        android:id="@+id/card_kegiatan_tridharma"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_gravity="center"
                         android:layout_height="match_parent"
@@ -248,10 +204,10 @@
                                 android:layout_marginEnd="30dp"
                                 android:layout_width="wrap_content"
                                 android:textColor="#000000"
-                                android:text="@string/prestasi"/>
+                                android:text="@string/kegiatan_tridharma_kampus_lain"/>
 
                             <ImageView
-                                android:id="@+id/icon_arrow_prestasi"
+                                android:id="@+id/icon_arrow_kegiatan_tridharma"
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
@@ -263,20 +219,20 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_list_prestasi"
+                        android:id="@+id/card_list_kegiatan_tridharma"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         app:cardBackgroundColor="@color/white"
                         android:elevation="4dp"
                         android:visibility="gone">
                         <ListView
-                            android:id="@+id/list_prestasi"
+                            android:id="@+id/list_kegiatan_tridharma"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"/>
                     </androidx.cardview.widget.CardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card_pengalaman"
+                        android:id="@+id/card_praktisi"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_gravity="center"
                         android:layout_height="match_parent"
@@ -301,10 +257,10 @@
                                 android:layout_marginEnd="30dp"
                                 android:layout_width="wrap_content"
                                 android:textColor="#000000"
-                                android:text="@string/pengalaman_luar_kampus"/>
+                                android:text="@string/praktisi"/>
 
                             <ImageView
-                                android:id="@+id/icon_arrow_pengalaman"
+                                android:id="@+id/icon_arrow_praktisi"
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"

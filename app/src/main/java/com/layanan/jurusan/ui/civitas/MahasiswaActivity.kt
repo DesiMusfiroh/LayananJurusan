@@ -52,6 +52,20 @@ class MahasiswaActivity : AppCompatActivity() {
                     }
                 }
             })
+
+            cardPengalaman.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(p0: View?) {
+                    if (cardListPengalaman.visibility == View.VISIBLE) {
+                        TransitionManager.beginDelayedTransition(cardPengalaman, AutoTransition())
+                        cardListPengalaman.visibility = View.GONE
+                        iconArrowPengalaman.setImageResource(R.drawable.ic_arrow_next)
+                    } else {
+                        TransitionManager.beginDelayedTransition(cardPengalaman, AutoTransition())
+                        cardListPengalaman.visibility = View.VISIBLE
+                        iconArrowPengalaman.setImageResource(R.drawable.ic_arrow_to_bottom)
+                    }
+                }
+            })
         }
 
     }

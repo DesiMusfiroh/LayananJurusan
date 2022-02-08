@@ -9,6 +9,7 @@ import com.layanan.jurusan.ui.CharacterViewModel
 import com.layanan.jurusan.ui.announcement.AnnouncementViewModel
 import com.layanan.jurusan.ui.announcement.ListAnnouncementViewModel
 import com.layanan.jurusan.ui.civitas.CivitasViewModel
+import com.layanan.jurusan.ui.civitas.DosenViewModel
 import com.layanan.jurusan.ui.civitas.MahasiswaViewModel
 import com.layanan.jurusan.ui.home.HomeViewModel
 import com.layanan.jurusan.ui.iku.IkuViewModel
@@ -104,6 +105,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(MahasiswaViewModel::class.java) -> {
                 MahasiswaViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(DosenViewModel::class.java) -> {
+                DosenViewModel(dataRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

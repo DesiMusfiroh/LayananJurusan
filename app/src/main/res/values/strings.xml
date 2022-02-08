@@ -240,4 +240,6 @@
     <string name="role">Role</string>
     <string name="hapus">Hapus</string>
     <string name="simpan_ttd">Simpan Tandatangan Digital</string>
+    <string name="dosen">Dosen</string>
+    <string name="jabatan">Jabatan</string>
 </resources>
