@@ -238,4 +238,6 @@
     <string name="logout">Logout</string>
     <string name="informasi_akun">Informasi Akun</string>
     <string name="role">Role</string>
+    <string name="hapus">Hapus</string>
+    <string name="simpan_ttd">Simpan Tandatangan Digital</string>
 </resources>

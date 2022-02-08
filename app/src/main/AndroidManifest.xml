@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.civitas.MahasiswaActivity"></activity>
+        <activity android:name=".ui.civitas.MahasiswaActivity"/>
         <activity android:name=".ui.mail.ListRiwayatSuratActivity" />
         <activity android:name=".ui.mail.RiwayatSuratActivity" />
         <activity android:name=".ui.mail.FormSuratActivity" />
@@ -28,7 +28,7 @@
         <activity android:name=".ui.iku.Iku2Activity" />
         <activity android:name=".ui.iku.Iku1TestActivity" />
         <activity android:name=".ui.notification.NotificationActivity" />
-        <activity android:name=".ui.profile.SignatureActivity" />
+        <activity android:name=".ui.profile.SignatureActivity" android:parentActivityName=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.iku.Iku1Activity" />
         <activity android:name=".ui.prodi.ProdiActivity" />
         <activity android:name=".ui.announcement.ListAnnouncementActivity" />
