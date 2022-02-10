@@ -48,9 +48,8 @@ class LoginActivity : AppCompatActivity() {
                         editor?.putString("nomor_induk",it.user.nomor_induk)
                         editor?.putInt("role",it.user.role)
                         editor?.apply()
-//                        val fcmToken = fcmService()
-//                        viewModel.saveFcmToken(fcmToken,it.token)
 
+                        storeFcmService()
                         startActivity(Intent(this,DashboardStudentActivity::class.java))
                         finish()
                     }else {
@@ -58,6 +57,28 @@ class LoginActivity : AppCompatActivity() {
                     }
                 })
             }
+        }
+    }
+
+    fun storeFcmService(){
+        FirebaseMessaging.getInstance().subscribeToTopic("news")
+        val msgs = getString(R.string.msg_subscribed)
+        val deviceToken = FcmServices
+        val msg = getString(R.string.msg_token_fmt, deviceToken)
+        val userPref = getSharedPreferences("user",
+            AppCompatActivity.MODE_PRIVATE
+        )
+
+        val jwtToken = userPref?.getString("token","devicetoken")
+        Log.d("IsiJwt",jwtToken!!)
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
+            val msg = getString(R.string.msg_token_fmt, deviceToken)
+            Log.d("OKE",msg)
+
+            Log.d("DeviceToken",deviceToken)
+            viewModel.saveFcmToken(deviceToken,jwtToken!!).observe(this,{
+
+            })
         }
     }
 

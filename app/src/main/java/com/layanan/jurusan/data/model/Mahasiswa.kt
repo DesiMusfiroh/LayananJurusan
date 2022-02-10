@@ -15,6 +15,22 @@ data class Mahasiswa(
     @SerializedName("angkatan")
     val angkatan: String,
 
+    @SerializedName("status_kuliah")
+    val statusKuliah: String,
+
+    @SerializedName("ttd_digital")
+    val ttdDigital: String,
+
+    @SerializedName("dosen")
+    val dosen: DosenModel,
+
     @SerializedName("prodi")
     val prodi: ProdiModel?,
+
+    @SerializedName("prestasi")
+    val prestasi: List<PrestasiModel>?,
+
+
+    @SerializedName("pengalaman_luar_kampus")
+    val pengalamanLuarKampus: List<PengalamanLuarKampusModel>?
 )

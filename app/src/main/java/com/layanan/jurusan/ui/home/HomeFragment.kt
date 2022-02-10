@@ -21,6 +21,7 @@ import com.layanan.jurusan.ui.announcement.AnnouncementActivity
 import com.layanan.jurusan.ui.announcement.ListAnnouncementActivity
 import com.layanan.jurusan.ui.document.ListDocumentActivity
 import com.layanan.jurusan.ui.jurusan.JurusanActivity
+import com.layanan.jurusan.ui.login.LoginActivity
 import com.layanan.jurusan.ui.news.ListNewsActivity
 import com.layanan.jurusan.ui.news.NewsActivity
 import com.layanan.jurusan.ui.notification.NotificationActivity
@@ -48,8 +49,6 @@ class HomeFragment : Fragment() {
         userPref = context?.getSharedPreferences("user",
             AppCompatActivity.MODE_PRIVATE
         )
-        fcmService()
-
         binding.btnProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
             startActivity(intent)
@@ -133,7 +132,11 @@ class HomeFragment : Fragment() {
     private fun populateUserInfo(){
         val jwtToken = userPref?.getString("token","devicetoken")
         viewModel.getUserProfile(jwtToken!!).observe(viewLifecycleOwner,{
-            binding.haiUser.text = "Hai, ${it.mahasiswa.nama}"
+            if (it == null){
+                userPref?.edit()?.clear()?.apply()
+                startActivity(Intent(context,LoginActivity::class.java))
+            }
+            binding.haiUser.text = "Hai, ${it?.mahasiswa?.nama}"
         })
     }
 
@@ -161,25 +164,4 @@ class HomeFragment : Fragment() {
         })
     }
 
-    fun fcmService(){
-        FirebaseMessaging.getInstance().subscribeToTopic("news")
-        val msgs = getString(R.string.msg_subscribed)
-        val deviceToken = FcmServices
-        val msg = getString(R.string.msg_token_fmt, deviceToken)
-
-
-        val jwtToken = userPref?.getString("token","devicetoken")
-        Log.d("IsiJwt",jwtToken!!)
-        FirebaseMessaging.getInstance().token.addOnSuccessListener { deviceToken ->
-            val msg = getString(R.string.msg_token_fmt, deviceToken)
-            Log.d("OKE",msg)
-
-            Log.d("DeviceToken",deviceToken)
-//            val token = DeviceToken(deviceToken)
-//            viewModel.postToken(token)
-            viewModel.saveFcmToken(deviceToken,jwtToken!!).observe(viewLifecycleOwner,{
-
-            })
-        }
-    }
 }

@@ -242,4 +242,5 @@
     <string name="simpan_ttd">Simpan Tandatangan Digital</string>
     <string name="dosen">Dosen</string>
     <string name="jabatan">Jabatan</string>
+    <string name="terakhir_di_update">Terakhir di update :</string>
 </resources>

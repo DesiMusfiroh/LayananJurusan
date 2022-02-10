@@ -11,7 +11,11 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.github.gcacace.signaturepad.views.SignaturePad
+import com.layanan.jurusan.R
 import com.layanan.jurusan.databinding.ActivitySignatureBinding
 import com.layanan.jurusan.ui.prodi.ProdiViewModel
 import com.layanan.jurusan.viewmodel.ViewModelFactory
@@ -29,6 +33,7 @@ class SignatureActivity : AppCompatActivity() {
     private lateinit var mSignatureBitmap: Bitmap
     private lateinit var mSignature: SignaturePad
     private lateinit var viewModel: SignatureViewModel
+    private lateinit var userPref: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +97,7 @@ class SignatureActivity : AppCompatActivity() {
             mSignature.clear()
         }
 
-        val userPref = this.getSharedPreferences("user",
+        userPref = this.getSharedPreferences("user",
             AppCompatActivity.MODE_PRIVATE
         )
 
@@ -113,6 +118,17 @@ class SignatureActivity : AppCompatActivity() {
                 finish()
             })
         }
+
+            viewModel.getUserProfile(jwtToken!!).observe(this,{
+                Glide.with(this@SignatureActivity)
+                    .load(it?.mahasiswa?.ttdDigital)
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error))
+                    .into(binding.imgLastSignature)
+            })
     }
 
     private fun getFileName():String{

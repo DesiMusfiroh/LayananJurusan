@@ -8,10 +8,7 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
-import com.layanan.jurusan.data.remote.response.civitas.AngkatanResponse
-import com.layanan.jurusan.data.remote.response.civitas.DosenResponse
-import com.layanan.jurusan.data.remote.response.civitas.MahasiswaResponse
-import com.layanan.jurusan.data.remote.response.civitas.StatusDosenResponse
+import com.layanan.jurusan.data.remote.response.civitas.*
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -157,6 +154,11 @@ interface Api {
         @Query("status_mahasiswa") status_mahasiswa: String,
         @Query("search") search: String
     ): Call<MahasiswaResponse>
+
+    @GET("civitas-akademik/mahasiswa/{id}")
+    fun getDetailMahasiswa(
+        @Path("id") id: Int
+    ): Call<DetailMahasiswaResponse>
 
     @GET("status-dosen")
     fun getStatusDosen(): Call<StatusDosenResponse>

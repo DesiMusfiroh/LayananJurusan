@@ -36,7 +36,9 @@ class ProfileActivity : AppCompatActivity() {
 
         viewModel.getUserProfile(jwtToken).observe(this,{
             Log.d("ProfileUser",it.toString())
-            setUpView(it)
+            if (it != null) {
+                setUpView(it)
+            }
         })
     }
 

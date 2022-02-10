@@ -6,4 +6,6 @@ import okhttp3.MultipartBody
 
 class SignatureViewModel(private val repository: DataRepository) : ViewModel(){
     fun uploadSignature(image: MultipartBody.Part, jwtToken: String) = repository.uploadSignature(image,jwtToken)
+
+    fun getUserProfile(jwtToken: String) = repository.getUserProfile(jwtToken)
 }

@@ -49,7 +49,7 @@ class DataRepository private constructor(
 
     fun getProfileJurusan() = remoteDataSource.getProfileJurusan()
 
-    fun getUserProfile(jwtToken: String): LiveData<UserModel>{
+    fun getUserProfile(jwtToken: String): LiveData<UserModel?>{
         Log.d("JwtRepository",jwtToken)
         return remoteDataSource.getUserProfile(jwtToken)
     }
@@ -80,6 +80,7 @@ class DataRepository private constructor(
 
     fun getAngkatan() = remoteDataSource.getAngkatan()
     fun getMahasiswa(prodi: String, angkatan: String, status: String) = remoteDataSource.getMahasiswa(prodi, angkatan, status)
+    fun getDetailMahasiswa(id: Int) = remoteDataSource.getDetailMahasiswa(id)
     fun getSearchMahasiswa(prodi: String, angkatan: String, status: String, search: String) = remoteDataSource.getSearchMahasiswa(prodi, angkatan, status, search)
     fun getStatusDosen() = remoteDataSource.getStatusDosen()
     fun getDosen(prodi: String, status: String) = remoteDataSource.getDosen(prodi,status)
