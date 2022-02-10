@@ -11,6 +11,7 @@ import com.layanan.jurusan.ui.announcement.ListAnnouncementViewModel
 import com.layanan.jurusan.ui.civitas.CivitasViewModel
 import com.layanan.jurusan.ui.civitas.DosenViewModel
 import com.layanan.jurusan.ui.civitas.MahasiswaViewModel
+import com.layanan.jurusan.ui.document.DocumentViewModel
 import com.layanan.jurusan.ui.home.HomeViewModel
 import com.layanan.jurusan.ui.iku.IkuViewModel
 import com.layanan.jurusan.ui.jurusan.JurusanViewModel
@@ -60,6 +61,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(AnnouncementViewModel::class.java) -> {
                 AnnouncementViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(DocumentViewModel::class.java) -> {
+                DocumentViewModel(dataRepository) as T
             }
             modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
                 DetailNewsViewModel(dataRepository) as T

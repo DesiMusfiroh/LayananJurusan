@@ -19,6 +19,7 @@ import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementR
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.model.Iku1Model
 import com.layanan.jurusan.data.remote.response.civitas.*
+import com.layanan.jurusan.data.remote.response.document.ListDocumentResponse
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginDataResponse
@@ -120,6 +121,23 @@ class RemoteDataSource {
                 }
             }
             override fun onFailure(call: Call<LatestAnnouncementResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getListDocument(): LiveData<List<DocumentModel>> {
+        val results = MutableLiveData<List<DocumentModel>>()
+        ApiConfig.getApiService().getListDocument().enqueue(object: Callback<ListDocumentResponse> {
+            override fun onResponse(call: Call<ListDocumentResponse>, response: Response<ListDocumentResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<ListDocumentResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })

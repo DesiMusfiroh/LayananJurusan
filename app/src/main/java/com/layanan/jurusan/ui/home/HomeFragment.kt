@@ -11,9 +11,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.messaging.FirebaseMessaging
-import com.layanan.jurusan.FcmServices
-import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.AnnouncementModel
 import com.layanan.jurusan.data.model.NewsModel
 import com.layanan.jurusan.databinding.FragmentHomeBinding

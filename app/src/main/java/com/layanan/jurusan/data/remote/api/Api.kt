@@ -9,6 +9,7 @@ import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementR
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.ListAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.civitas.*
+import com.layanan.jurusan.data.remote.response.document.ListDocumentResponse
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
 import com.layanan.jurusan.data.remote.response.login.LoginResponse
@@ -44,14 +45,11 @@ interface Api {
         @Query("page") page: Int
     ): Response<ListNewsResponse>
 
-    @GET("news")
-    suspend fun getTestNews(
-        @Query("page") page: Int
-    ): Response<ListNewsResponse>
+    @GET("dokumen")
+    fun getListDocument(): Call<ListDocumentResponse>
 
     @GET("news/{id}")
     fun getDetailNews(@Path("id") id: Int): Call<DetailNewsResponse>
-
 
     @GET("character")
     suspend fun getAllCharacters(
