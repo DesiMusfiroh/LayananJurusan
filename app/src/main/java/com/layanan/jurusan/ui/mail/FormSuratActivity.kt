@@ -61,7 +61,7 @@ class FormSuratActivity : AppCompatActivity() {
                     )
                     textInputLayoutParam.marginStart = 1
                     textInputLayoutParam.setMargins(
-                        10, 10,10,10
+                        20, 10,20,10
                     )
 
                     val editTextId = View.generateViewId()

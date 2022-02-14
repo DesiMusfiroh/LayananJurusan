@@ -27,6 +27,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_title">
@@ -47,10 +48,10 @@
                 android:id="@+id/btn_riwayat_surat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/riwayat_pengajuan_surat"
-                android:background="@drawable/bg_button"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"/>
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/bg_button"
+                android:text="@string/riwayat_pengajuan_surat" />
 
             <TextView
                 android:id="@+id/title_create"
@@ -106,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginBottom="20dp"
                 tools:listitem="@layout/item_jenis_surat" />
         </LinearLayout>
 

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_announcement"
             app:layout_constraintEnd_toEndOf="parent"
-            android:maxLines="1"
+            android:maxLines="2"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imgAnnouncement"
             app:layout_constraintTop_toTopOf="parent" />
