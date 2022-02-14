@@ -128,12 +128,16 @@ class HomeFragment : Fragment() {
 
     private fun populateUserInfo(){
         val jwtToken = userPref?.getString("token","devicetoken")
+        val role = userPref?.getInt("role",0)
+        Log.d("RoleUser",role.toString())
         viewModel.getUserProfile(jwtToken!!).observe(viewLifecycleOwner,{
+            Log.d("Pengguna",it.toString())
             if (it == null){
                 userPref?.edit()?.clear()?.apply()
                 startActivity(Intent(context,LoginActivity::class.java))
             }
-            binding.haiUser.text = "Hai, ${it?.mahasiswa?.nama}"
+            val name = if (role == 2) it?.mahasiswa?.nama else it?.dosen?.nama
+            binding.haiUser.text = "Hai, ${name}"
         })
     }
 

@@ -2,7 +2,6 @@ package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
-import com.layanan.jurusan.data.remote.response.ResponseApi
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
 import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
@@ -50,13 +49,6 @@ interface Api {
 
     @GET("news/{id}")
     fun getDetailNews(@Path("id") id: Int): Call<DetailNewsResponse>
-
-    @GET("character")
-    suspend fun getAllCharacters(
-        // @Query("count") size:Int,
-        @Query("page") page: Int
-
-    ): Response<ResponseApi>
 
     @GET("latest_announcement")
     fun getLatestAnnouncement(): Call<LatestAnnouncementResponse>
@@ -125,6 +117,9 @@ interface Api {
     @GET("surat/riwayat-surat/mahasiswa")
     fun getRiwayatSurat(@Header("Authorization") token: String): Call<ListRiwayatSuratResponse>
 
+    @GET("surat/riwayat-surat/dosen")
+    suspend fun getRiwayatSuratDosen(@Header("Authorization") token: String, @Query("page") page: Int): Response<ListRiwayatSuratDosenResponse>
+
     @GET("surat/riwayat-surat/mahasiswa/{id}")
     fun showRiwayatSurat(@Header("Authorization") token: String,@Path("id") id: Int): Call<RiwayatSuratResponse>
 
@@ -166,6 +161,11 @@ interface Api {
         @Query("prodi") prodi: String,
         @Query("status") status: String,
     ) : Call<DosenResponse>
+
+    @GET("civitas-akademik/dosen/{id}")
+    fun getDetailDosen(
+        @Path("id") id: Int
+    ) : Call<DetailDosenResponse>
 
     @GET("civitas-akademik/dosen")
     fun getSearchDosen(

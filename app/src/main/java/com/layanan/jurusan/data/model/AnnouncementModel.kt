@@ -15,9 +15,6 @@ data class AnnouncementModel(
     @SerializedName("judul")
     val title: String? = null,
 
-    @SerializedName("cuplikan")
-    val snippet: String? = null,
-
     @SerializedName("deskripsi")
     val desc: String? = null,
 

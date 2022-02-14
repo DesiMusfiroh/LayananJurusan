@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.layanan.jurusan.data.datasource.ListAnnouncementDataSource
-import com.layanan.jurusan.data.datasource.ListNewsDataSource
-import com.layanan.jurusan.data.datasource.ListSearchNewsDataSource
-import com.layanan.jurusan.data.datasource.TestNewsDataSource
+import com.layanan.jurusan.data.datasource.*
 import com.layanan.jurusan.data.model.*
 import com.layanan.jurusan.data.remote.api.ApiConfig
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
@@ -682,4 +679,28 @@ class RemoteDataSource {
         })
         return results
     }
+
+    fun getDetailDosen(id:Int ): LiveData<DosenModel> {
+        val results = MutableLiveData<DosenModel>()
+        ApiConfig.getApiService().getDetailDosen(id).enqueue(object : Callback<DetailDosenResponse> {
+            override fun onResponse(call: Call<DetailDosenResponse>, response: Response<DetailDosenResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                    Log.d("DataResponse","Okesip")
+                } else {
+                    Log.e(TAG, "onFailure Response nih: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<DetailDosenResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure nih: ${t.message.toString()}")
+            }
+        })
+
+        return results
+    }
+
+    fun getRiwayatSuratDosen(jwtToken: String) = Pager(PagingConfig(pageSize = 1)) {
+        ListRiwayatSuratDosenDataSource(ApiConfig.getApiService(),jwtToken)
+    }.flow
 }

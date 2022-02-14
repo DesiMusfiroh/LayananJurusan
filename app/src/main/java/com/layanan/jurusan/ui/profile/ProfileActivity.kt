@@ -44,10 +44,17 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setUpView(user: UserModel){
         binding.apply {
-            tvNama.text = user.mahasiswa.nama
-            tvNim.text = user.mahasiswa.nim
-            tvAngkatan.text = user.mahasiswa.angkatan
-            tvProdi.text = user.mahasiswa.prodi?.nama
+            if(user.role == 1){
+                tvNama.text = user.dosen?.nama
+                tvNim.text = user.dosen?.noInduk
+                tvProdi.text = user.dosen?.prodi?.nama
+            }else{
+                tvNama.text = user.mahasiswa?.nama
+                tvNim.text = user.mahasiswa?.nim
+                tvAngkatan.text = user.mahasiswa?.angkatan
+                tvProdi.text = user.mahasiswa?.prodi?.nama
+            }
+
         }
 
         binding.apply {

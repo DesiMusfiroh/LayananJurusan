@@ -15,15 +15,13 @@ class ApiConfig {
                     .addInterceptor(loggingInterceptor)
                     .build()
             val retrofit = Retrofit.Builder()
-                    .baseUrl("http://jurusan.doswiteljambi.com/api/")
+                    .baseUrl("https://tesi.unja.ac.id/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build()
             return retrofit.create(Api::class.java)
         }
 
-//        https://rickandmortyapi.com/api/
-//        http://jurusan.fakultassyariahuinjambi.com/api/
 
     }
 }
