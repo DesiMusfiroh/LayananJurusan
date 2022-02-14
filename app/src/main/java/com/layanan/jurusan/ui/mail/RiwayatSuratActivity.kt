@@ -49,6 +49,8 @@ class RiwayatSuratActivity : AppCompatActivity() {
             dataRiwayatSurat = it
             binding.tvTitle.text = dataRiwayatSurat.jenisSurat?.judul
             binding.tvStatus.text = dataRiwayatSurat.status
+            binding.tvNama.text = dataRiwayatSurat.user?.mahasiswa?.nama
+            binding.tvTanggalPengajuan.text = dataRiwayatSurat.tanggalPengajuan
 
             if(dataRiwayatSurat.status == "telah diverifikasi"){
                 binding.btnDownload.visibility = View.VISIBLE

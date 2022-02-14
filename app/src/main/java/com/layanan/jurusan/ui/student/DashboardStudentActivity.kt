@@ -1,5 +1,6 @@
 package com.layanan.jurusan.ui.student
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import com.layanan.jurusan.ui.mail.MailFragment
 
 class DashboardStudentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardStudentBinding
+//    private lateinit var userPref: SharedPreferences
+//    private var role = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +22,10 @@ class DashboardStudentActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+//        userPref = applicationContext.getSharedPreferences("user",
+//            AppCompatActivity.MODE_PRIVATE
+//        )
+//        role =
         binding.navView.setItemSelected(R.id.navigation_home, true)
         supportFragmentManager
             .beginTransaction()
@@ -34,6 +41,8 @@ class DashboardStudentActivity : AppCompatActivity() {
                 R.id.navigation_civitas ->  CivitasFragment()
                 R.id.navigation_iku ->  IkuFragment()
                 R.id.navigation_mail -> MailFragment()
+
+
                 else -> HomeFragment()
             }
             supportFragmentManager

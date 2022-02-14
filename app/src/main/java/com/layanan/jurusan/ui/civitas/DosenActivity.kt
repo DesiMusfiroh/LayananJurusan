@@ -8,12 +8,17 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.layanan.jurusan.R
+import com.layanan.jurusan.data.model.DosenModel
+import com.layanan.jurusan.data.model.KegiatanTriDharmaModel
+import com.layanan.jurusan.data.model.PraktisiModel
 import com.layanan.jurusan.databinding.ActivityDosenBinding
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
 class DosenActivity : AppCompatActivity() {
      private lateinit var binding: ActivityDosenBinding
      private lateinit var viewModel: DosenViewModel
+     private  var listKegiatanTridharma: ArrayList<KegiatanTriDharmaModel> = ArrayList()
+     private lateinit var listPraktisi: ArrayList<PraktisiModel>
      companion object {
          const val EXTRA_DOSEN = "dosen"
      }
@@ -27,15 +32,26 @@ class DosenActivity : AppCompatActivity() {
          val factory = ViewModelFactory.getInstance(this)
          viewModel = ViewModelProvider(this, factory)[DosenViewModel::class.java]
 
-         listKegiatanTridharma()
+         val extras = intent.extras
+         if(extras != null){
+             val id = extras.getInt(EXTRA_DOSEN,0)
+             viewModel.getDetailDosen(id).observe(this,{
+                 setupView(it)
+             })
+         }
+
      }
 
-    private fun listKegiatanTridharma() {
-        val arrayAdapter: ArrayAdapter<String>
-        // dummy
-        val users = arrayOf("Virat Kohli", "Rohit Sharma", "Steve Smith", "Kane Williamson", "Ross Taylor")
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, users)
-        binding.listKegiatanTridharma.adapter = arrayAdapter
+    private fun setupView(data: DosenModel) {
+        binding.tvName.text = data.nama
+        binding.tvNoInduk.text = data.noInduk
+        binding.tvProdi.text = data.prodi?.nama
+
+        for (item in data.kegiatanTriDharma!!){
+            listKegiatanTridharma.add(item)
+        }
+        val kegiatanTriDharmaAdapter = KegiatanTriDharmaAdapter(this, listKegiatanTridharma)
+        binding.listKegiatanTridharma.adapter = kegiatanTriDharmaAdapter
 
         binding.apply {
             cardKegiatanTridharma.setOnClickListener(object : View.OnClickListener {

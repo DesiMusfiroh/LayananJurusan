@@ -243,4 +243,6 @@
     <string name="dosen">Dosen</string>
     <string name="jabatan">Jabatan</string>
     <string name="terakhir_di_update">Terakhir di update :</string>
+    <string name="nama_pemohon">Nama Pemohon</string>
+    <string name="tanggal_pengajuan">Tanggal Pengajuan</string>
 </resources>

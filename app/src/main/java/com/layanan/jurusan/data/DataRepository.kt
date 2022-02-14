@@ -85,4 +85,7 @@ class DataRepository private constructor(
     fun getStatusDosen() = remoteDataSource.getStatusDosen()
     fun getDosen(prodi: String, status: String) = remoteDataSource.getDosen(prodi,status)
     fun getSearchDosen(prodi: String, status: String, search: String) = remoteDataSource.getSearchDosen(prodi, status, search)
+    fun getDetailDosen(id: Int) = remoteDataSource.getDetailDosen(id)
+
+    fun getRiwayatSuratDosen(jwtToken: String) = remoteDataSource.getRiwayatSuratDosen(jwtToken)
 }

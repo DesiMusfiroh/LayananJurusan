@@ -23,4 +23,10 @@ class DosenModel(
 
     @SerializedName("prodi")
     val prodi: ProdiModel?,
+
+    @SerializedName("kegiatan_tri_dharma")
+    val kegiatanTriDharma: List<KegiatanTriDharmaModel>?,
+
+    @SerializedName("praktisi")
+    val praktisi: List<PraktisiModel>?
 )

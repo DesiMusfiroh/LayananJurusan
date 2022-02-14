@@ -4,7 +4,6 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class RiwayatSuratModel(
     @SerializedName("id")
     val id: Int,
@@ -21,6 +20,15 @@ data class RiwayatSuratModel(
     @SerializedName("tanggal_pengajuan")
     val tanggalPengajuan: String?,
 
+    @SerializedName("tanggal_verifikasi")
+    val tanggalVerifikasi: String?,
+
+    @SerializedName("pesan")
+    val pesan: String?,
+
+    @SerializedName("user")
+    val user: UserModel?,
+
     @SerializedName("file")
     val file: String?
-) : Parcelable
+)

@@ -59,7 +59,6 @@ class MahasiswaActivity : AppCompatActivity() {
         binding.tvStatus.text = data.statusKuliah
         binding.tvAngkatan.text = data.angkatan
 
-
         for (item in data.prestasi!!){
             listPrestasi.add(item)
         }

@@ -85,6 +85,8 @@ class FormSuratActivity : AppCompatActivity() {
 
         val requestParam = RequestParams()
         requestParam.put("jenis_surat_id",suratExtra.id)
+        requestParam.put("tipe_surat",suratExtra.tipe)
+
         with(binding){
             for (item in keywordObjects){
                 if(item.tipe == "manual"){
