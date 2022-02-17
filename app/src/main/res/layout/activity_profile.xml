@@ -34,6 +34,7 @@
                 </FrameLayout>
 
                 <ImageButton
+                    android:id="@+id/btn_back"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="20dp"

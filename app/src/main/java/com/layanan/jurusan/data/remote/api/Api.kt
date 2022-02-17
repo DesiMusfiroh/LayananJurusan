@@ -1,5 +1,7 @@
 package com.layanan.jurusan.data.remote.api
 
+import com.layanan.jurusan.data.remote.response.CountNotifikasiResponse
+import com.layanan.jurusan.data.remote.response.NotifikasiResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
@@ -173,5 +175,15 @@ interface Api {
         @Query("status") status: String,
         @Query("search") search: String
     ): Call<DosenResponse>
+
+    @GET("notifikasi")
+    fun getNotifikasi(
+        @Header("Authorization") token: String
+    ): Call<NotifikasiResponse>
+
+    @GET("count-notifikasi")
+    fun getCountNotifikasi(
+        @Header("Authorization") token: String
+    ): Call<CountNotifikasiResponse>
 
 }

@@ -28,11 +28,17 @@ class JurusanActivity : AppCompatActivity() {
             setUpView(it)
         })
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     fun setUpView(data: ProfileJurusanModel){
         binding.apply {
             tvJurusan.text = data.name
+            tvVisi.text = data.vision
+            tvMisi.text = data.mission
             Glide.with(this@JurusanActivity)
                 .load(data.image)
                 .centerCrop()

@@ -102,5 +102,9 @@ class MahasiswaActivity : AppCompatActivity() {
                 }
             })
         }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

@@ -63,6 +63,9 @@ class ListNewsActivity : AppCompatActivity() {
             }
 
         })
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 //    private fun populateNews() {

@@ -43,6 +43,7 @@ class NewsActivity : AppCompatActivity() {
             })
         }
 
+
     }
 
     fun setUpView(news: NewsModel){
@@ -54,7 +55,6 @@ class NewsActivity : AppCompatActivity() {
             }else{
                 Html.fromHtml(news.desc)
             }
-            tvCategory.text = news.category
             tvUser.text = news.author
 
             Glide.with(this@NewsActivity)

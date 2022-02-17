@@ -71,6 +71,11 @@ class HomeFragment : Fragment() {
             startActivity(listNewsIntent)
         }
 
+        binding.btnNotification.setOnClickListener {
+            val notificationIntent = Intent(context, NotificationActivity::class.java)
+            startActivity(notificationIntent)
+        }
+
         binding.menuAnnouncement.setOnClickListener {
             val listAnnouncementIntent = Intent(context, ListAnnouncementActivity::class.java)
             startActivity(listAnnouncementIntent)
@@ -101,6 +106,7 @@ class HomeFragment : Fragment() {
         populateNews()
         populateAnnouncement()
         populateUserInfo()
+        populateNotificationCounter()
     }
 
     private fun populateNews() {
@@ -161,6 +167,19 @@ class HomeFragment : Fragment() {
                     }
 
                 })
+            }
+        })
+    }
+
+    private fun populateNotificationCounter(){
+        val jwtToken = userPref?.getString("token","devicetoken")
+        viewModel.getCountNotifikasi(jwtToken!!).observe(viewLifecycleOwner,{
+            val savedCountNotif = userPref?.getInt("numNotif",0)
+            val selisih = it.data - savedCountNotif!!
+            if(selisih == 0){
+                binding.tvCountNotif.visibility = View.GONE
+            }else{
+                binding.tvCountNotif.text = selisih.toString()
             }
         })
     }

@@ -66,5 +66,9 @@ class ListDocumentActivity : AppCompatActivity() {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(dialogDocument.root)
         dialog.show()
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

@@ -1,9 +1,12 @@
 package com.layanan.jurusan.ui.announcement
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -42,9 +45,9 @@ class AnnouncementActivity : AppCompatActivity() {
 
     private fun setUpView(data: AnnouncementModel){
         binding.apply {
+
             tvTitle.text = data.title
             tvDate.text = data.expires
-            tvCategory.text = data.category
             Glide.with(this@AnnouncementActivity)
                 .load(data.image)
                 .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
@@ -54,6 +57,20 @@ class AnnouncementActivity : AppCompatActivity() {
             }else{
                 Html.fromHtml(data.desc)
             }
+
+            if (data.file != null){
+                frameLayoutDownload.visibility = View.VISIBLE
+                tvDownload.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(data.file)
+                    startActivity(intent)
+                }
+            }else{
+                frameLayoutDownload.visibility = View.GONE
+            }
+        }
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
         }
     }
 }

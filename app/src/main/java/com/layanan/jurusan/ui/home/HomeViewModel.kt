@@ -15,4 +15,6 @@ class HomeViewModel(private val repository: DataRepository) : ViewModel() {
     fun saveFcmToken(fcmToken: String, jwtToken: String): LiveData<SaveFcmTokenResponse> = repository.saveFcmToken(fcmToken, jwtToken)
 
     fun getUserProfile(jwtToken: String) = repository.getUserProfile(jwtToken)
+
+    fun getCountNotifikasi(jwtToken: String) = repository.getCountNotifikasi(jwtToken)
 }

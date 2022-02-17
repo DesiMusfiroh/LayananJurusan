@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgWhite"
     tools:context=".ui.notification.NotificationActivity">
 
     <LinearLayout
@@ -17,20 +16,20 @@
         android:orientation="horizontal"
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
-        android:paddingBottom="12dp">
-
+        android:paddingBottom="12dp"
+        android:background="@color/primary">
         <ImageButton
+            android:id="@+id/btn_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_arrow_back_dark"
-            android:background="@color/bgWhite"/>
-
+            android:background="@drawable/bg_button"
+            android:src="@drawable/ic_arrow_back"/>
         <TextView
             style="@style/Text.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/profil_jurusan"
-            android:textColor="@color/black"
+            android:text="@string/notifikasi"
+            android:textColor="@color/white"
             android:layout_marginStart="10dp"/>
     </LinearLayout>
 

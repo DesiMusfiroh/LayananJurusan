@@ -1,17 +1,20 @@
 package com.layanan.jurusan.ui.notification
 
 import android.content.Context
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.layanan.jurusan.data.model.NotificationModel
+import com.layanan.jurusan.data.model.NotifikasiModel
 import com.layanan.jurusan.databinding.ItemNotificationBinding
 
-class NotificationAdapter(private val list: List<NotificationModel>, val context: Context) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
+class NotificationAdapter(private val list: List<NotifikasiModel>) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: NotificationModel)
+        fun onItemClicked(data: NotifikasiModel)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -35,11 +38,16 @@ class NotificationAdapter(private val list: List<NotificationModel>, val context
     override fun getItemCount(): Int = list.size
 
     class NotificationViewHolder(private val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: NotificationModel) {
+        fun bind(data: NotifikasiModel) {
             with(binding) {
                 tvTitle.text = data.title
-                tvDescription.text = data.desc
-                tvDatetime.text = data.datetime
+                tvDatetime.text = data.createdAd
+
+                tvDescription.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                    Html.fromHtml(data.message, Html.FROM_HTML_MODE_COMPACT)
+                }else{
+                    Html.fromHtml(data.message)
+                }
             }
         }
     }
