@@ -89,6 +89,10 @@ class ProfileActivity : AppCompatActivity() {
                 }
             })
         }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 //    fun setUpAccordionView(){

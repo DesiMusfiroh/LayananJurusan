@@ -60,6 +60,21 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_count_notif"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="4dp"
+            android:paddingTop="5sp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_notification"
+            app:layout_constraintEnd_toEndOf="@+id/btn_notification"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/btn_notification" />
+
         <ImageButton
             android:id="@+id/btn_profile"
             android:layout_width="30dp"

@@ -69,6 +69,10 @@ class DosenActivity : AppCompatActivity() {
             })
         }
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 }
 

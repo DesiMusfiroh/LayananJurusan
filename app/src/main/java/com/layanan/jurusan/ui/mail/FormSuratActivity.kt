@@ -24,6 +24,7 @@ class FormSuratActivity : AppCompatActivity() {
     private lateinit var viewModel: FormSuratViewModel
     private lateinit var keywordObjects: List<KeywordSuratModel>
     private var editTextIdMap = HashMap<String,Int>()
+    private var arrKeyword = ArrayList<String>()
     private lateinit var suratExtra: JenisSuratModel
     companion object {
         const val EXTRA_MAIL = "mail"
@@ -48,6 +49,7 @@ class FormSuratActivity : AppCompatActivity() {
             val requestParams = RequestParams()
             for(item in it){
                 if (item.tipe  == "manual"){
+                    item.keyword?.let { it1 -> arrKeyword.add(it1) }
                     val editTextParam = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
@@ -79,6 +81,10 @@ class FormSuratActivity : AppCompatActivity() {
             submitForm()
         })
 
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     fun submitForm(){
@@ -86,6 +92,7 @@ class FormSuratActivity : AppCompatActivity() {
         val requestParam = RequestParams()
         requestParam.put("jenis_surat_id",suratExtra.id)
         requestParam.put("tipe_surat",suratExtra.tipe)
+        requestParam.put("arr_keyword",arrKeyword)
 
         with(binding){
             for (item in keywordObjects){
@@ -133,7 +140,8 @@ class FormSuratActivity : AppCompatActivity() {
                 if (jwtToken != null) {
                     Log.d("Jwt",jwtToken)
                 }
-                viewModel.storePermohonanSurat(requestParam,jwtToken!!).observe(this@FormSuratActivity,{
+                Log.d("JwtToken",jwtToken!!)
+                viewModel.storePermohonanSurat(requestParam, jwtToken).observe(this@FormSuratActivity,{
                     if (it == "success"){
                         Toast.makeText(this@FormSuratActivity, "Berhasil", Toast.LENGTH_SHORT).show()
                         finish()

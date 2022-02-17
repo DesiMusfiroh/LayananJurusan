@@ -64,9 +64,9 @@ class ListAnnouncementAdapter : PagingDataAdapter<AnnouncementModel, ListAnnounc
                                         .error(R.drawable.ic_error))
                         .into(imgAnnouncement)
                 snippetAnnouncement.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                    Html.fromHtml(data.snippet, Html.FROM_HTML_MODE_COMPACT)
+                    Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
                 }else{
-                    Html.fromHtml(data.snippet)
+                    Html.fromHtml(data.desc)
                 }
                 itemView.setOnClickListener {
                     val intent =  Intent(itemView.context, AnnouncementActivity::class.java)

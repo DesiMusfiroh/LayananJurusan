@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
 
             Log.d("DeviceToken",deviceToken)
             viewModel.saveFcmToken(deviceToken,jwtToken!!).observe(this,{
-
+                Log.d("SaveFcmResponse",it.toString())
             })
         }
     }

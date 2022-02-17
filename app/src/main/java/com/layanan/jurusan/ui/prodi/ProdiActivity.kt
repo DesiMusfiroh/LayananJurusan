@@ -40,6 +40,10 @@ class ProdiActivity : AppCompatActivity() {
                 setUpView(it)
             })
         }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     fun setUpView(data: ProfileProdiModel){

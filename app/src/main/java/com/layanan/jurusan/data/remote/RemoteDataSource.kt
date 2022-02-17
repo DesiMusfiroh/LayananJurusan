@@ -15,6 +15,8 @@ import com.layanan.jurusan.data.remote.response.UserProfileResponse
 import com.layanan.jurusan.data.remote.response.announcement.DetailAnnouncementResponse
 import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementResponse
 import com.layanan.jurusan.data.model.Iku1Model
+import com.layanan.jurusan.data.remote.response.CountNotifikasiResponse
+import com.layanan.jurusan.data.remote.response.NotifikasiResponse
 import com.layanan.jurusan.data.remote.response.civitas.*
 import com.layanan.jurusan.data.remote.response.iku.*
 import com.layanan.jurusan.data.remote.response.news.LatestNewsResponse
@@ -452,8 +454,9 @@ class RemoteDataSource {
     fun storePermohonanSurat(params: RequestParams,jwtToken: String): LiveData<String>{
         val client = AsyncHttpClient()
         val message = MutableLiveData<String>()
+        Log.d("RemoteDataSourceToken",jwtToken)
         client.addHeader("Authorization", "Bearer ${jwtToken}")
-        client.post("http://jurusan.doswiteljambi.com/api/surat/permohonan-surat",params,object: AsyncHttpResponseHandler(){
+        client.post("https://tesi.unja.ac.id/api/surat/permohonan-surat",params,object: AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
                 headers: Array<out Header>?,
@@ -481,6 +484,7 @@ class RemoteDataSource {
         })
         return message
     }
+
 
 
     fun getRiwayatSurat(jwtToken: String): LiveData<List<RiwayatSuratModel>> {
@@ -685,4 +689,39 @@ class RemoteDataSource {
     fun getRiwayatSuratDosen(jwtToken: String) = Pager(PagingConfig(pageSize = 1)) {
         ListRiwayatSuratDosenDataSource(ApiConfig.getApiService(),jwtToken)
     }.flow
+
+    fun getNotifikasi(jwtToken: String): LiveData<List<NotifikasiModel>> {
+        val results = MutableLiveData<List<NotifikasiModel>>()
+        ApiConfig.getApiService().getNotifikasi("Bearer ${jwtToken}").enqueue(object: Callback<NotifikasiResponse> {
+            override fun onResponse(call: Call<NotifikasiResponse>, response: Response<NotifikasiResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<NotifikasiResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
+    fun getCountNotifikasi(jwtToken: String): LiveData<CountNotifikasiResponse> {
+        val results = MutableLiveData<CountNotifikasiResponse>()
+        ApiConfig.getApiService().getCountNotifikasi("Bearer ${jwtToken}").enqueue(object: Callback<CountNotifikasiResponse> {
+            override fun onResponse(call: Call<CountNotifikasiResponse>, response: Response<CountNotifikasiResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body())
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<CountNotifikasiResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
 }

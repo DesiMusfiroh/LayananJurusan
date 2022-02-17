@@ -43,9 +43,9 @@ class HomeAnnouncementAdapter(private val list: List<AnnouncementModel>, val con
             with(binding) {
                 titleAnnouncement.text = data.title
                 snippetAnnouncement.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                    Html.fromHtml(data.snippet, Html.FROM_HTML_MODE_COMPACT)
+                    Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
                 }else{
-                    Html.fromHtml(data.snippet)
+                    Html.fromHtml(data.desc)
                 }
                 Glide.with(itemView.context)
                     .load(data.image)

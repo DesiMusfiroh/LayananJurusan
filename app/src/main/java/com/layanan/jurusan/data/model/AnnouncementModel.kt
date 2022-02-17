@@ -9,14 +9,8 @@ data class AnnouncementModel(
     @SerializedName("id")
     val id: Int? = null,
 
-    @SerializedName("kategori")
-    val category: String? = null,
-
     @SerializedName("judul")
     val title: String? = null,
-
-    @SerializedName("cuplikan")
-    val snippet: String? = null,
 
     @SerializedName("deskripsi")
     val desc: String? = null,

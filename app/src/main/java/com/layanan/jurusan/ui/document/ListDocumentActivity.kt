@@ -12,5 +12,9 @@ class ListDocumentActivity : AppCompatActivity() {
         binding = ActivityListDocumentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
