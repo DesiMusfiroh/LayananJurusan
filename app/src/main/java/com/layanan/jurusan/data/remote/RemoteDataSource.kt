@@ -17,6 +17,7 @@ import com.layanan.jurusan.data.remote.response.announcement.LatestAnnouncementR
 import com.layanan.jurusan.data.model.Iku1Model
 import com.layanan.jurusan.data.remote.response.CountNotifikasiResponse
 import com.layanan.jurusan.data.remote.response.NotifikasiResponse
+import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfilHimpunanResponse
 import com.layanan.jurusan.data.remote.response.civitas.*
 import com.layanan.jurusan.data.remote.response.document.ListDocumentResponse
 import com.layanan.jurusan.data.remote.response.iku.*
@@ -261,14 +262,32 @@ class RemoteDataSource {
                 if (response.isSuccessful){
                     result.postValue(response.body()!!.data)
                 }else{
-                    Log.d("Failed","Tidak mendapat data jurusan")
+                    Log.d("Failed","Tidak mendapat data profil prodi")
                 }
             }
-
             override fun onFailure(call: Call<ProfileProdiResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
+        })
+        return result
+    }
 
+    fun getProfileHimpunan(name: String): LiveData<ProfileHimpunanModel>{
+        val result = MutableLiveData<ProfileHimpunanModel>()
+        ApiConfig.getApiService().getProfileHimpunan(name).enqueue(object : Callback<ProfilHimpunanResponse>{
+            override fun onResponse(
+                call: Call<ProfilHimpunanResponse>,
+                response: Response<ProfilHimpunanResponse>
+            ) {
+                if (response.isSuccessful){
+                    result.postValue(response.body()!!.data)
+                }else{
+                    Log.d("Failed","Tidak mendapat data profil prodi")
+                }
+            }
+            override fun onFailure(call: Call<ProfilHimpunanResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
         })
         return result
     }

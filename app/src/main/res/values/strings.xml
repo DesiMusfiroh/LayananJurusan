@@ -250,4 +250,7 @@
     <string name="tanggal_pengajuan">Tanggal Pengajuan</string>
     <string name="download">Download</string>
     <string name="notifikasi">Notifikasi</string>
+    <string name="himpunan_mahasiswa">Himpunan Mahasiswa</string>
+    <string name="himasi">HIMASI</string>
+    <string name="himatro">HIMATRO</string>
 </resources>

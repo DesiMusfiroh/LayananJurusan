@@ -12,6 +12,7 @@ import com.layanan.jurusan.ui.civitas.CivitasViewModel
 import com.layanan.jurusan.ui.civitas.DosenViewModel
 import com.layanan.jurusan.ui.civitas.MahasiswaViewModel
 import com.layanan.jurusan.ui.document.DocumentViewModel
+import com.layanan.jurusan.ui.himpunan.HimpunanViewModel
 import com.layanan.jurusan.ui.home.HomeViewModel
 import com.layanan.jurusan.ui.iku.IkuViewModel
 import com.layanan.jurusan.ui.jurusan.JurusanViewModel
@@ -82,6 +83,9 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             }
             modelClass.isAssignableFrom(ProdiViewModel::class.java) -> {
                 ProdiViewModel(dataRepository) as T
+            }
+            modelClass.isAssignableFrom(HimpunanViewModel::class.java) -> {
+                HimpunanViewModel(dataRepository) as T
             }
             modelClass.isAssignableFrom(SignatureViewModel::class.java) -> {
                 SignatureViewModel(dataRepository) as T

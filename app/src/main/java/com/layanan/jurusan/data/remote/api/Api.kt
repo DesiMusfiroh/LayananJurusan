@@ -2,6 +2,7 @@ package com.layanan.jurusan.data.remote.api
 
 import com.layanan.jurusan.data.remote.response.CountNotifikasiResponse
 import com.layanan.jurusan.data.remote.response.NotifikasiResponse
+import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfilHimpunanResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileJurusanResponse
 import com.layanan.jurusan.data.remote.response.ProfileJurusan.ProfileProdiResponse
 import com.layanan.jurusan.data.remote.response.SaveFcmTokenResponse
@@ -78,6 +79,9 @@ interface Api {
 
     @GET("profil/{name}")
     fun getProfileProdi(@Path("name") name: String): Call<ProfileProdiResponse>
+
+    @GET("profil_himpunan/{name}")
+    fun getProfileHimpunan(@Path("name") name: String): Call<ProfilHimpunanResponse>
 
     @Multipart
     @POST("profile/signature")

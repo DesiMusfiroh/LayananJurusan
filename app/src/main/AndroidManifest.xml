@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jurusan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.civitas.DosenActivity"></activity>
+        <activity android:name=".ui.himpunan.HimpunanActivity"></activity>
+        <activity android:name=".ui.civitas.DosenActivity" />
         <activity android:name=".ui.civitas.MahasiswaActivity" />
         <activity android:name=".ui.mail.ListRiwayatSuratActivity" />
         <activity android:name=".ui.mail.RiwayatSuratActivity" />

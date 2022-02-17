@@ -1,7 +1,9 @@
 package com.layanan.jurusan.ui.prodi
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -15,6 +17,7 @@ import com.layanan.jurusan.ui.news.DetailNewsViewModel
 import com.layanan.jurusan.ui.news.NewsActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 
+@Suppress("DEPRECATION")
 class ProdiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProdiBinding
     private lateinit var viewModel: ProdiViewModel
@@ -57,7 +60,9 @@ class ProdiActivity : AppCompatActivity() {
                     RequestOptions.placeholderOf(R.drawable.ic_loading)
                         .error(R.drawable.ic_error))
                 .into(imgProdi)
-            tvDesc.text = data.desc
+            tvDesc.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
+            } else Html.fromHtml(data.desc)
         }
     }
 }

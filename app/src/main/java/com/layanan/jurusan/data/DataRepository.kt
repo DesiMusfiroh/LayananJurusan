@@ -57,6 +57,7 @@ class DataRepository private constructor(
     }
 
     fun getProfileProdi(name: String) = remoteDataSource.getProfileProdi(name)
+    fun getProfileHimpunan(name: String) = remoteDataSource.getProfileHimpunan(name)
 
     fun uploadSignature(image: MultipartBody.Part, jwtToken: String) = remoteDataSource.uploadSignature(image,jwtToken)
 
