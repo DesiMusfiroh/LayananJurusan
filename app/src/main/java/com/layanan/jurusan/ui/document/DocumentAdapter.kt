@@ -20,7 +20,6 @@ class DocumentAdapter(private val list: List<DocumentModel>) : RecyclerView.Adap
     inner class DocumentViewHolder(private val binding: ItemDocumentBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: DocumentModel){
             with(binding){
-                tvCategory.text = data.category
                 titleDocument.text = data.title
                 titleDate.text = data.published_at
             }

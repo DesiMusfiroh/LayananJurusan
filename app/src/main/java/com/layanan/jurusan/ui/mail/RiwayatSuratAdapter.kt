@@ -42,10 +42,6 @@ class RiwayatSuratAdapter(private val list: List<RiwayatSuratModel>) : RecyclerV
                 tvStatus.text = data.status
                 tvDatetime.text = data.tanggalPengajuan
             }
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView.context,RiwayatSuratActivity::class.java)
-//
-//            }
         }
     }
 }

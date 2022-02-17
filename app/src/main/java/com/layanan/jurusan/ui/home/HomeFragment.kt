@@ -25,6 +25,7 @@ import com.layanan.jurusan.ui.notification.NotificationActivity
 import com.layanan.jurusan.ui.prodi.ProdiActivity
 import com.layanan.jurusan.ui.profile.ProfileActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
+import java.lang.StringBuilder
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -116,6 +117,10 @@ class HomeFragment : Fragment() {
                 newsAdapter.notifyDataSetChanged()
 
                 binding.apply {
+                    shimmerRvNews.stopShimmer()
+                    shimmerRvNews.visibility = View.GONE
+                    rvNews.visibility = View.VISIBLE
+
                     rvNews.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                     rvNews.setHasFixedSize(true)
                     rvNews.adapter = newsAdapter
@@ -143,11 +148,15 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(context,LoginActivity::class.java))
             }
             val name = if (role == 2) it?.mahasiswa?.nama else it?.dosen?.nama
-            binding.haiUser.text = "Hai, ${name}"
+
+            binding.haiUser.text = StringBuilder("Hai, $name")
+            binding.shimmerHai.stopShimmer()
+            binding.shimmerHai.visibility = View.GONE
+            binding.haiUser.visibility = View.VISIBLE
         })
     }
 
-    fun populateAnnouncement(){
+    private fun populateAnnouncement(){
         viewModel.getLatestAnnouncement().observe(viewLifecycleOwner,{
             Log.d("Announcement",it.toString())
             if (it != null){

@@ -21,5 +21,7 @@
     <color name="greyDark">#616161</color>
     <color name="yellow">#FFEB3B</color>
     <color name="input">#EBECEB</color>
+    <color name="shimmer">#E7E7E7</color>
+    <color name="shimmerDark">#D5D5D5</color>
 
 </resources>
