@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.layanan.jurusan.data.model.NotificationModel
 import com.layanan.jurusan.data.model.NotifikasiModel
 import com.layanan.jurusan.databinding.ItemNotificationBinding
+import java.text.ParseException
+import java.text.SimpleDateFormat
 
 class NotificationAdapter(private val list: List<NotifikasiModel>) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -37,11 +39,17 @@ class NotificationAdapter(private val list: List<NotifikasiModel>) : RecyclerVie
 
     override fun getItemCount(): Int = list.size
 
-    class NotificationViewHolder(private val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class NotificationViewHolder(private val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: NotifikasiModel) {
             with(binding) {
                 tvTitle.text = data.title
-                tvDatetime.text = data.createdAd
+
+                val arrDateTime = data.createdAd.split("\\.")
+                var dateTime = arrDateTime[0]
+
+                dateTime = dateTime.replace("T"," ")
+
+                tvDatetime.text = modifyDateFormat(dateTime)
 
                 tvDescription.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                     Html.fromHtml(data.message, Html.FROM_HTML_MODE_COMPACT)
@@ -50,5 +58,10 @@ class NotificationAdapter(private val list: List<NotifikasiModel>) : RecyclerVie
                 }
             }
         }
+    }
+
+    fun modifyDateFormat(inputDate: String): String? {
+        val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(inputDate)
+        return SimpleDateFormat("dd MMMM yyyy, HH:mm").format(date)
     }
 }
