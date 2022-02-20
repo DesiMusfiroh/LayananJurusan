@@ -186,8 +186,9 @@ class HomeFragment : Fragment() {
             val savedCountNotif = userPref?.getInt("numNotif",0)
             val selisih = it.data - savedCountNotif!!
             if(selisih == 0){
-                binding.tvCountNotif.visibility = View.GONE
+                binding.cvNotif.visibility = View.GONE
             }else{
+                binding.cvNotif.visibility = View.VISIBLE
                 binding.tvCountNotif.text = selisih.toString()
             }
         })

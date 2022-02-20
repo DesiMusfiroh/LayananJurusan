@@ -88,6 +88,9 @@ class DosenFragment : Fragment() {
                     rvDosen.layoutManager = LinearLayoutManager(context)
                     rvDosen.setHasFixedSize(true)
                     rvDosen.adapter = adapter
+                    shimmerRvCivitas.stopShimmer()
+                    shimmerRvCivitas.visibility = View.GONE
+                    rvDosen.visibility = View.VISIBLE
                 }
             })
         }else{

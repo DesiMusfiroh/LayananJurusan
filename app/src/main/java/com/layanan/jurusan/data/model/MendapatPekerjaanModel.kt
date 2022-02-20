@@ -19,7 +19,7 @@ data class MendapatPekerjaanModel(
     val penghasilan: Int?,
 
     @SerializedName("presentase_dari_umk")
-    val presentaseDariUmk: Int?,
+    val presentaseDariUmk: Double?,
 
     @SerializedName("kriteria_perusahaan")
     val kriteriaPerusahaan: String?,

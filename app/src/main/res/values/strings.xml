@@ -253,4 +253,5 @@
     <string name="himpunan_mahasiswa">Himpunan Mahasiswa</string>
     <string name="himasi">HIMASI</string>
     <string name="himatro">HIMATRO</string>
+    <string name="filter_data_alumni">Filter Data Alumni</string>
 </resources>

@@ -46,6 +46,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.apply {
             shimmerNama.stopShimmer()
             shimmerNama.visibility = View.GONE
+            shimmerNim.visibility = View.GONE
             if(user.role == 1){
                 tvNama.text = user.dosen?.nama
                 tvNim.text = user.dosen?.noInduk
@@ -57,6 +58,7 @@ class ProfileActivity : AppCompatActivity() {
                 tvProdi.text = user.mahasiswa?.prodi?.nama
             }
             tvNama.visibility = View.VISIBLE
+            tvNim.visibility = View.VISIBLE
 
         }
 

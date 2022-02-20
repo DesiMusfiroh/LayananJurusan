@@ -1,5 +1,6 @@
 package com.layanan.jurusan.ui.iku
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,9 @@ class Iku1Adapter(private val list: List<Iku1Model>) : RecyclerView.Adapter<Iku1
         }
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int{
+        Log.d("CountIku1",list.size.toString())
+        return list.size
+    }
 
 }

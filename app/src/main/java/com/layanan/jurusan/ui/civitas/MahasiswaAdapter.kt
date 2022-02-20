@@ -14,6 +14,7 @@ class MahasiswaAdapter(private val list: List<Mahasiswa>) : RecyclerView.Adapter
         return MahasiswaViewHolder(binding)
     }
 
+
     override fun onBindViewHolder(holder: MahasiswaViewHolder, position: Int) {
         val data = list[position]
         holder.bind(data)
@@ -27,10 +28,6 @@ class MahasiswaAdapter(private val list: List<Mahasiswa>) : RecyclerView.Adapter
                 tvName.text = data.nama
                 tvNim.text = data.nim
                 tvProdi.text = data.prodi?.nama
-//                Glide.with(itemView.context)
-//                        .load(data.)
-//                        .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
-//                        .into(imgItemPhoto)
             }
             itemView.setOnClickListener{
                 val intent =  Intent(itemView.context, MahasiswaActivity::class.java)

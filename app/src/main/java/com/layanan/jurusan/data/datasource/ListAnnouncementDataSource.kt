@@ -14,10 +14,17 @@ class ListAnnouncementDataSource(private val apiService: Api): PagingSource<Int,
             val data = response.body()?.announcement ?: emptyList()
             responseData.addAll(data)
 
+            var nextKey: Int?
+            if(currentPage == response.body()?.meta?.page || currentPage > response.body()?.meta?.page!!){
+                nextKey = null
+            }else{
+                nextKey = currentPage.plus(1)
+            }
+
             LoadResult.Page(
                     data = responseData,
                     prevKey = if (currentPage == 1) null else -1,
-                    nextKey = currentPage.plus(1)
+                    nextKey = nextKey
             )
         } catch (e: Exception) {
             LoadResult.Error(e)

@@ -30,7 +30,6 @@ data class Mahasiswa(
     @SerializedName("prestasi")
     val prestasi: List<PrestasiModel>?,
 
-
     @SerializedName("pengalaman_luar_kampus")
     val pengalamanLuarKampus: List<PengalamanLuarKampusModel>?
 )

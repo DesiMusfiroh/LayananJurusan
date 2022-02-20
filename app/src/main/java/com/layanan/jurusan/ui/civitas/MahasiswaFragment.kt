@@ -63,6 +63,10 @@ class MahasiswaFragment : Fragment() {
                         rvMahasiswa.layoutManager = LinearLayoutManager(context)
                         rvMahasiswa.setHasFixedSize(true)
                         rvMahasiswa.adapter = adapter
+
+
+                        shimmerRvCivitas.visibility = View.GONE
+                        rvMahasiswa.visibility = View.VISIBLE
                     }
                 }
             })

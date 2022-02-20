@@ -1,6 +1,8 @@
 package com.layanan.jurusan.ui.civitas
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.layanan.jurusan.data.DataRepository
 
 class CivitasViewModel(private val repository: DataRepository) : ViewModel()  {
@@ -12,6 +14,8 @@ class CivitasViewModel(private val repository: DataRepository) : ViewModel()  {
     fun getMahasiswa(prodi: String, angkatan: String, status: String) = repository.getMahasiswa(prodi, angkatan, status)
     fun getDosen(prodi: String,status: String) = repository.getDosen(prodi,status)
     fun getStatusDosen() = repository.getStatusDosen()
+
+    fun getAlumni(prodi: String, angkatan: String) = repository.getAlumni(prodi, angkatan).cachedIn(viewModelScope)
 
 
     /*

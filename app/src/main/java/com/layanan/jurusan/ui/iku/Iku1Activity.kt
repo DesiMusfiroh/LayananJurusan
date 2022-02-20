@@ -56,6 +56,7 @@ class Iku1Activity : AppCompatActivity() {
 
     private fun populateIku1(year: String) {
         viewModel.getIku1(year).observe(this, { data ->
+            Log.d("DataActivityIku",data.toString())
             dataResponse = data
             if (data !== null) {
                 adapter = Iku1Adapter(data)
@@ -89,7 +90,7 @@ class Iku1Activity : AppCompatActivity() {
 
             val umk = if (data.mendapatPekerjaan?.umk == null) "-" else "Rp. ${DecimalFormat("#,####").format(data.mendapatPekerjaan.umk)}"
             val penghasilan = if (data.mendapatPekerjaan?.penghasilan == null) "-" else DecimalFormat("#,####").format(data.mendapatPekerjaan?.penghasilan).toString()
-            val presentaseDariUmk = if (data.mendapatPekerjaan?.presentaseDariUmk == null) "-" else DecimalFormat("#,####").format(data.mendapatPekerjaan?.presentaseDariUmk).toString()
+            val presentaseDariUmk = if (data.mendapatPekerjaan?.presentaseDariUmk == null) "-" else "${data.mendapatPekerjaan?.presentaseDariUmk.toString()} %"
             tvMasaTungguKerja.text = data.mendapatPekerjaan?.masaTunggu
             tvKotaTempatKerja.text = data.mendapatPekerjaan?.kabKotaTempatKerja
             tvUmkKotaKerja.text = umk

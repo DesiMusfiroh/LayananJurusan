@@ -3,9 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_input.xml" value="0.132" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_dosen.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_list_news.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/dialog_filter_alumni.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_alumni.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_dosen.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_mahasiswa.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_alumni.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_dosen.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_mahasiswa.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/load_footer.xml" value="0.18" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_civitas.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_news.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_news_home.xml" value="0.20416666666666666" />
       </map>
     </option>

@@ -723,6 +723,10 @@ class RemoteDataSource {
         return results
     }
 
+    fun getAlumni(prodi: String, angkatan: String) = Pager(PagingConfig(pageSize = 1)) {
+        ListAlumniDataSource(ApiConfig.getApiService(), prodi, angkatan)
+    }.flow
+
     fun getRiwayatSuratDosen(jwtToken: String) = Pager(PagingConfig(pageSize = 1)) {
         ListRiwayatSuratDosenDataSource(ApiConfig.getApiService(),jwtToken)
     }.flow

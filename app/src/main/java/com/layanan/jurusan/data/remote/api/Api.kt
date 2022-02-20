@@ -180,6 +180,25 @@ interface Api {
         @Query("search") search: String
     ): Call<DosenResponse>
 
+    @GET("civitas-akademik/alumni")
+    suspend fun getAlumni(
+        @Query("prodi") prodi: String,
+        @Query("angkatan") angkatan: String,
+        @Query("page") page: Int
+    ): Response<MahasiswaResponse>
+
+    @GET("civitas-akademik/alumni/{id}")
+    fun getDetailAlumni(
+        @Path("id") id: Int
+    ): Call<DetailMahasiswaResponse>
+
+    @GET("civitas-akademik/alumni")
+    fun getSearchAlumni(
+        @Query("prodi") prodi: String,
+        @Query("angkatan") angkatan: String,
+        @Query("search") search: String
+    ): Call<MahasiswaResponse>
+
     @GET("notifikasi")
     fun getNotifikasi(
         @Header("Authorization") token: String
