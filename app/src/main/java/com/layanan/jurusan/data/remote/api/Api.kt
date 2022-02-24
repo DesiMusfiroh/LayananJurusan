@@ -209,4 +209,7 @@ interface Api {
         @Header("Authorization") token: String
     ): Call<CountNotifikasiResponse>
 
+    @GET("iku/matriks/{tahun}")
+    fun getMatriksIku(@Path("tahun") tahun: Int): Call<MatriksIkuResponse>
+
 }

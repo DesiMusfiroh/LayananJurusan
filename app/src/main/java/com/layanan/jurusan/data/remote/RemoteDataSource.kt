@@ -765,4 +765,22 @@ class RemoteDataSource {
         return results
     }
 
+    fun getMatriksIku(year: Int): LiveData<List<MatriksIkuModel>> {
+        val results = MutableLiveData<List<MatriksIkuModel>>()
+        ApiConfig.getApiService().getMatriksIku(year).enqueue(object: Callback<MatriksIkuResponse> {
+            override fun onResponse(call: Call<MatriksIkuResponse>, response: Response<MatriksIkuResponse>) {
+                if (response.isSuccessful) {
+                    results.postValue(response.body()?.data)
+                    Log.d("HasilDataSource",response.body()?.data.toString())
+                } else {
+                    Log.e(TAG, "onFailure Response: ${response.message()}")
+                }
+            }
+            override fun onFailure(call: Call<MatriksIkuResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+        return results
+    }
+
 }

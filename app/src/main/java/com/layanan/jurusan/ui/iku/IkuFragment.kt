@@ -9,8 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.layanan.jurusan.data.model.MatriksIkuModel
 import com.layanan.jurusan.databinding.FragmentIkuBinding
+import com.layanan.jurusan.ui.mail.MailViewModel
 import com.layanan.jurusan.utils.YearPickerDialog
+import com.layanan.jurusan.viewmodel.ViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,7 +23,9 @@ import java.util.*
 class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: FragmentIkuBinding
     private lateinit var yearText: String
+    private lateinit var viewModel: IkuViewModel
     private val format = SimpleDateFormat("yyyy",Locale.getDefault())
+    private lateinit var adapter: MatriksIkuAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentIkuBinding.inflate(layoutInflater, container, false)
@@ -28,49 +35,10 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.cardIku1.setOnClickListener {
-            val iku1Intent = Intent(context, Iku1Activity::class.java)
-            iku1Intent.putExtra(Iku1Activity.EXTRA_YEAR,yearText)
-            startActivity(iku1Intent)
-        }
-        binding.cardIku2.setOnClickListener {
-            val iku2Intent = Intent(context, Iku2Activity::class.java)
-            iku2Intent.putExtra(Iku2Activity.EXTRA_YEAR,yearText)
-            startActivity(iku2Intent)
-        }
-        binding.cardIku3.setOnClickListener {
-            val iku3Intent = Intent(context, Iku3Activity::class.java)
-            iku3Intent.putExtra(Iku3Activity.EXTRA_YEAR, yearText)
-            startActivity(iku3Intent)
-        }
-        binding.cardIku4.setOnClickListener {
-            val iku4Intent = Intent(context, Iku4Activity::class.java)
-            iku4Intent.putExtra(Iku4Activity.EXTRA_YEAR, yearText)
-            startActivity(iku4Intent)
-        }
-        binding.cardIku5.setOnClickListener {
-            val iku5Intent = Intent(context,Iku5Activity::class.java)
-            iku5Intent.putExtra(Iku5Activity.EXTRA_YEAR,yearText)
-            startActivity(iku5Intent)
-        }
+        val factory = ViewModelFactory.getInstance(requireActivity())
+        viewModel = ViewModelProvider(this, factory)[IkuViewModel::class.java]
 
-        binding.cardIku6.setOnClickListener {
-            val iku6Intent = Intent(context, Iku6Activity::class.java)
-            iku6Intent.putExtra(Iku6Activity.EXTRA_YEAR,yearText)
-            startActivity(iku6Intent)
-        }
 
-        binding.cardIku7.setOnClickListener {
-            val iku7Intent = Intent(context, Iku7Activity::class.java)
-            iku7Intent.putExtra(Iku7Activity.EXTRA_YEAR,yearText)
-            startActivity(iku7Intent)
-        }
-
-        binding.cardIku8.setOnClickListener {
-            val iku8Intent = Intent(context, Iku8Activity::class.java)
-            iku8Intent.putExtra(Iku8Activity.EXTRA_YEAR,yearText)
-            startActivity(iku8Intent)
-        }
         binding.btnFilter.setOnClickListener {
             val pd = YearPickerDialog()
             pd.setListener(this)
@@ -85,6 +53,8 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         yearText = format.format(cal.time)
         Log.d("Tahun",yearText)
 
+        populateIku()
+
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
@@ -92,6 +62,66 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         calendar.set(Calendar.YEAR,p1)
         yearText = format.format(calendar.time)
         Log.d("Tahun",yearText)
+        populateIku()
+    }
+
+    fun populateIku(){
+        viewModel.getMatriksIku(yearText.toInt()).observe(viewLifecycleOwner) {
+            adapter = MatriksIkuAdapter(it)
+            adapter.notifyDataSetChanged()
+            binding.apply {
+                rvMatriks.layoutManager = LinearLayoutManager(requireActivity())
+                rvMatriks.setHasFixedSize(true)
+                rvMatriks.adapter = adapter
+            }
+            adapter.setOnItemClickCallback(object: MatriksIkuAdapter.OnItemClickCallback{
+                override fun onItemClicked(data: MatriksIkuModel) {
+                    when(data.iku){
+                        "IKU 1" -> {
+                            val intent = Intent(requireActivity(),Iku1Activity::class.java)
+                            intent.putExtra(Iku1Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 2" -> {
+                            val intent = Intent(requireActivity(),Iku2Activity::class.java)
+                            intent.putExtra(Iku2Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 3" -> {
+                            val intent = Intent(requireActivity(),Iku3Activity::class.java)
+                            intent.putExtra(Iku3Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 4" -> {
+                            val intent = Intent(requireActivity(), Iku4Activity::class.java)
+                            intent.putExtra(Iku4Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 5" -> {
+                            val intent = Intent(requireActivity(),Iku5Activity::class.java)
+                            intent.putExtra(Iku5Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 6" -> {
+                            val intent = Intent(requireActivity(),Iku6Activity::class.java)
+                            intent.putExtra(Iku6Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 7" -> {
+                            val intent = Intent(requireActivity(), Iku1Activity::class.java)
+                            intent.putExtra(Iku7Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                        "IKU 8" -> {
+                            val intent = Intent(requireActivity(),Iku8Activity::class.java)
+                            intent.putExtra(Iku8Activity.EXTRA_YEAR,yearText)
+                            startActivity(intent)
+                        }
+                    }
+                }
+
+            })
+        }
     }
 
 }

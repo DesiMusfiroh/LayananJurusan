@@ -95,4 +95,6 @@ class DataRepository private constructor(
     fun getCountNotifikasi(jwtToken: String) = remoteDataSource.getCountNotifikasi(jwtToken)
 
     fun getAlumni(prodi: String, angkatan: String) = remoteDataSource.getAlumni(prodi, angkatan)
+
+    fun getMatriksIku(year: Int) = remoteDataSource.getMatriksIku(year)
 }

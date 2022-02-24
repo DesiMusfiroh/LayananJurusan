@@ -15,4 +15,5 @@ class IkuViewModel(private val repository: DataRepository) : ViewModel() {
     fun getIku6(year: String) = repository.getIku6(year)
     fun getIku7(year: String) = repository.getIku7(year)
     fun getIku8(year: String) = repository.getIku8(year)
+    fun getMatriksIku(year: Int) = repository.getMatriksIku(year)
 }
