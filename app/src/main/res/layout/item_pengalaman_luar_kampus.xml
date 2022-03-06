@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_penyelenggara"
+        android:id="@+id/tv_nama_tempat_kegiatan"
         style="@style/Text.Small"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

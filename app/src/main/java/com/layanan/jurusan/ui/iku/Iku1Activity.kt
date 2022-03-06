@@ -45,9 +45,13 @@ class Iku1Activity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[IkuViewModel::class.java]
 
+
+
         val extras = intent.extras
         val year = extras?.getString(EXTRA_YEAR,"0")
         Log.d("ExtraTahun",year!!)
+        val tvIkuTitle: String = binding.tvIkuTitle.text.toString()
+        binding.tvIkuTitle.text = "$tvIkuTitle - $year"
         populateIku1(year)
         binding.btnBack.setOnClickListener {
             onBackPressed()

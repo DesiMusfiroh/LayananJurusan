@@ -51,6 +51,7 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         cal.set(Calendar.YEAR,year)
 
         yearText = format.format(cal.time)
+        binding.tvTahunValue.text = yearText
         Log.d("Tahun",yearText)
 
         populateIku()
@@ -61,6 +62,7 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.YEAR,p1)
         yearText = format.format(calendar.time)
+        binding.tvTahunValue.text = yearText
         Log.d("Tahun",yearText)
         populateIku()
     }

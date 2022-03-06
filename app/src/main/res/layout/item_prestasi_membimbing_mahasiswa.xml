@@ -18,26 +18,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_tridharma_nama_kegiatan"
+        android:id="@+id/tv_prestasi_membimbing_nama_lomba"
         style="@style/Text.Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="6dp"
-        android:text="@string/nama_kegiatan"
+        android:text="@string/prestasi_membimbing_mahasiswa"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_tridharma_nama_kampus"
+        android:id="@+id/tv_prestasi_membimbing_tipe_lomba"
         style="@style/Text.Small"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="4dp"
-        android:text="@string/nama_kampus"
+        android:text="@string/tipe_lomba"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tridharma_nama_kegiatan" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_prestasi_membimbing_nama_lomba" />
 </androidx.constraintlayout.widget.ConstraintLayout>

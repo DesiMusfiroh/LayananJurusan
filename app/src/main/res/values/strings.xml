@@ -165,7 +165,7 @@
     <string name="prodi_lulus">Prodi Lulus</string>
     <string name="pt_lulus">PT Lulus</string>
     <string name="nama_pt">Nama PT</string>
-    <string name="sertifikat_kompetensi">Sertifikat kompetensi</string>
+    <string name="sertifikat_kompetensi">Sertifikat Kompetensi</string>
     <string name="jenis_sertifikat">Jenis Sertifikat</string>
     <string name="nama_sertifikat">Nama Sertifikat</string>
     <string name="nama_lembaga">Nama Lembaga</string>
@@ -254,4 +254,6 @@
     <string name="himasi">HIMASI</string>
     <string name="himatro">HIMATRO</string>
     <string name="filter_data_alumni">Filter Data Alumni</string>
+    <string name="jenis_tanda_tangan">Jenis tanda tangan</string>
+    <string name="hasil_kerja_dosen">Hasil Kerja Dosen</string>
 </resources>

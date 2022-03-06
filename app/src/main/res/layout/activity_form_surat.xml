@@ -96,6 +96,22 @@
                     <!--                            android:layout_height="wrap_content"/>-->
                     <!--                    </com.google.android.material.textfield.TextInputLayout>-->
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jenis_tanda_tangan"/>
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_jenis_ttd"
+                        style="@style/Widget.AppCompat.Spinner"
+                        android:layout_marginEnd="10dp" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_save_permohonan"
@@ -103,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_button"
                     android:text="@string/buat_surat" />

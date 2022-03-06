@@ -41,6 +41,7 @@ class MahasiswaActivity : AppCompatActivity() {
         val extras = intent.extras
         Log.d("Extras",extras.toString())
 
+        visibilityView(false)
         if (extras != null){
             val id = extras.getInt(EXTRA_MAHASISWA,0)
             viewModel.setId(id)
@@ -53,11 +54,19 @@ class MahasiswaActivity : AppCompatActivity() {
     }
 
     private fun setUpView(data: Mahasiswa){
+        binding.shimmerTvName.stopShimmer()
+        binding.shimmerTvNim.stopShimmer()
         binding.tvName.text = data.nama
         binding.tvProdi.text = data.prodi?.nama
         binding.tvNim.text = data.nim
         binding.tvStatus.text = data.statusKuliah
         binding.tvAngkatan.text = data.angkatan
+        binding.tvDosenPa.text = data.dosen.namaGelar
+
+        binding.tvName.visibility = View.VISIBLE
+        binding.tvNim.visibility = View.VISIBLE
+        binding.shimmerTvNim.visibility = View.GONE
+        binding.shimmerTvName.visibility = View.GONE
 
         for (item in data.prestasi!!){
             listPrestasi.add(item)
@@ -103,8 +112,25 @@ class MahasiswaActivity : AppCompatActivity() {
             })
         }
 
+        visibilityView(true)
+
         binding.btnBack.setOnClickListener {
             onBackPressed()
+        }
+    }
+
+    fun visibilityView(isVisible: Boolean){
+        with(binding){
+            if(isVisible){
+                progressBar.visibility = View.GONE
+                cvAdditionalInfo.visibility = View.VISIBLE
+                tableLayoutMahasiswa.visibility = View.VISIBLE
+            }else{
+                progressBar.visibility = View.VISIBLE
+                cvAdditionalInfo.visibility = View.GONE
+                tableLayoutMahasiswa.visibility = View.GONE
+            }
+
         }
     }
 }

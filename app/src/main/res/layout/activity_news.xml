@@ -42,7 +42,29 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:visibility="gone"/>
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|end"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_example"
+                        app:layout_collapseMode="parallax"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|end"
+                            android:background="@color/shimmerDark"/>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -77,63 +99,80 @@
             android:minHeight="400dp"
             android:background="@drawable/bg_top_radius_light"
             android:orientation="vertical"
-            android:paddingTop="20dp">
+            android:paddingTop="20dp"
+            >
 
-            <FrameLayout
-                android:layout_width="50dp"
-                android:layout_height="3dp"
-                android:background="@color/grey"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:id="@+id/tv_title"
-                style="@style/Text.Medium"
-                android:text="@string/title_news"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/ll_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_user"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <FrameLayout
                     android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_icon"
-                    android:src="@drawable/ic_profile"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="3dp"
+                    android:background="@color/grey"
+                    android:layout_gravity="center"/>
 
                 <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/Text.Medium"
+                    android:text="@string/title_news"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_icon"
+                        android:src="@drawable/ic_profile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        style="@style/Text.Regular"
+                        android:id="@+id/tv_user"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/user"
+                        app:layout_constraintStart_toEndOf="@+id/img_user"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        style="@style/Text.Small"
+                        android:id="@+id/tv_date"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/date"
+                        app:layout_constraintStart_toEndOf="@+id/img_user"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_user" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/news_content"
                     style="@style/Text.Regular"
-                    android:id="@+id/tv_user"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/user"
-                    app:layout_constraintStart_toEndOf="@+id/img_user"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    style="@style/Text.Small"
-                    android:id="@+id/tv_date"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/date"
-                    app:layout_constraintStart_toEndOf="@+id/img_user"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_user" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/news_content"
-                style="@style/Text.Regular"
-                android:layout_width="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem"
+                    android:layout_margin="20dp"/>
+            </LinearLayout>
+            <com.github.ybq.android.spinkit.SpinKitView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lorem"
-                android:layout_margin="20dp"/>
+                android:layout_gravity="center"
+                style="@style/SpinKitView.WanderingCubes"
+                app:SpinKit_Color="@color/primary"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

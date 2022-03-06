@@ -6,7 +6,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.view.marginTop
 import androidx.lifecycle.ViewModelProvider
@@ -23,9 +25,12 @@ class FormSuratActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormSuratBinding
     private lateinit var viewModel: FormSuratViewModel
     private lateinit var keywordObjects: List<KeywordSuratModel>
+    private var listJenisTtd: ArrayList<JenisTtd> = ArrayList()
     private var editTextIdMap = HashMap<String,Int>()
     private var arrKeyword = ArrayList<String>()
     private lateinit var suratExtra: JenisSuratModel
+    private lateinit var spinnerAdapter: JenisTandaTanganSpinnerAdapter
+    private var spinnerSelectedValue = "pilih"
     companion object {
         const val EXTRA_MAIL = "mail"
     }
@@ -78,6 +83,14 @@ class FormSuratActivity : AppCompatActivity() {
                     binding.containerForm.addView(textInputLayout)
                 }
             }
+
+            listJenisTtd.add(JenisTtd("pilih","Pilih Tanda Tangan"))
+            listJenisTtd.add(JenisTtd("ttd_qr","QR Code"))
+            listJenisTtd.add(JenisTtd("ttd_digital","Tanda Tangan Digital"))
+            listJenisTtd.add(JenisTtd("ttd_langsung", "Tanda Tangan Langsung"))
+
+            spinnerAdapter = JenisTandaTanganSpinnerAdapter(this, R.layout.item_spinner, R.id.tv_item_spinner,listJenisTtd)
+            binding.spinnerJenisTtd.adapter = spinnerAdapter
             submitForm()
         })
 
@@ -122,6 +135,20 @@ class FormSuratActivity : AppCompatActivity() {
                     })
                 }
             }
+
+            binding.spinnerJenisTtd.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    if (position != 0){
+                        val jenisTtd = spinnerAdapter.getItem(position)
+                        spinnerSelectedValue = jenisTtd?.value.toString()
+                    }
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
+
+            }
+
             binding.btnSavePermohonan.setOnClickListener {
                 for (item in keywordObjects){
                     if (item.tipe == "manual"){
@@ -129,9 +156,15 @@ class FormSuratActivity : AppCompatActivity() {
                         val value = editText.text.toString().trim()
                         if (value.isEmpty()){
                             editText.error = "Tidak boleh kosong"
+                            return@setOnClickListener
                         }
                     }
                 }
+                if (spinnerSelectedValue == "pilih"){
+                    Toast.makeText(this@FormSuratActivity, "Pilih jenis tanda tangan", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 val userPref = this@FormSuratActivity.getSharedPreferences("user",
                     AppCompatActivity.MODE_PRIVATE
                 )
@@ -141,6 +174,8 @@ class FormSuratActivity : AppCompatActivity() {
                     Log.d("Jwt",jwtToken)
                 }
                 Log.d("JwtToken",jwtToken!!)
+
+
                 viewModel.storePermohonanSurat(requestParam, jwtToken).observe(this@FormSuratActivity,{
                     if (it == "success"){
                         Toast.makeText(this@FormSuratActivity, "Berhasil", Toast.LENGTH_SHORT).show()

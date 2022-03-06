@@ -21,7 +21,6 @@ class DocumentAdapter(private val list: List<DocumentModel>) : RecyclerView.Adap
         fun bind(data: DocumentModel){
             with(binding){
                 titleDocument.text = data.title
-                titleDate.text = data.published_at
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -38,6 +39,7 @@ class NewsActivity : AppCompatActivity() {
             val newsId = extras.getInt(EXTRA_NEWS,0)
             Log.d("NewsId",newsId.toString())
             viewModel.setSelectedNews(newsId)
+
             viewModel.getDetailNews().observe(this,{
                 setUpView(it!!)
             })
@@ -48,6 +50,10 @@ class NewsActivity : AppCompatActivity() {
 
     fun setUpView(news: NewsModel){
         binding.apply {
+            shimmerImg.stopShimmer()
+            shimmerImg.visibility = View.GONE
+            progressBar.visibility = View.GONE
+            llContent.visibility = View.VISIBLE
             tvTitle.text = news.title
             tvDate.text = news.published_at
             newsContent.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
@@ -65,6 +71,8 @@ class NewsActivity : AppCompatActivity() {
                     RequestOptions.placeholderOf(R.drawable.ic_loading)
                         .error(R.drawable.ic_error))
                 .into(imgBackdrop)
+            imgBackdrop.visibility = View.VISIBLE
+
         }
     }
 }

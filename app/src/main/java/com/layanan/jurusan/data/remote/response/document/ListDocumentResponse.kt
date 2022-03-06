@@ -8,7 +8,5 @@ data class ListDocumentResponse(
         @SerializedName("message")
         val message: String,
         @SerializedName("data")
-        val data: List<DocumentModel>,
-        @SerializedName("meta")
-        val meta: MetaModel,
+        val data: List<DocumentModel>
 )

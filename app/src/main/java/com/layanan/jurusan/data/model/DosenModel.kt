@@ -28,5 +28,17 @@ class DosenModel(
     val kegiatanTriDharma: List<KegiatanTriDharmaModel>?,
 
     @SerializedName("praktisi")
-    val praktisi: List<PraktisiModel>?
+    val praktisi: List<PraktisiModel>?,
+
+    @SerializedName("prestasi_membimbing_mahasiswa")
+    val prestasiMembimbingMahasiswa: List<PrestasiMembimbingMahasiswa>?,
+
+    @SerializedName("sertifikat_kompetensi")
+    val sertifikatKompetensi: List<SertifikatKompetensi>?,
+
+    @SerializedName("hasil_kerja_dosen")
+    val hasilKerjaDosen: List<HasilKerjaDosen>?,
+
+    @SerializedName("praktisi_profesional")
+    val praktisiProfesional: List<PraktisiProfesional>?,
 )
