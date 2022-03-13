@@ -45,16 +45,7 @@ class JurusanActivity : AppCompatActivity() {
                 intent.putExtra(ProdiActivity.EXTRA_PRODI_NAME,"teknik_elektro")
                 startActivity(intent)
             }
-            cardHimasi.setOnClickListener {
-                val intent = Intent(this@JurusanActivity,HimpunanActivity::class.java)
-                intent.putExtra(HimpunanActivity.EXTRA_HIMPUNAN_NAME,"himasi")
-                startActivity(intent)
-            }
-            cardHimatro.setOnClickListener {
-                val intent = Intent(this@JurusanActivity,HimpunanActivity::class.java)
-                intent.putExtra(HimpunanActivity.EXTRA_HIMPUNAN_NAME,"himatro")
-                startActivity(intent)
-            }
+
         }
     }
 

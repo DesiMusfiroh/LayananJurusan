@@ -46,6 +46,8 @@ class NewsActivity : AppCompatActivity() {
         }
 
 
+
+
     }
 
     fun setUpView(news: NewsModel){
@@ -74,5 +76,10 @@ class NewsActivity : AppCompatActivity() {
             imgBackdrop.visibility = View.VISIBLE
 
         }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
+
 }

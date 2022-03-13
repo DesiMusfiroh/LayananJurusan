@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_bottom_radius.xml" value="0.1295" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_button.xml" value="0.1295" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_icon.xml" value="0.1295" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_input.xml" value="0.132" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/drawable/bg_transparent.xml" value="0.1295" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_announcement.xml" value="0.22" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_dosen.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_form_surat.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_form_surat.xml" value="0.33" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku1.xml" value="0.12092391304347826" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku2.xml" value="0.12092391304347826" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku3.xml" value="0.12092391304347826" />
@@ -13,20 +18,28 @@
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku5.xml" value="0.12092391304347826" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku6.xml" value="0.12092391304347826" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_iku7.xml" value="0.22154471544715448" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_jurusan.xml" value="0.11956521739130435" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_list_document.xml" value="0.22" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_list_news.xml" value="0.1" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_mahasiswa.xml" value="0.25" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_news.xml" value="0.18" />
-        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_notification.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_prodi.xml" value="0.15" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_profile.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/activity_riwayat_surat.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/dialog_document.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/dialog_filter_alumni.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/dialog_filter_mahasiswa.xml" value="0.18" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/dialog_show_image.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_alumni.xml" value="0.1" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_dosen.xml" value="0.1" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_iku.xml" value="0.67" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_mahasiswa.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_mail.xml" value="0.16" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/fragment_mail_dosen.xml" value="0.18" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_alumni.xml" value="0.1" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_announcement.xml" value="0.33" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_document.xml" value="0.33" />
@@ -36,6 +49,7 @@
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_kegiatan_tri_dharma.xml" value="0.18" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_mahasiswa.xml" value="0.18" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_matriks_iku.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_notification.xml" value="0.33" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_pengalaman_luar_kampus.xml" value="0.1" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_praktisi.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/item_prestasi_membimbing_mahasiswa.xml" value="0.20416666666666666" />
@@ -45,6 +59,7 @@
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_civitas.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_news.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/shimmer_item_news_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProject/LayananJurusan/app/src/main/res/layout/year_picker_dialog.xml" value="0.1" />
       </map>
     </option>
   </component>

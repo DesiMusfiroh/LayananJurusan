@@ -55,7 +55,6 @@ class ListNewsActivity : AppCompatActivity() {
                     viewModel.searchNews().collectLatest {
                         newsAdapter.notifyDataSetChanged()
                         newsAdapter.submitData(it)
-                        closeKeyboard()
                     }
                 }
                 return true

@@ -78,6 +78,7 @@ class FormSuratActivity : AppCompatActivity() {
                     Log.d("MapId",editTextIdMap.get(item.keyword).toString())
 
                     textInputLayout.layoutParams = textInputLayoutParam
+//                    textInputLayout.defaultHintTextColor = resources.getColor(R.color.primary)
                     textInputLayout.addView(editText,editTextParam)
                     textInputLayout.hint = item.nama
                     binding.containerForm.addView(textInputLayout)

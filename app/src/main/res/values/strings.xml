@@ -212,7 +212,7 @@
     <string name="tahun_sk">Tahun SK</string>
     <string name="angkatan">Angkatan</string>
     <string name="title_surat">Title Surat</string>
-    <string name="form_pembuatan_surat">Form Pembuatan Surat</string>
+    <string name="form_pembuatan_surat">Form Permohonan Surat</string>
     <string name="status">Status</string>
     <string name="dowwnload_surat">Download Surat</string>
     <string name="buat_surat">Buat Surat</string>
@@ -256,4 +256,9 @@
     <string name="filter_data_alumni">Filter Data Alumni</string>
     <string name="jenis_tanda_tangan">Jenis tanda tangan</string>
     <string name="hasil_kerja_dosen">Hasil Kerja Dosen</string>
+    <string name="admin">Admin</string>
+    <string name="lihat_selengkapnya">Lihat Selengkapnya</string>
+    <string name="no_result">No Search Results Found</string>
+    <string name="persuratan">Persuratan</string>
+    <string name="ajukan">Ajukan</string>
 </resources>

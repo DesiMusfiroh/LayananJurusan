@@ -4,8 +4,10 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -48,6 +50,10 @@ class ListDocumentActivity : AppCompatActivity() {
                     showDialogData(data)
                 }
             })
+
+            binding.btnBack.setOnClickListener {
+                onBackPressed()
+            }
         })
     }
 
@@ -56,6 +62,11 @@ class ListDocumentActivity : AppCompatActivity() {
         val dialogDocument = DialogDocumentBinding.inflate(layoutInflater)
         dialogDocument.apply {
             tvTitle.text = data.title
+            tvDesc.text =  if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
+            }else{
+                Html.fromHtml(data.desc)
+            }
             btnDownload.setOnClickListener {
                 val url = data.file
                 val intent = Intent(Intent.ACTION_VIEW)

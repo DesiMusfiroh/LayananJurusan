@@ -27,9 +27,6 @@ class YearPickerDialog : DialogFragment() {
         val dialog: View = inflater.inflate(R.layout.year_picker_dialog, null)
 //        val monthPicker = dialog.findViewById<View>(R.id.picker_month) as NumberPicker
         val yearPicker = dialog.findViewById<View>(R.id.picker_year) as NumberPicker
-//        monthPicker.minValue = 0
-//        monthPicker.maxValue = 11
-//        monthPicker.value = cal[Calendar.MONTH]
         val year = cal[Calendar.YEAR]
         yearPicker.minValue = year
         yearPicker.maxValue = MAX_YEAR

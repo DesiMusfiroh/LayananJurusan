@@ -156,6 +156,7 @@ class RemoteDataSource {
         ListSearchNewsDataSource(ApiConfig.getApiService(),search)
     }.flow
 
+
     fun getListAnnouncement() = Pager(PagingConfig(pageSize = 1)) {
         Log.d("pengumuman",  ListAnnouncementDataSource(ApiConfig.getApiService()).toString())
         ListAnnouncementDataSource(ApiConfig.getApiService())
@@ -725,6 +726,10 @@ class RemoteDataSource {
 
     fun getAlumni(prodi: String, angkatan: String) = Pager(PagingConfig(pageSize = 1)) {
         ListAlumniDataSource(ApiConfig.getApiService(), prodi, angkatan)
+    }.flow
+
+    fun getSearchAlumni(prodi: String, angkatan: String, search: String) = Pager(PagingConfig(pageSize=5)){
+        ListAlumniDataSource(ApiConfig.getApiService(),prodi, angkatan, search)
     }.flow
 
     fun getRiwayatSuratDosen(jwtToken: String) = Pager(PagingConfig(pageSize = 1)) {

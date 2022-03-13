@@ -104,7 +104,8 @@
                     <TextView
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/jenis_tanda_tangan"/>
+                        android:text="@string/jenis_tanda_tangan"
+                        android:layout_marginTop="6dp"/>
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -122,7 +123,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_button"
-                    android:text="@string/buat_surat" />
+                    android:text="@string/ajukan" />
             </LinearLayout>
 
         </ScrollView>

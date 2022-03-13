@@ -50,7 +50,7 @@ class AnnouncementActivity : AppCompatActivity() {
             tvDate.text = data.expires
             Glide.with(this@AnnouncementActivity)
                 .load(data.image)
-                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.user_image))
                 .into(imgUser)
             tvAnnouncementContent.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                 Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)

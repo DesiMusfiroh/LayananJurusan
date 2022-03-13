@@ -55,14 +55,23 @@ class ListAnnouncementAdapter : PagingDataAdapter<AnnouncementModel, ListAnnounc
         fun bind(data: AnnouncementModel){
             with(binding){
                 titleAnnouncement.text = data.title
+//                Glide.with(itemView.context)
+//                        .load(data.image)
+//                        .centerCrop()
+//                        .transition(DrawableTransitionOptions.withCrossFade())
+//                        .apply(
+//                                RequestOptions.placeholderOf(R.drawable.ic_loading)
+//                                        .error(R.drawable.ic_error))
+//                        .into(imgAnnouncement)
+
                 Glide.with(itemView.context)
-                        .load(data.image)
-                        .centerCrop()
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .apply(
-                                RequestOptions.placeholderOf(R.drawable.ic_loading)
-                                        .error(R.drawable.ic_error))
-                        .into(imgAnnouncement)
+                    .load(data?.image)
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error))
+                    .into(imgAnnouncement)
                 snippetAnnouncement.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                     Html.fromHtml(data.desc, Html.FROM_HTML_MODE_COMPACT)
                 }else{

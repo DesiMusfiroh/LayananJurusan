@@ -1,5 +1,7 @@
 package com.layanan.jurusan.ui.civitas
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -52,14 +55,14 @@ class AlumniFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireActivity())
         viewModel = ViewModelProvider(this, factory)[CivitasViewModel::class.java]
         populateAlumni(prodiStr, angkatanStr,false)
-
+        setupSearchView()
         binding.btnFilter.setOnClickListener {
             showFilterDialog()
         }
     }
 
     private fun populateAlumni(prodi: String, angkatan: String, isSearch: Boolean){
-        if(isSearch == false){
+//        if(isSearch == false){
             alumniAdapter = AlumniAdapter()
             binding.rvAlumni.apply {
                 adapter = alumniAdapter.withLoadStateHeaderAndFooter(
@@ -68,8 +71,6 @@ class AlumniFragment : Fragment() {
                 )
 
                 alumniAdapter.addLoadStateListener { loadState ->
-
-//                    binding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
                     isVisible = loadState.source.refresh is LoadState.NotLoading
                     binding.btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                     if(loadState.source.refresh is LoadState.NotLoading){
@@ -100,16 +101,27 @@ class AlumniFragment : Fragment() {
             }
 
 
-            lifecycleScope.launch {
-                viewModel.getAlumni(prodi, angkatan).collectLatest {
-                    alumniAdapter.notifyDataSetChanged()
-                    alumniAdapter.submitData(it)
-                    binding.shimmerRvCivitas.stopShimmer()
-                    binding.shimmerRvCivitas.visibility = View.GONE
-                    binding.rvAlumni.visibility = View.VISIBLE
+            if(isSearch == false){
+                lifecycleScope.launch {
+                    viewModel.getAlumni(prodi, angkatan).collectLatest {
+                        alumniAdapter.notifyDataSetChanged()
+                        alumniAdapter.submitData(it)
+                        binding.shimmerRvCivitas.stopShimmer()
+                        binding.shimmerRvCivitas.visibility = View.GONE
+                        binding.rvAlumni.visibility = View.VISIBLE
+                    }
+                }
+            }else{
+                lifecycleScope.launch {
+                    viewModel.getSearchAlumni(prodi, angkatan).collectLatest {
+                        alumniAdapter.notifyDataSetChanged()
+                        alumniAdapter.submitData(it)
+                        binding.shimmerRvCivitas.stopShimmer()
+                        binding.shimmerRvCivitas.visibility = View.GONE
+                        binding.rvAlumni.visibility = View.VISIBLE
+                    }
                 }
             }
-        }
     }
 
     private fun showFilterDialog() {
@@ -160,5 +172,28 @@ class AlumniFragment : Fragment() {
 
         dialog.setContentView(dialogBinding.root)
         dialog.show()
+    }
+
+    private fun setupSearchView(){
+        val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        binding.searhAlumni.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
+        binding.searhAlumni.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    viewModel.setSearchQuery(query,"alumni")
+                    populateAlumni(prodiStr,angkatanStr,true)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText != null) {
+                    viewModel.setSearchQuery(newText,"alumni")
+                    populateAlumni(prodiStr,angkatanStr,true)
+                }
+                return true
+            }
+
+        })
     }
 }

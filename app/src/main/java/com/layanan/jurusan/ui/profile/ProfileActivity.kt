@@ -51,6 +51,7 @@ class ProfileActivity : AppCompatActivity() {
                 tvNama.text = user.dosen?.nama
                 tvNim.text = user.dosen?.noInduk
                 tvProdi.text = user.dosen?.prodi?.nama
+                rowAngkatan.visibility  = View.GONE
             }else{
                 tvNama.text = user.mahasiswa?.nama
                 tvNim.text = user.mahasiswa?.nim

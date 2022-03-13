@@ -193,11 +193,12 @@ interface Api {
     ): Call<DetailMahasiswaResponse>
 
     @GET("civitas-akademik/alumni")
-    fun getSearchAlumni(
+    suspend fun getSearchAlumni(
         @Query("prodi") prodi: String,
         @Query("angkatan") angkatan: String,
-        @Query("search") search: String
-    ): Call<MahasiswaResponse>
+        @Query("search") search: String,
+        @Query("page") page: Int
+    ): Response<MahasiswaResponse>
 
     @GET("notifikasi")
     fun getNotifikasi(

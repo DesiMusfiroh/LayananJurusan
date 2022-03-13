@@ -170,30 +170,9 @@
                     <TextView
                         style="@style/Text.Regular"
                         android:id="@+id/tv_prodi"
-                        android:text="@string/prodi" />
+                        />
                 </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="wrap_content"
-                        android:text="@string/jabatan"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:layout_width="20dp"
-                        android:gravity="center"
-                        android:text="@string/dots" />
-
-                    <TextView
-                        style="@style/Text.Regular"
-                        android:id="@+id/tv_jabatan"/>
-                </TableRow>
             </TableLayout>
 
             <androidx.cardview.widget.CardView

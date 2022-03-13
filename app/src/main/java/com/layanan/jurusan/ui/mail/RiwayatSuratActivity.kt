@@ -13,6 +13,7 @@ import com.layanan.jurusan.data.model.RiwayatSuratModel
 import com.layanan.jurusan.databinding.ActivityRiwayatSuratBinding
 import com.layanan.jurusan.ui.news.NewsActivity
 import com.layanan.jurusan.viewmodel.ViewModelFactory
+import java.text.SimpleDateFormat
 
 class RiwayatSuratActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRiwayatSuratBinding
@@ -36,6 +37,9 @@ class RiwayatSuratActivity : AppCompatActivity() {
             AppCompatActivity.MODE_PRIVATE
         )
         populateView()
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 
@@ -47,10 +51,18 @@ class RiwayatSuratActivity : AppCompatActivity() {
         viewModel.setSelectedData(riwayatSuratId!!)
         viewModel.showRiwayatSurat(jwtToken!!).observe(this,{
             dataRiwayatSurat = it
+            Log.d("RiwayatSurat",it.toString())
             binding.tvTitle.text = dataRiwayatSurat.jenisSurat?.judul
             binding.tvStatus.text = dataRiwayatSurat.status
             binding.tvNama.text = dataRiwayatSurat.user?.mahasiswa?.nama
-            binding.tvTanggalPengajuan.text = dataRiwayatSurat.tanggalPengajuan
+//            binding.tvTanggalPengajuan.text = dataRiwayatSurat.tanggalPengajuan
+
+            val arrDateTime = it.tanggalPengajuan?.split("\\.")
+            var dateTime = arrDateTime?.get(0)
+
+            dateTime = dateTime?.replace("T"," ")
+
+            binding.tvTanggalPengajuan.text = dateTime?.let { it1 -> modifyDateFormat(it1) }
 
             if(dataRiwayatSurat.status == "telah diverifikasi"){
                 binding.btnDownload.visibility = View.VISIBLE
@@ -63,6 +75,9 @@ class RiwayatSuratActivity : AppCompatActivity() {
                 binding.btnDownload.visibility = View.GONE
             }
 
+
+
+            binding.tvStatus.visibility = View.VISIBLE
             when(dataRiwayatSurat.status){
                 "telah diverifikasi" -> binding.tvStatus.background = applicationContext.resources.getDrawable(R.color.secondary)
                 "sedang diproses"-> binding.tvStatus.background = applicationContext.resources.getDrawable(R.color.process)
@@ -71,5 +86,10 @@ class RiwayatSuratActivity : AppCompatActivity() {
 
         })
 
+    }
+
+    fun modifyDateFormat(inputDate: String): String? {
+        val date = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(inputDate)
+        return SimpleDateFormat("dd MMMM yyyy, HH:mm").format(date)
     }
 }

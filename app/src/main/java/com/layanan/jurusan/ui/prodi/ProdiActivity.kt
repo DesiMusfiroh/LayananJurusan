@@ -52,6 +52,10 @@ class ProdiActivity : AppCompatActivity() {
     fun setUpView(data: ProfileProdiModel){
         binding.apply {
             tvProdi.text = data.name
+            tvVisi.text = data.vision
+            tvMisi.text = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                Html.fromHtml(data.mission, Html.FROM_HTML_MODE_COMPACT)
+            } else Html.fromHtml(data.mission)
             Glide.with(this@ProdiActivity)
                 .load(data.logo)
                 .centerCrop()

@@ -25,6 +25,9 @@ class ListAnnouncementActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[AnnouncementViewModel::class.java]
         populateAnnouncement()
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun populateAnnouncement(){

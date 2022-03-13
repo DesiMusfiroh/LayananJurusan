@@ -110,7 +110,7 @@ class IkuFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                             startActivity(intent)
                         }
                         "IKU 7" -> {
-                            val intent = Intent(requireActivity(), Iku1Activity::class.java)
+                            val intent = Intent(requireActivity(), Iku7Activity::class.java)
                             intent.putExtra(Iku7Activity.EXTRA_YEAR,yearText)
                             startActivity(intent)
                         }

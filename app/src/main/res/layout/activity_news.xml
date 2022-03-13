@@ -43,7 +43,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:visibility="gone"/>
+                        android:visibility="visible"/>
+
 
                     <com.facebook.shimmer.ShimmerFrameLayout
                         android:id="@+id/shimmer_img"
@@ -63,6 +64,8 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center|end"
                             android:background="@color/shimmerDark"/>
+
+
                     </com.facebook.shimmer.ShimmerFrameLayout>
 
 
@@ -81,7 +84,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:titleTextColor="@color/greyDark"/>
+                app:titleTextColor="@color/greyDark">
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_back" />
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

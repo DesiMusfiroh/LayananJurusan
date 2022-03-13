@@ -32,4 +32,5 @@ class CivitasViewModel(private val repository: DataRepository) : ViewModel()  {
 
     fun getSearchMahasiswa(prodi: String, angkatan: String, status: String) = repository.getSearchMahasiswa(prodi,angkatan,status,searchMahasiswaQuery)
     fun getSearchDosen(prodi: String, status: String) = repository.getSearchDosen(prodi,status,searchDosenQuery)
+    fun getSearchAlumni(prodi: String, angkatan: String) = repository.getSearchAlumni(prodi, angkatan, searchAlumniQuery)
 }

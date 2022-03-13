@@ -6,12 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +22,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.layanan.jurusan.R
 import com.layanan.jurusan.data.model.JenisSuratModel
 import com.layanan.jurusan.ui.news.NewsLoadStateAdapter
+import com.layanan.jurusan.utils.ShowImageDialog
 import com.layanan.jurusan.viewmodel.ViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -37,6 +37,7 @@ class MailFragment : Fragment() {
     private lateinit var riwayatSuratDosenAdapter: ListRiwayatSuratDosenAdapter
     private lateinit var jenisSuratResponse: List<JenisSuratModel>
     private lateinit var userPref: SharedPreferences
+    private lateinit var imgPanduan: ImageView
     private var role: Int? = 2 //default role mahasiswa
     private var tipeSurat: String = "internal"
     private var jwtToken = ""
@@ -48,12 +49,15 @@ class MailFragment : Fragment() {
         role = userPref.getInt("role",2)
         jwtToken = userPref.getString("token","devicetoken")!!
         Log.d("TestCoba",jwtToken)
+        var view: View
         if (role == 2){
-            return inflater.inflate(R.layout.fragment_mail,container,false)
+            view = inflater.inflate(R.layout.fragment_mail,container,false)
         }else{
-            return inflater.inflate(R.layout.fragment_mail_dosen,container,false)
+            view = return inflater.inflate(R.layout.fragment_mail_dosen,container,false)
         }
 
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -88,10 +92,12 @@ class MailFragment : Fragment() {
         })
     }
 
+
     private fun setupViewMahasiswa(){
         rvJenisSurat = view?.findViewById<RecyclerView>(R.id.rv_jenis_surat)!!
         radioGroupTipeSurat = view?.findViewById(R.id.radio_group_tipe_surat)!!
         btnRiwayatSurat = view?.findViewById(R.id.btn_riwayat_surat)!!
+        imgPanduan = view?.findViewById(R.id.img_panduan)!!
         radioGroupTipeSurat.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener{
             override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
                 val tipeSuratId = radioGroupTipeSurat.checkedRadioButtonId
@@ -100,6 +106,11 @@ class MailFragment : Fragment() {
             }
         })
 
+
+        imgPanduan.setOnClickListener {
+            val dialog = ShowImageDialog(R.layout.dialog_show_image)
+            dialog.show(requireFragmentManager(),"ShowImageDialog")
+        }
 
         btnRiwayatSurat.setOnClickListener {
             val intent = Intent(activity,ListRiwayatSuratActivity::class.java)
@@ -110,10 +121,16 @@ class MailFragment : Fragment() {
 
     private fun setupViewDosen(){
         rvRiwayatSuratDosen = view?.findViewById(R.id.rv_riwayat_surat_dosen)!!
+        imgPanduan = view?.findViewById(R.id.img_panduan)!!
         riwayatSuratDosenAdapter = ListRiwayatSuratDosenAdapter()
         val progressBar = view?.findViewById<ProgressBar>(R.id.progressBarRiwayatSuratDosen)!!
         val btnRetry = view?.findViewById<Button>(R.id.btnRetryRiwayatSuratDosen)!!
         val tvNoSearchResult = view?.findViewById<TextView>(R.id.tvNoSearchResultRiwayatSuratDosen)!!
+
+        imgPanduan.setOnClickListener {
+            val dialog = ShowImageDialog(R.layout.dialog_show_image)
+            dialog.show(requireFragmentManager(),"ShowImageDialog")
+        }
 
         rvRiwayatSuratDosen.adapter = riwayatSuratDosenAdapter.withLoadStateHeaderAndFooter(
             header = NewsLoadStateAdapter{riwayatSuratDosenAdapter.retry()},

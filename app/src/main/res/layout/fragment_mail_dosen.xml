@@ -8,8 +8,8 @@
     <FrameLayout
         android:id="@+id/frame_header"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/bg_bottom_radius"
+        android:layout_height="80dp"
+        android:background="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,95 +19,124 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp">
 
-            <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_button"
-                android:src="@drawable/ic_arrow_back"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 style="@style/Text.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="4dp"
-                android:text="@string/riwayat_pengajuan_surat"
+                android:text="@string/persuratan"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:background="@drawable/bg_input"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/frame_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_header" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_riwayat_surat_dosen"
-        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        tools:listitem="@layout/item_riwayat_surat_dosen"/>
+        app:layout_constraintTop_toBottomOf="@+id/frame_header">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/bg_input"
+                android:elevation="10dp"
+                />
 
-    <TextView
-        android:id="@+id/tvNoSearchResultRiwayatSuratDosen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No Search Results Found"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_semibold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
 
-    <ProgressBar
-        android:id="@+id/progressBarRiwayatSuratDosen"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_panduan"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                tools:layout_editor_absoluteX="16dp">
 
-    <Button
-        android:id="@+id/btnRetryRiwayatSuratDosen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retry"
-        android:fontFamily="@font/poppins_semibold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+                <ImageView
+                    android:id="@+id/img_panduan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/example_permohonan_surat" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/title_riwayat"
+                style="@style/Text.Medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/riwayat_pengajuan_surat" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_riwayat_surat_dosen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                tools:listitem="@layout/item_riwayat_surat_dosen"/>
+
+            <!--    <Button-->
+            <!--        android:id="@+id/btn_riwayat_surat"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_marginHorizontal="20dp"-->
+            <!--        android:layout_marginVertical="10dp"-->
+            <!--        android:background="@drawable/bg_button"-->
+            <!--        app:layout_constraintTop_toBottomOf="@id/rv_riwayat_surat_dosen"-->
+            <!--        android:text="@string/lihat_selengkapnya" />-->
+
+            <Button
+                android:id="@+id/btnRetryRiwayatSuratDosen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retry"
+                android:fontFamily="@font/poppins_semibold"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                tools:visibility="visible" />
+            <TextView
+                android:id="@+id/tvNoSearchResultRiwayatSuratDosen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_result"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:visibility="gone"
+                android:layout_gravity="center"
+
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progressBarRiwayatSuratDosen"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                tools:visibility="visible" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

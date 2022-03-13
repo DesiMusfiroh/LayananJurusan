@@ -26,6 +26,9 @@ class ListRiwayatSuratActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[ListRiwayatSuratViewModel::class.java]
         populateRiwayatSurat()
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     fun populateRiwayatSurat(){
